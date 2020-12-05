@@ -1,0 +1,45 @@
+<!-- <div class="container-fluid">
+  <div class="row">
+    <div class="col-3 align-self-start">
+      <h2>MCT Mock Test</h2>
+      <p>Session 1</p>
+    </div>
+    <div class="col-4 align-self-center">
+      <p></p>
+    </div>
+    <div class="col-2 align-self-center">One of three columns</div>
+    <div class="col-3 align-self-end">One of three columns</div>
+  </div>
+</div> -->
+
+<div class="d-flex justify-content-around content">
+  <div class="p-2">
+    <div class="d-flex flex-column">
+      <h5>{{ test.title }}</h5>
+      <div class="d-flex justify-content-left">
+        <h5 class="session-txt">{{ test.subtitle }}</h5>
+      </div>
+    </div>
+  </div>
+  <div class="p-2 pt-3 progress-bar-container">
+    <!-- <p-progressBar [value]="50"></p-progressBar> -->
+  </div>
+  <div class="p-2">
+    <button type="button" (click)="onSubmit()" class="btn btn-danger btn-round">
+      <span class="p-2">review & submit</span>
+    </button>
+  </div>
+  <div>
+    <div class="d-flex flex-row">
+      <div class="p-2 pr-4">
+        <em class="pi pi-clock clock"> </em>
+      </div>
+      <div class="d-flex flex-column">
+        <h5 class="clock-txt">{{ test.timer }}</h5>
+        <div class="d-flex justify-content-center">
+          <span class="time-left-txt">time left</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

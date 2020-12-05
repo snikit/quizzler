@@ -1,0 +1,48 @@
+<div class="d-flex flex-column content">
+  <div>
+    <app-question-nav (submitClick)="onSubmit()" [test]="test">
+    </app-question-nav>
+  </div>
+  <div class="row h-100 d-flex align-items-center">
+    <div class="col-2">
+      <div class="d-none d-lg-block">
+        <app-next-prev></app-next-prev>
+      </div>
+    </div>
+    <div class="col-8">
+      <div>
+        <app-question [question]="question"></app-question>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="d-none d-lg-block">
+        <app-next-prev right="true"></app-next-prev>
+      </div>
+    </div>
+  </div>
+  <!-- <div>
+    <app-question-nav [test]="test"> </app-question-nav>
+  </div> -->
+</div>
+
+<p-sidebar
+  [(visible)]="visibleSidebar"
+  [fullScreen]="true"
+  [baseZIndex]="10000"
+>
+  <h2>Review & Submit</h2>
+  <button
+    type="button"
+    (click)="visibleSidebar = false"
+    class="btn btn-danger btn-round"
+  >
+    submit
+  </button>
+  <button
+    type="button"
+    (click)="visibleSidebar = false"
+    class="btn btn-danger btn-round"
+  >
+    cancel
+  </button>
+</p-sidebar>

@@ -1,0 +1,18 @@
+<div class="swappy-radios" role="radiogroup" aria-labelledby="qstn-statement">
+  <h4 id="qstn-header">Question 1</h4>
+
+  <h5 id="qstn-statement">
+    {{ question.text }}
+  </h5>
+  <div id="option-container">
+    <label
+      *ngFor="let option of question.options; let i = index"
+      [ngClass]="{ 'left-border': activeIndex == i }"
+      (click)="onClick(i)"
+    >
+      <input type="radio" name="options" />
+      <span class="radio"></span>
+      <h5>{{ option.text }}</h5>
+    </label>
+  </div>
+</div>
