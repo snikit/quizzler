@@ -30,19 +30,7 @@
   [fullScreen]="true"
   [baseZIndex]="10000"
 >
-  <h2>Review & Submit</h2>
-  <button
-    type="button"
-    (click)="visibleSidebar = false"
-    class="btn btn-danger btn-round"
-  >
-    submit
-  </button>
-  <button
-    type="button"
-    (click)="visibleSidebar = false"
-    class="btn btn-danger btn-round"
-  >
-    cancel
-  </button>
+  <div class="content">
+    <app-submission-review></app-submission-review>
+  </div>
 </p-sidebar>

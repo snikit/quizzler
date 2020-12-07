@@ -1,0 +1,66 @@
+<div class="d-flex flex-column align-items-center justify-content-center">
+  <div class="p-2 content">
+    <p-card
+      header="MCT Test"
+      subheader="Session 1"
+      [style]="{ 'box-shadow': 'none' }"
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed
+        consequuntur error repudiandae numquam deserunt quisquam repellat libero
+        asperiores earum nam nobis, culpa ratione quam perferendis esse,
+        cupiditate neque quas!
+      </p>
+      <p-accordion>
+        <p-accordionTab header="Details per section">
+          <p-table [value]="sessions">
+            <ng-template pTemplate="header">
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">No of questions</th>
+                <th scope="col">Timing</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-session>
+              <tr>
+                <td>
+                  <div>
+                    {{ session.title }}
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    {{ session.noOfQuestions }}
+                  </div>
+                </td>
+                <td>
+                  <div>{{ session.time }}</div>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </p-accordionTab>
+      </p-accordion>
+      <ng-template pTemplate="footer">
+        <div class="d-flex">
+          <div class="d-flex align-items-center">
+            <div class="p-2">
+              <em class="pi pi-question-circle icon-sm"></em>
+            </div>
+            <div class="p-2">
+              <strong>Total Questions : 50</strong>
+            </div>
+          </div>
+          <div class="d-flex align-items-center">
+            <div class="p-2">
+              <em class="pi pi-clock icon-sm"></em>
+            </div>
+            <div class="p-2">
+              <strong>30:00 min</strong>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
+</div>

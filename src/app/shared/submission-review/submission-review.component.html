@@ -1,0 +1,51 @@
+<div class="d-flex flex-column justify-content-around align-items-center h-100">
+  <div class="d-flex pt-4 justify-content-center">
+    <h4>Review & Submit</h4>
+  </div>
+  <div class="d-flex justify-content-around w-50">
+    <div style="color: #689f38">
+      <h5><em class="pi pi-check"></em> : submitted</h5>
+    </div>
+    <div style="color: #fbc02d">
+      <h5><em class="pi pi-bookmark"></em> : pending for review</h5>
+    </div>
+    <div style="color: #d32f2f">
+      <h5><em class="pi pi-exclamation-circle"> </em> : not answered</h5>
+    </div>
+  </div>
+
+  <div class="d-flex flex-wrap w-50">
+    <div *ngFor="let x of rows; let i = index" class="p-2 d-flex">
+      <button
+        pButton
+        pRipple
+        type="button"
+        [icon]="getIcon(i)"
+        [label]="i + 1 < 10 ? '&nbsp;&nbsp;' + (i + 1) : i + 1"
+        class="p-button-outlined"
+        [class]="getColorClass(i)"
+        iconPos="right"
+      ></button>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="p-5">
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="Submit"
+        class="p-button-danger"
+      ></button>
+    </div>
+    <div class="p-5">
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="Cancel"
+        class="p-button-danger"
+      ></button>
+    </div>
+  </div>
+</div>

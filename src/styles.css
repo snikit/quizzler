@@ -11,3 +11,17 @@ body {
 .btn-round {
   border-radius: 17px;
 }
+
+.icon {
+  font-size: 2.5rem !important;
+  color: #f44336;
+}
+
+.icon-sm {
+  font-size: 2rem !important;
+  color: #f44336;
+}
+
+.theme-color {
+  color: #f44336;
+}

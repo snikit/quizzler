@@ -18,7 +18,7 @@ export class QuestionerComponent implements OnInit {
   @Input()
   public test: Test;
 
-  visibleSidebar = false;
+  visibleSidebar = true;
 
   constructor() {}
 
