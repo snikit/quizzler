@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CandidateTestComponent implements OnInit {
   public question: Question = {
+    id: 0,
     text:
       'Ever wondered how to style checkboxes and radio buttons, but withoutJavaScript? Thanks to CSS3 you can! Here’s what we’re going to build (note: to learn how to make these accessible, check out this tutorial too)?',
     options: [
@@ -22,7 +23,9 @@ export class CandidateTestComponent implements OnInit {
   public test: Test = {
     title: 'MCT Mock Test',
     subtitle: 'Session 1',
-    timer: '00:00 min',
+    timer: 0,
+    sections: null,
+    instruction: null,
   };
 
   constructor() {}

@@ -19,7 +19,9 @@ export class QuestionNavComponent implements OnInit {
   public test: Test = {
     title: 'Title',
     subtitle: 'Subtitle',
-    timer: '00:00 min',
+    timer: 0,
+    instruction: null,
+    sections: null,
   };
 
   @Output()

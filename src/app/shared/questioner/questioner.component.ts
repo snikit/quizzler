@@ -18,14 +18,13 @@ export class QuestionerComponent implements OnInit {
   @Input()
   public test: Test;
 
-  visibleSidebar = true;
+  visibleSidebar = false;
 
   constructor() {}
 
   ngOnInit(): void {}
 
   onSubmit(): void {
-    console.log('dssd');
     this.visibleSidebar = !this.visibleSidebar;
   }
 }
