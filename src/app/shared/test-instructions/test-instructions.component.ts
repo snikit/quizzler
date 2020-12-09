@@ -1,4 +1,12 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Instruction } from './../../data/model/question.model';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-test-instructions',
@@ -7,7 +15,17 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TestInstructionsComponent implements OnInit {
+  @Input()
+  instruction: Instruction;
+
+  @Output()
+  startClick = new EventEmitter();
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  onStartClick(): void {
+    this.startClick.emit();
+  }
 }

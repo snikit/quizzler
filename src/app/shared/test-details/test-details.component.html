@@ -1,16 +1,11 @@
 <div class="d-flex flex-column align-items-center justify-content-center">
   <div class="p-2 content">
     <p-card
-      header="MCT Test"
-      subheader="Session 1"
+      [header]="details.title"
+      [subheader]="details.subtitle"
       [style]="{ 'box-shadow': 'none' }"
     >
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed
-        consequuntur error repudiandae numquam deserunt quisquam repellat libero
-        asperiores earum nam nobis, culpa ratione quam perferendis esse,
-        cupiditate neque quas!
-      </p>
+      <p [innerHTML]="details.details"></p>
       <p-accordion>
         <p-accordionTab header="Details per section">
           <p-table [value]="sessions">
@@ -42,7 +37,7 @@
         </p-accordionTab>
       </p-accordion>
       <ng-template pTemplate="footer">
-        <div class="d-flex">
+        <div class="d-flex w-100">
           <div class="d-flex align-items-center">
             <div class="p-2">
               <em class="pi pi-question-circle icon-sm"></em>
@@ -56,8 +51,17 @@
               <em class="pi pi-clock icon-sm"></em>
             </div>
             <div class="p-2">
-              <strong>30:00 min</strong>
+              <strong>{{ details.timer }} min</strong>
             </div>
+          </div>
+          <div class="d-flex flex-fill justify-content-end align-items-center">
+            <button
+              (click)="onStartClick()"
+              type="button"
+              class="btn btn-danger"
+            >
+              <span>Start Quiz</span>
+            </button>
           </div>
         </div>
       </ng-template>

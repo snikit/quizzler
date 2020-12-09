@@ -21,21 +21,9 @@ export class CandidateDashboardComponent implements OnInit {
   ) {}
   ngOnInit() {
     this.quizStoreService.getQuiz();
-
-    // this.quizEffects.answerFailed$
-    //   .pipe(
-    //     takeUntil(this.destroy$),
-    //     map(() => this.isAnswered.next('failed'))
-    //   )
-    //   .subscribe();
   }
 
-  next() {
-    this.quizStoreService.currentQuestion
-      .pipe(
-        tap(() => this.isAnswered.next(null)),
-        takeUntil(this.destroy$)
-      )
-      .subscribe((q) => (this.question = q));
+  loadTest() {
+    this.quizStoreService.getQuiz();
   }
 }

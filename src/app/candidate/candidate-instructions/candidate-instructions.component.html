@@ -1,1 +1,4 @@
-<app-test-instructions></app-test-instructions>
+<app-test-instructions
+  [instruction]="instructions$ | async"
+  (startClick)="onStart()"
+></app-test-instructions>

@@ -134,6 +134,23 @@ export const selectScoreDetails = createSelector(
   (state: State) => state.answers
 );
 
+export const selectQuizInstructions = createSelector(
+  selectQuizState,
+  (state: State) => state.quiz.instruction
+);
+
+export const selectQuizDetails = createSelector(
+  selectQuizState,
+  (state: State) => {
+    return {
+      title: state.quiz.title,
+      subtitle: state.quiz.subtitle,
+      timer: state.quiz.timer,
+      details: state.quiz.details,
+    } as Quiz;
+  }
+);
+
 export const selectScore = createSelector(
   selectQuizState,
   (state: State) =>

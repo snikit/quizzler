@@ -1,1 +1,2 @@
-<app-test-details></app-test-details>
+<app-test-details [details]="details$ | async" (startClick)="onStart()">
+</app-test-details>

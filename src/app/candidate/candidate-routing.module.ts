@@ -28,14 +28,6 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'testdetails',
-    component: CandidateTestDetailsComponent,
-  },
-  {
-    path: 'instructions',
-    component: CandidateInstructionsComponent,
-  },
-  {
     path: 'registration',
     component: CandidateRegistrationComponent,
     children: [

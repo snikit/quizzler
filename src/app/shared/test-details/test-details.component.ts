@@ -1,4 +1,12 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  Input,
+  EventEmitter,
+  Output,
+} from '@angular/core';
+import { Quiz } from 'src/app/data/model/quiz.model';
 
 @Component({
   selector: 'app-test-details',
@@ -7,6 +15,12 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TestDetailsComponent implements OnInit {
+  @Input()
+  details: Quiz;
+
+  @Output()
+  startClick = new EventEmitter();
+
   sessions = [
     {
       title: 'session 1',
@@ -27,4 +41,8 @@ export class TestDetailsComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  onStartClick(): void {
+    this.startClick.emit();
+  }
 }

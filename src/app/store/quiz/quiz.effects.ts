@@ -32,8 +32,6 @@ export class QuizEffects {
       switchMap(() => {
         return this.quizService.getQuiz().pipe(
           map((results) => {
-            console.log(results);
-
             return new QuizActions.GetQuizSuccess(results);
           }),
           catchError(() => of(new QuizActions.GetQuizFail()))
@@ -46,7 +44,7 @@ export class QuizEffects {
   getQuizSuccess$: Observable<Action> = this.actions$.pipe(
     ofType(QuizActions.GET_QUIZ_SUCCESS),
     map(() => {
-      // this.router.navigateByUrl('quiz');
+      this.router.navigateByUrl('candidate/test/instructions');
       return new QuizActions.GetQuestion();
     })
   );
@@ -56,6 +54,8 @@ export class QuizEffects {
     ofType(QuizActions.GET_QUESTION),
     withLatestFrom(this.store),
     map(([action, store]) => {
+      console.log(store);
+
       const questionQueue = store.quiz.questionQueue;
       // Check if there is question in the queue
       if (questionQueue.length > 0 && typeof questionQueue[0].id === 'number') {

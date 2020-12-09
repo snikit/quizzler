@@ -1,24 +1,11 @@
 <div class="d-flex flex-column align-items-center justify-content-center">
   <div class="p-2 content">
     <p-panel>
-      <p-header> <h5>THINGS TO REMEMBER</h5></p-header>
+      <p-header>
+        <h5>{{ instruction.title }}</h5></p-header
+      >
 
-      <ul>
-        <li>
-          Before starting test close all chat windows, screen shot etc and make
-          sure you have a stable internet connection
-        </li>
-        <li>
-          Pressing F5 during the test will close your test and you will not be
-          able to enter again
-        </li>
-        <li>
-          If you computer shuts down you will able to continue again from the
-          place you left
-        </li>
-        <li>Your test will open in a new window</li>
-        <li>When resuming, please start your test as you did earlier</li>
-      </ul>
+      <div [innerHTML]="instruction.content"></div>
 
       <p-footer>
         <div class="d-flex justify-content-between">
@@ -33,8 +20,12 @@
             </div>
           </div>
           <div class="d-flex align-items-center">
-            <button type="button" class="btn btn-danger">
-              <span>Start Test</span>
+            <button
+              (click)="onStartClick()"
+              type="button"
+              class="btn btn-danger"
+            >
+              <span>Start Quiz</span>
             </button>
           </div>
         </div>
