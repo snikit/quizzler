@@ -28,6 +28,28 @@ export const data: Quiz = {
     <li>When resuming, please start your test as you did earlier</li>
   </ul>`,
   },
+
+  sections: [
+    {
+      title: 'Session 1',
+      timer: 10,
+      noOfQuestions: 10,
+      type: 'mcq',
+    },
+    {
+      title: 'Session 2',
+      timer: 20,
+      noOfQuestions: 20,
+      type: 'mcq',
+    },
+    {
+      title: 'Session 3',
+      timer: 10,
+      noOfQuestions: 10,
+      type: 'mcq',
+    },
+  ],
+
   questions: [
     {
       id: 1,

@@ -15,6 +15,8 @@ import { CandidateTestDetailsComponent } from './candidate-test-details/candidat
 import { CandidateTestHomeComponent } from './candidate-test-home/candidate-test-home.component';
 import { CandidateTestComponent } from './candidate-test/candidate-test.component';
 import { CandidateComponent } from './candidate.component';
+import { SidebarModule } from 'primeng/sidebar';
+
 import { QuestionService } from './core/services/question.service';
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { QuestionService } from './core/services/question.service';
     SharedModule,
     HttpClientModule,
     QuizModule,
+    SidebarModule,
   ],
 })
 export class CandidateModule {}

@@ -6,7 +6,7 @@
   </h5>
   <div id="option-container">
     <label
-      *ngFor="let option of question.options; let i = index"
+      *ngFor="let option of question.answers; let i = index"
       [ngClass]="{ 'left-border': activeIndex == i }"
       (click)="onClick(i)"
     >

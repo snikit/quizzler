@@ -43,6 +43,10 @@ import { ButtonModule } from 'primeng/button';
     TestInstructionsComponent,
     TestDetailsComponent,
     DeadCenterComponent,
+    QuestionNavComponent,
+    NextPrevComponent,
+    QuestionComponent,
+    SubmissionReviewComponent,
   ],
 })
 export class SharedModule {}

@@ -1,4 +1,3 @@
-import { Test } from './../../data/model/question.model';
 import {
   Component,
   OnInit,
@@ -7,6 +6,7 @@ import {
   Output,
   EventEmitter,
 } from '@angular/core';
+import { Quiz } from 'src/app/data/model/quiz.model';
 
 @Component({
   selector: 'app-question-nav',
@@ -16,14 +16,7 @@ import {
 })
 export class QuestionNavComponent implements OnInit {
   @Input()
-  public test: Test = {
-    title: 'Title',
-    subtitle: 'Subtitle',
-    timer: 0,
-    instruction: null,
-    sections: null,
-  };
-
+  public quiz: Quiz;
   @Output()
   submitClick = new EventEmitter();
 

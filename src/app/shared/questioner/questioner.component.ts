@@ -1,10 +1,10 @@
-import { Question, Test } from './../../data/model/question.model';
 import {
   Component,
   OnInit,
   ChangeDetectionStrategy,
   Input,
 } from '@angular/core';
+import { Question, Quiz } from 'src/app/data/model/quiz.model';
 
 @Component({
   selector: 'app-questioner',
@@ -16,7 +16,7 @@ export class QuestionerComponent implements OnInit {
   @Input()
   public question: Question;
   @Input()
-  public test: Test;
+  public quiz: Quiz;
 
   visibleSidebar = false;
 

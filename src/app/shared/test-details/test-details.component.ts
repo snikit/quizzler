@@ -21,26 +21,27 @@ export class TestDetailsComponent implements OnInit {
   @Output()
   startClick = new EventEmitter();
 
-  sessions = [
-    {
-      title: 'session 1',
-      noOfQuestions: '20',
-      time: '10 mins',
-    },
-    {
-      title: 'session 2',
-      noOfQuestions: '20',
-      time: '10 mins',
-    },
-    {
-      title: 'session 3',
-      noOfQuestions: '20',
-      time: '10 mins',
-    },
-  ];
+  counter: { questionCount: number; timeCount: number } = {
+    questionCount: 0,
+    timeCount: 0,
+  };
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.counter = this.details.sections.reduce(
+      (counter, section) => {
+        return {
+          questionCount: counter.questionCount + section.noOfQuestions,
+          timeCount: counter.timeCount + section.timer,
+        };
+      },
+      {
+        questionCount: 0,
+        timeCount: 0,
+      }
+    );
+  }
 
   onStartClick(): void {
     this.startClick.emit();

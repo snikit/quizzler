@@ -1,4 +1,4 @@
-import { Instruction } from './question.model';
+import { Instruction, Section } from './question.model';
 
 export interface Quiz {
   id: number;
@@ -8,6 +8,7 @@ export interface Quiz {
   timer: number;
   instruction: Instruction;
   questions: Question[];
+  sections: Section[];
 }
 
 export interface Question {

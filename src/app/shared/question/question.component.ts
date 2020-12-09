@@ -1,10 +1,10 @@
-import { Question } from './../../data/model/question.model';
 import {
   Component,
   OnInit,
   ChangeDetectionStrategy,
   Input,
 } from '@angular/core';
+import { Question } from 'src/app/data/model/quiz.model';
 
 @Component({
   selector: 'app-question',
