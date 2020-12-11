@@ -3,8 +3,15 @@ import {
   OnInit,
   ChangeDetectionStrategy,
   Input,
+  Output,
+  EventEmitter,
 } from '@angular/core';
-import { Question } from 'src/app/data/model/quiz.model';
+import { last } from 'rxjs/operators';
+import {
+  Question,
+  Answer,
+  QuestionAnswer,
+} from 'src/app/data/model/quiz.model';
 
 @Component({
   selector: 'app-question',
@@ -16,13 +23,26 @@ export class QuestionComponent implements OnInit {
   @Input()
   public question: Question;
 
+  @Output()
+  public answerSelect = new EventEmitter<QuestionAnswer>();
+
   activeIndex = -1;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('inited');
+  }
 
-  onClick(index: number): void {
+  onClick(answer: Answer, index: number): void {
     this.activeIndex = index;
+    this.answerSelect.emit({
+      question: {
+        id: this.question.id,
+      },
+      answer: {
+        id: answer.id,
+      },
+    });
   }
 }

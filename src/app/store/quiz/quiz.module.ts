@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { QuizEffects } from './quiz.effects';
-import { QuizFeatureToken, reducer } from './reducers/quiz.reducer';
+import { QuizFeatureToken, reducer } from './quiz.reducer';
 import { QuizService } from './quiz.service';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 

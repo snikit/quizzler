@@ -1,50 +1,32 @@
-import { Question, Quiz } from 'src/app/data/model/quiz.model';
-import { Component, OnInit } from '@angular/core';
-import { QuizStoreService } from 'src/app/store/quiz/quiz.store.service';
-import { takeUntil, tap } from 'rxjs/operators';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { takeUntil, tap } from 'rxjs/operators';
+import { Question, QuestionAnswer, Quiz } from 'src/app/data/model/quiz.model';
+import { QuizStoreService } from 'src/app/store/quiz/quiz.store.service';
 
 @Component({
   templateUrl: './candidate-test.component.html',
   styleUrls: ['./candidate-test.component.css'],
 })
-export class CandidateTestComponent implements OnInit {
+export class CandidateTestComponent implements OnInit, OnDestroy {
   questionId: string;
-  question: Question = {
-    id: 1,
-    text: 'Quis sit dolor tempor fugiat fugiat culpa qui?',
-    answers: [
-      {
-        Index: 0,
-        text: 'Correct',
-      },
-      {
-        Index: 1,
-        text: 'Incorrect',
-      },
-      {
-        Index: 2,
-        text: 'Incorrect',
-      },
-      {
-        Index: 3,
-        text: 'Incorrect',
-      },
-    ],
-  };
+  question: Question;
   isAnswered: Subject<string> = new Subject<string>();
   destroy$: Subject<{}> = new Subject(); // Managing Unsubscription
-  details$ = new Observable<Quiz>();
+  details: Quiz;
+  storeState$: Observable<any>;
 
   constructor(private quizStore: QuizStoreService) {
-    this.details$ = this.quizStore.quizDetails;
+    this.storeState$ = this.quizStore.getState();
 
-    // this.quizStore.currentQuestion
-    //   .pipe(
-    //     tap(() => this.isAnswered.next(null)),
-    //     takeUntil(this.destroy$)
-    //   )
-    //   .subscribe((q) => (this.question = q));
+    this.quizStore.quizDetails.subscribe((details) => (this.details = details));
+
+    this.quizStore.currentQuestion
+      .pipe(
+        tap(() => this.isAnswered.next(null)),
+        takeUntil(this.destroy$)
+      )
+      .subscribe((q) => (this.question = q));
   }
 
   ngOnInit(): void {}
@@ -53,5 +35,20 @@ export class CandidateTestComponent implements OnInit {
 
   onSubmit(): void {
     this.visibleSidebar = !this.visibleSidebar;
+  }
+
+  nextQuestion() {
+    // this.quizStore.nextQuestion();
+    this.quizStore.backgroundSync();
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.isAnswered.unsubscribe();
+    this.destroy$.unsubscribe();
+  }
+
+  onAnswerSelect($event: QuestionAnswer) {
+    this.quizStore.saveAnswer($event);
   }
 }

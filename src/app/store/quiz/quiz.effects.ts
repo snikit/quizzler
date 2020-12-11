@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Actions, createEffect, Effect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
 import { asyncScheduler, Observable, of } from 'rxjs';
-import * as reducer from './reducers/quiz.reducer';
+import * as reducer from './quiz.reducer';
 import {
   catchError,
   debounceTime,
@@ -44,7 +44,7 @@ export class QuizEffects {
   getQuizSuccess$: Observable<Action> = this.actions$.pipe(
     ofType(QuizActions.GET_QUIZ_SUCCESS),
     map(() => {
-      this.router.navigateByUrl('candidate/test/instructions');
+      this.router.navigateByUrl('candidate/test/start');
       return new QuizActions.GetQuestion();
     })
   );
@@ -54,8 +54,6 @@ export class QuizEffects {
     ofType(QuizActions.GET_QUESTION),
     withLatestFrom(this.store),
     map(([action, store]) => {
-      console.log(store);
-
       const questionQueue = store.quiz.questionQueue;
       // Check if there is question in the queue
       if (questionQueue.length > 0 && typeof questionQueue[0].id === 'number') {
@@ -63,6 +61,14 @@ export class QuizEffects {
       } else {
         return new QuizActions.GetScore();
       }
+    })
+  );
+
+  @Effect()
+  getQuestionNext$ = this.actions$.pipe(
+    ofType(QuizActions.GET_QUESTION_NEXT),
+    map((payload: boolean) => {
+      return new QuizActions.GetQuestion();
     })
   );
 
@@ -82,36 +88,36 @@ export class QuizEffects {
     })
   );
 
-  @Effect()
-  answer$ = this.actions$.pipe(
-    ofType(QuizActions.ANSWER_QUESTION),
-    debounceTime(this.debounce || 300, asyncScheduler),
-    switchMap((payload: Answering) =>
-      this.quizService.postAnswer(payload).pipe(
-        map(() => new QuizActions.AnswerSuccess(payload)),
-        catchError(() => of(new QuizActions.AnswerFail()))
-      )
-    )
-  );
+  // @Effect()
+  // answer$ = this.actions$.pipe(
+  //   ofType(QuizActions.ANSWER_QUESTION),
+  //   debounceTime(this.debounce || 300, asyncScheduler),
+  //   switchMap((payload: Answering) =>
+  //     this.quizService.postAnswer(payload).pipe(
+  //       map(() => new QuizActions.AnswerSuccess(payload)),
+  //       catchError(() => of(new QuizActions.AnswerFail()))
+  //     )
+  //   )
+  // );
 
-  @Effect()
-  answerSuccess$ = this.actions$.pipe(
-    ofType(QuizActions.ANSWER_SUCCESS),
-    withLatestFrom(this.store),
-    map(([action, store]) => {
-      // if all questions answered
-      if (store.quiz.progress === store.quiz.quiz.questions.length) {
-        // this.router.navigateByUrl('score');
-        return new QuizActions.GetScore();
-      } else {
-        return new QuizActions.GetQuestion();
-      }
-    })
-  );
+  // @Effect()
+  // answerSuccess$ = this.actions$.pipe(
+  //   ofType(QuizActions.ANSWER_SUCCESS),
+  //   withLatestFrom(this.store),
+  //   map(([action, store]) => {
+  //     // if all questions answered
+  //     if (store.quiz.progress === store.quiz.quiz.questions.length) {
+  //       // this.router.navigateByUrl('score');
+  //       return new QuizActions.GetScore();
+  //     } else {
+  //       return new QuizActions.GetQuestion();
+  //     }
+  //   })
+  // );
 
-  @Effect()
-  answerFailed$ = this.actions$.pipe(
-    ofType(QuizActions.ANSWER_FAIL),
-    map(() => new QuizActions.GetQuestion())
-  );
+  // @Effect()
+  // answerFailed$ = this.actions$.pipe(
+  //   ofType(QuizActions.ANSWER_FAIL),
+  //   map(() => new QuizActions.GetQuestion())
+  // );
 }

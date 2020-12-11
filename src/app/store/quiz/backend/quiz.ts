@@ -58,18 +58,22 @@ export const data: Quiz = {
         {
           Index: 0,
           text: 'Correct',
+          id: '0',
         },
         {
           Index: 1,
           text: 'Incorrect',
+          id: '1',
         },
         {
           Index: 2,
           text: 'Incorrect',
+          id: '2',
         },
         {
           Index: 3,
           text: 'Incorrect',
+          id: '3',
         },
       ],
     },
@@ -80,18 +84,22 @@ export const data: Quiz = {
         {
           Index: 0,
           text: 'Correct',
+          id: '0',
         },
         {
           Index: 1,
           text: 'Incorrect',
+          id: '1',
         },
         {
           Index: 2,
           text: 'Incorrect',
+          id: '2',
         },
         {
           Index: 3,
           text: 'Incorrect',
+          id: '3',
         },
       ],
     },
@@ -102,18 +110,22 @@ export const data: Quiz = {
         {
           Index: 0,
           text: 'Correct',
+          id: '0',
         },
         {
           Index: 1,
           text: 'Incorrect',
+          id: '1',
         },
         {
           Index: 2,
           text: 'Incorrect',
+          id: '2',
         },
         {
           Index: 3,
           text: 'Incorrect',
+          id: '3',
         },
       ],
     },
@@ -124,18 +136,22 @@ export const data: Quiz = {
         {
           Index: 0,
           text: 'Correct',
+          id: '0',
         },
         {
           Index: 1,
           text: 'Incorrect',
+          id: '1',
         },
         {
           Index: 2,
           text: 'Incorrect',
+          id: '2',
         },
         {
           Index: 3,
           text: 'Incorrect',
+          id: '3',
         },
       ],
     },
@@ -146,18 +162,22 @@ export const data: Quiz = {
         {
           Index: 0,
           text: 'Correct',
+          id: '0',
         },
         {
           Index: 1,
           text: 'Incorrect',
+          id: '1',
         },
         {
           Index: 2,
           text: 'Incorrect',
+          id: '2',
         },
         {
           Index: 3,
           text: 'Incorrect',
+          id: '3',
         },
       ],
     },
@@ -168,18 +188,22 @@ export const data: Quiz = {
         {
           Index: 0,
           text: 'Correct',
+          id: '0',
         },
         {
           Index: 1,
           text: 'Incorrect',
+          id: '1',
         },
         {
           Index: 2,
           text: 'Incorrect',
+          id: '2',
         },
         {
           Index: 3,
           text: 'Incorrect',
+          id: '3',
         },
       ],
     },
@@ -190,18 +214,22 @@ export const data: Quiz = {
         {
           Index: 0,
           text: 'Correct',
+          id: '0',
         },
         {
           Index: 1,
           text: 'Incorrect',
+          id: '1',
         },
         {
           Index: 2,
           text: 'Incorrect',
+          id: '2',
         },
         {
           Index: 3,
           text: 'Incorrect',
+          id: '3',
         },
       ],
     },
@@ -212,18 +240,22 @@ export const data: Quiz = {
         {
           Index: 0,
           text: 'Correct',
+          id: '0',
         },
         {
           Index: 1,
           text: 'Incorrect',
+          id: '1',
         },
         {
           Index: 2,
           text: 'Incorrect',
+          id: '2',
         },
         {
           Index: 3,
           text: 'Incorrect',
+          id: '3',
         },
       ],
     },

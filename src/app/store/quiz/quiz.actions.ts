@@ -1,3 +1,4 @@
+import { QuestionAnswer } from './../../data/model/quiz.model';
 import { Action } from '@ngrx/store';
 import { Answering, Question, Quiz } from '../../data/model/quiz.model';
 
@@ -8,6 +9,8 @@ export const GET_QUIZ_FAIL = 'Get Quiz Fail';
 export const GET_QUESTION = 'Get Question from Quiz';
 export const GET_QUESTION_SUCCESS = 'Get Question Success';
 export const GET_QUESTION_FAIL = 'Get Question Fail';
+
+export const GET_QUESTION_NEXT = 'Get Question Next';
 
 export const ANSWER_QUESTION = 'Answer the Question';
 export const ANSWER_SUCCESS = 'Answer Success';
@@ -45,9 +48,19 @@ export class GetQuestionFail implements Action {
   constructor(public payload: boolean) {}
 }
 
+export class GetQuestionNext implements Action {
+  readonly type = GET_QUESTION_NEXT;
+  constructor(public payload: boolean) {}
+}
+
+// export class AnswerQuestion implements Action {
+//   readonly type = ANSWER_QUESTION;
+//   constructor(public payload: Answering) {}
+// }
+
 export class AnswerQuestion implements Action {
   readonly type = ANSWER_QUESTION;
-  constructor(public payload: Answering) {}
+  constructor(public payload: QuestionAnswer) {}
 }
 
 export class AnswerSuccess implements Action {
@@ -67,6 +80,7 @@ export class GetScore implements Action {
 
 export type Actions =
   | GetQuiz
+  | GetQuestionNext
   | GetQuizSuccess
   | GetQuizFail
   | GetQuestion

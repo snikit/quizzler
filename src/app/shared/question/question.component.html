@@ -5,14 +5,16 @@
     {{ question.text }}
   </h5>
   <div id="option-container">
-    <label
-      *ngFor="let option of question.answers; let i = index"
-      [ngClass]="{ 'left-border': activeIndex == i }"
-      (click)="onClick(i)"
-    >
-      <input type="radio" name="options" />
-      <span class="radio"></span>
-      <h5>{{ option.text }}</h5>
-    </label>
+    <div>
+      <label
+        *ngFor="let option of question.answers; let i = index"
+        (mouseup)="onClick(option, i)"
+        [ngClass]="{ 'left-border': activeIndex === i }"
+      >
+        <input type="radio" name="options" />
+        <span class="radio"></span>
+        <h5>{{ option.text }}</h5>
+      </label>
+    </div>
   </div>
 </div>

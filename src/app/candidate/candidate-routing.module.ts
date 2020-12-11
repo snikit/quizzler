@@ -11,6 +11,7 @@ import { CandidateTestComponent } from './candidate-test/candidate-test.componen
 import { CandidateComponent } from './candidate.component';
 import { CandidateIdPhotoComponent } from './candidate-registration/screens/candidate-id-photo/candidate-id-photo.component';
 import { CandidatePhotoComponent } from './candidate-registration/screens/candidate-photo/candidate-photo.component';
+import { QuizRouteGuardService } from './core/guards/quiz.guard.service';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
   {
     path: 'test',
     component: CandidateTestHomeComponent,
+    canActivate: [QuizRouteGuardService],
     children: [
       { path: 'start', component: CandidateTestComponent },
       { path: 'details', component: CandidateTestDetailsComponent },

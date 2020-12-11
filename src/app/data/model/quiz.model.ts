@@ -17,9 +17,19 @@ export interface Question {
   answers: Answer[];
 }
 
+export interface QuestionAnswer {
+  question: {
+    id: number;
+  };
+  answer: {
+    id: string;
+  };
+}
+
 export interface Answer {
   text: string;
   Index: number;
+  id: string;
 }
 
 export interface Answering {

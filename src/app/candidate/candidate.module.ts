@@ -18,6 +18,7 @@ import { CandidateComponent } from './candidate.component';
 import { SidebarModule } from 'primeng/sidebar';
 
 import { QuestionService } from './core/services/question.service';
+import { QuizRouteGuardService } from './core/guards/quiz.guard.service';
 @NgModule({
   declarations: [
     CandidateComponent,
@@ -32,7 +33,7 @@ import { QuestionService } from './core/services/question.service';
     CandidatePhotoComponent,
     CandidateIdPhotoComponent,
   ],
-  providers: [QuestionService],
+  providers: [QuestionService, QuizRouteGuardService],
   imports: [
     CommonModule,
     CandidateRoutingModule,

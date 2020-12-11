@@ -1,6 +1,6 @@
 <div class="d-flex flex-column content">
   <div>
-    <app-question-nav (submitClick)="onSubmit()" [quiz]="details$ | async">
+    <app-question-nav (submitClick)="onSubmit()" [quiz]="details">
     </app-question-nav>
   </div>
   <div class="row h-100 d-flex align-items-center">
@@ -11,18 +11,22 @@
     </div>
     <div class="col-8">
       <div>
-        <app-question [question]="question"></app-question>
+        <app-question
+          (answerSelect)="onAnswerSelect($event)"
+          [question]="question"
+        ></app-question>
       </div>
     </div>
     <div class="col-2">
       <div class="d-none d-lg-block">
-        <app-next-prev right="true"></app-next-prev>
+        <app-next-prev (click)="nextQuestion()" right="true"></app-next-prev>
       </div>
     </div>
   </div>
   <!-- <div>
     <app-question-nav [test]="test"> </app-question-nav>
   </div> -->
+  {{ (storeState$ | async).answers | json }}
 </div>
 
 <p-sidebar
@@ -31,6 +35,6 @@
   [baseZIndex]="10000"
 >
   <div class="content">
-    <app-submission-review></app-submission-review>
+    <!-- <app-submission-review></app-submission-review> -->
   </div>
 </p-sidebar>
