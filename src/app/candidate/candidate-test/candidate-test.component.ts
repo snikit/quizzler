@@ -38,8 +38,7 @@ export class CandidateTestComponent implements OnInit, OnDestroy {
   }
 
   nextQuestion() {
-    // this.quizStore.nextQuestion();
-    this.quizStore.backgroundSync();
+    this.quizStore.nextQuestion();
   }
 
   ngOnDestroy() {
