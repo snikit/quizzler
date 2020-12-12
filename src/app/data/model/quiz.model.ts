@@ -15,12 +15,14 @@ export interface Question {
   id: number;
   text: string;
   answers: Answer[];
+  isAnswered?: boolean;
+  userAnswer?: QuestionAnswer;
 }
 
 export interface QuestionAnswer {
-  question: {
-    id: number;
-  };
+  // question: {
+  //   id: number;
+  // };
   answer: {
     id: string;
   };

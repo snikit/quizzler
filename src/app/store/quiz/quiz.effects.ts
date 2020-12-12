@@ -2,18 +2,12 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect, Effect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
-import { asyncScheduler, Observable, of } from 'rxjs';
-import * as reducer from './quiz.reducer';
-import {
-  catchError,
-  debounceTime,
-  map,
-  switchMap,
-  withLatestFrom,
-} from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
+import { Question } from 'src/app/data/model/quiz.model';
 import * as QuizActions from './quiz.actions';
+import * as reducer from './quiz.reducer';
 import { QuizService } from './quiz.service';
-import { Answering, Question } from 'src/app/data/model/quiz.model';
 
 @Injectable()
 export class QuizEffects {
@@ -54,13 +48,15 @@ export class QuizEffects {
     ofType(QuizActions.GET_QUESTION),
     withLatestFrom(this.store),
     map(([action, store]) => {
-      const questionQueue = store.quiz.questionQueue;
+      // check if quiz has ended
+
+      // const questionQueue = store.quiz.quiz.questions;
       // Check if there is question in the queue
-      if (questionQueue.length > 0 && typeof questionQueue[0].id === 'number') {
-        return new QuizActions.GetQuestionSuccess(questionQueue[0]);
-      } else {
-        return new QuizActions.GetScore();
-      }
+      // if (questionQueue.length > 0 && typeof questionQueue[0].id === 'number') {
+      return new QuizActions.GetQuestionSuccess();
+      // } else {
+      // return new QuizActions.GetScore();
+      // }
     })
   );
 

@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { SidebarModule } from 'primeng/sidebar';
+import { ToastModule } from 'primeng/toast';
 import { SharedModule } from '../shared/shared.module';
 import { QuizModule } from '../store/quiz/quiz.module';
 import { CandidateDashboardComponent } from './candidate-dashboard/candidate-dashboard.component';
@@ -15,10 +17,8 @@ import { CandidateTestDetailsComponent } from './candidate-test-details/candidat
 import { CandidateTestHomeComponent } from './candidate-test-home/candidate-test-home.component';
 import { CandidateTestComponent } from './candidate-test/candidate-test.component';
 import { CandidateComponent } from './candidate.component';
-import { SidebarModule } from 'primeng/sidebar';
-
-import { QuestionService } from './core/services/question.service';
 import { QuizRouteGuardService } from './core/guards/quiz.guard.service';
+import { QuestionService } from './core/services/question.service';
 @NgModule({
   declarations: [
     CandidateComponent,
@@ -41,6 +41,7 @@ import { QuizRouteGuardService } from './core/guards/quiz.guard.service';
     HttpClientModule,
     QuizModule,
     SidebarModule,
+    ToastModule,
   ],
 })
 export class CandidateModule {}

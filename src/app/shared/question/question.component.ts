@@ -20,8 +20,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QuestionComponent implements OnInit {
-  @Input()
-  public question: Question;
+  public _question: Question;
 
   @Output()
   public answerSelect = new EventEmitter<QuestionAnswer>();
@@ -30,16 +29,24 @@ export class QuestionComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log('inited');
+  @Input()
+  set question(question: Question) {
+    this._question = question;
+    this.activeIndex = -1;
   }
+
+  get question() {
+    return this._question;
+  }
+
+  ngOnInit(): void {}
 
   onClick(answer: Answer, index: number): void {
     this.activeIndex = index;
     this.answerSelect.emit({
-      question: {
-        id: this.question.id,
-      },
+      // question: {
+      //   id: this._question.id,
+      // },
       answer: {
         id: answer.id,
       },

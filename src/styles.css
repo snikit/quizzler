@@ -1,4 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~animate.css/animate.min";
+
+/*
+ANIMATE CSS OVERRIDES-----------
+*/
+
+.animate__animated.animate__fadeInRight {
+  --animate-duration: 0.5s;
+}
+
+.animate__animated.animate__fadeInLeft {
+  --animate-duration: 0.5s;
+}
+
+/*
+-----------ANIMATE CSS OVERRIDES
+*/
 
 html,
 body {

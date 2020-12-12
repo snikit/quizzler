@@ -1,6 +1,5 @@
-import { QuestionAnswer } from './../../data/model/quiz.model';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { Answering, Question, Quiz } from '../../data/model/quiz.model';
+import { Quiz } from 'src/app/data/model/quiz.model';
 import * as QuizActions from './quiz.actions';
 
 export const QuizFeatureToken = 'quiz';
@@ -11,24 +10,16 @@ export interface QuizStore {
 
 export interface State {
   loaded: boolean;
-  loading: boolean; // loading indicator for POST events
   quiz: Quiz;
-  questionQueue: Question[]; // questions that will be answered
-  currentQuestion: Question; // question that is displayed on screen
-  answers: QuestionAnswer[]; // answers are stored to show the score at the end
-  isFinised: boolean;
-  progress: number;
+
+  //---------------------------
+  currentQuestionIndex: number;
 }
 
 const initialState: State = {
-  loading: false,
   loaded: false,
   quiz: null,
-  questionQueue: [],
-  currentQuestion: null,
-  answers: [],
-  isFinised: false,
-  progress: 0,
+  currentQuestionIndex: 0,
 };
 
 export function reducer(
@@ -39,20 +30,15 @@ export function reducer(
     case QuizActions.GET_QUIZ: {
       return {
         ...state,
-        loading: true,
         loaded: false,
-        answers: [],
-        progress: 0,
+        currentQuestionIndex: 0,
       };
     }
     case QuizActions.GET_QUIZ_SUCCESS: {
       return {
         ...state,
-        loading: false,
         loaded: true,
-        isFinised: false,
         quiz: action.payload,
-        questionQueue: action.payload.questions,
       };
     }
 
@@ -61,43 +47,53 @@ export function reducer(
         ...state,
       };
     }
-    case QuizActions.GET_QUESTION_SUCCESS: {
+    // case QuizActions.GET_QUESTION_SUCCESS: {
+    //   return {
+    //     ...state,
+
+    //   };
+    // }
+
+    case QuizActions.GET_QUESTION_PREVIOUS: {
+      const currentIndex = state.currentQuestionIndex - 1;
+
       return {
         ...state,
-        currentQuestion: action.payload, // first question in the queue
-        questionQueue: state.questionQueue.filter((item, index) => index > 0), // removing first element in the queue
-        progress: state.progress + 1,
+        currentQuestionIndex:
+          currentIndex >= 0 ? currentIndex : state.currentQuestionIndex,
       };
     }
 
     case QuizActions.GET_QUESTION_NEXT: {
+      const currentIndex = state.currentQuestionIndex + 1;
+
       return {
         ...state,
+        currentQuestionIndex:
+          currentIndex < state.quiz.questions.length
+            ? currentIndex
+            : state.currentQuestionIndex,
       };
     }
 
     case QuizActions.ANSWER_QUESTION: {
-      let answers = [...state.answers];
-
-      if (!action.payload.question || !action.payload.answer) {
+      if (!action.payload.answer) {
         throw new Error('ANSWER_QUESTION_ERROR');
       }
 
-      const answerIndex = answers.findIndex(
-        (ans) => ans.question.id === action.payload.question.id
-      );
+      const questions = [...state.quiz.questions];
+      const currentQuestion = { ...questions[state.currentQuestionIndex] };
+      currentQuestion.isAnswered = true;
+      currentQuestion.userAnswer = action.payload;
 
-      if (answerIndex > -1) {
-        answers[answerIndex] = action.payload;
-      } else {
-        answers = [...state.answers, action.payload];
-      }
+      questions[state.currentQuestionIndex] = currentQuestion;
 
       return {
         ...state,
-        loading: false,
-        answers: answers,
-        progress: answers.length,
+        quiz: {
+          ...state.quiz,
+          questions: questions,
+        },
       };
     }
 
@@ -146,28 +142,28 @@ export const selectQuizState = createFeatureSelector<State>(QuizFeatureToken);
 // };
 export const selectQuestion = createSelector(
   selectQuizState,
-  (state: State) => state.currentQuestion
+  (state: State) => state.quiz.questions[state.currentQuestionIndex]
 );
 
-export const selectQuizStatus = createSelector(
-  selectQuizState,
-  (state: State) => state.isFinised
-);
+// export const selectQuizStatus = createSelector(
+//   selectQuizState,
+//   (state: State) => state.isFinised
+// );
 
-export const selectQuizProgress = createSelector(
-  selectQuizState,
-  (state: State) =>
-    state.quiz
-      ? state.quiz.questions
-        ? `${state.progress}/${state.quiz.questions.length}`
-        : null
-      : null
-);
+// export const selectQuizProgress = createSelector(
+//   selectQuizState,
+//   (state: State) =>
+//     state.quiz
+//       ? state.quiz.questions
+//         ? `${state.progress}/${state.quiz.questions.length}`
+//         : null
+//       : null
+// );
 
-export const selectScoreDetails = createSelector(
-  selectQuizState,
-  (state: State) => state.answers
-);
+// export const selectScoreDetails = createSelector(
+//   selectQuizState,
+//   (state: State) => state.answers
+// );
 
 export const selectQuizInstructions = createSelector(
   selectQuizState,

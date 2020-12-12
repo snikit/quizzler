@@ -29,6 +29,10 @@ export class QuizStoreService {
     this.store.dispatch(new QuizActions.GetQuestionNext(true));
   }
 
+  previousQuestion() {
+    this.store.dispatch(new QuizActions.GetQuestionPrevious(true));
+  }
+
   getQuestion() {
     this.store.dispatch(new QuizActions.GetQuestion());
   }
@@ -45,17 +49,17 @@ export class QuizStoreService {
     return this.store.select(reducer.selectQuizInstructions);
   }
 
-  get quizProgress(): Observable<any> {
-    return this.store.select(reducer.selectQuizProgress);
-  }
+  // get quizProgress(): Observable<any> {
+  //   return this.store.select(reducer.selectQuizProgress);
+  // }
 
   get currentQuestion(): Observable<Question> {
     return this.store.select(reducer.selectQuestion);
   }
 
-  get quizStatus(): Observable<boolean> {
-    return this.store.select(reducer.selectQuizStatus);
-  }
+  // get quizStatus(): Observable<boolean> {
+  //   return this.store.select(reducer.selectQuizStatus);
+  // }
 
   // get quizScoreDetails(): Observable<Answering[]> {
   //   return this.store.select(reducer.selectScoreDetails);

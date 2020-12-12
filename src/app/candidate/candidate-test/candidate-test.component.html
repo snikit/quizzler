@@ -6,11 +6,15 @@
   <div class="row h-100 d-flex align-items-center">
     <div class="col-2">
       <div class="d-none d-lg-block">
-        <app-next-prev></app-next-prev>
+        <app-next-prev (click)="previousQuestion()"></app-next-prev>
       </div>
     </div>
     <div class="col-8">
-      <div>
+      <div
+        #theQuestion
+        class="animate__animated"
+        [ngClass]="{ animate__shakeX: shakeQuestion }"
+      >
         <app-question
           (answerSelect)="onAnswerSelect($event)"
           [question]="question"
@@ -27,6 +31,7 @@
     <app-question-nav [test]="test"> </app-question-nav>
   </div> -->
   {{ (storeState$ | async).answers | json }}
+  {{ question | json }}
 </div>
 
 <p-sidebar

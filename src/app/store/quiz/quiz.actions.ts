@@ -11,6 +11,7 @@ export const GET_QUESTION_SUCCESS = 'Get Question Success';
 export const GET_QUESTION_FAIL = 'Get Question Fail';
 
 export const GET_QUESTION_NEXT = 'Get Question Next';
+export const GET_QUESTION_PREVIOUS = 'Get Question Previous';
 
 export const ANSWER_QUESTION = 'Answer the Question';
 export const ANSWER_SUCCESS = 'Answer Success';
@@ -40,7 +41,7 @@ export class GetQuestion implements Action {
 
 export class GetQuestionSuccess implements Action {
   readonly type = GET_QUESTION_SUCCESS;
-  constructor(public payload: Question) {}
+  constructor() {}
 }
 
 export class GetQuestionFail implements Action {
@@ -50,6 +51,11 @@ export class GetQuestionFail implements Action {
 
 export class GetQuestionNext implements Action {
   readonly type = GET_QUESTION_NEXT;
+  constructor(public payload: boolean) {}
+}
+
+export class GetQuestionPrevious implements Action {
+  readonly type = GET_QUESTION_PREVIOUS;
   constructor(public payload: boolean) {}
 }
 
@@ -79,6 +85,7 @@ export class GetScore implements Action {
 }
 
 export type Actions =
+  | GetQuestionPrevious
   | GetQuiz
   | GetQuestionNext
   | GetQuizSuccess
