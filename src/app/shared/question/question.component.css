@@ -1,15 +1,18 @@
 /* theme - #f44336*/
 
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 #qstn-header {
   color: #f44336;
 }
 
 #qstn-statement {
   margin-bottom: 4rem;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 #option-container {

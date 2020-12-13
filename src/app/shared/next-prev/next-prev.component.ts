@@ -3,6 +3,8 @@ import {
   OnInit,
   ChangeDetectionStrategy,
   Input,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 
 @Component({
@@ -14,8 +16,17 @@ import {
 export class NextPrevComponent implements OnInit {
   @Input()
   right = false;
+  @Input()
+  visible = true;
+
+  @Output()
+  clicked = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onClick($event) {
+    this.clicked.emit($event);
+  }
 }

@@ -142,7 +142,14 @@ export const selectQuizState = createFeatureSelector<State>(QuizFeatureToken);
 // };
 export const selectQuestion = createSelector(
   selectQuizState,
-  (state: State) => state.quiz.questions[state.currentQuestionIndex]
+  (state: State) => {
+    return {
+      ...state.quiz.questions[state.currentQuestionIndex],
+      index: state.currentQuestionIndex + 1,
+      isFirst: state.currentQuestionIndex == 0,
+      isLast: state.currentQuestionIndex == state.quiz.questions.length - 1,
+    };
+  }
 );
 
 // export const selectQuizStatus = createSelector(

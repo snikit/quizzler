@@ -1,4 +1,4 @@
-<div *ngIf="!right" class="wrapper-left">
+<div *ngIf="!right && visible" class="wrapper-left">
   <svg
     width="18px"
     height="17px"
@@ -9,6 +9,7 @@
   >
     <g
       id="prev"
+      (click)="onClick($event)"
       transform="translate(8.500000, 8.500000) scale(-1, 1) translate(-8.500000, -8.500000)"
     >
       <polygon
@@ -26,7 +27,7 @@
   </svg>
 </div>
 
-<div *ngIf="right" class="wrapper-right">
+<div *ngIf="right && visible" class="wrapper-right">
   <svg
     width="18px"
     height="17px"
@@ -35,7 +36,7 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
   >
-    <g>
+    <g (click)="onClick($event)">
       <polygon
         class="arrow"
         points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"

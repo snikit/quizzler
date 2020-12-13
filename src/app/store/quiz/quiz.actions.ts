@@ -1,6 +1,6 @@
-import { QuestionAnswer } from './../../data/model/quiz.model';
 import { Action } from '@ngrx/store';
-import { Answering, Question, Quiz } from '../../data/model/quiz.model';
+import { Answering, Quiz } from '../../data/model/quiz.model';
+import { QuestionAnswer } from './../../data/model/quiz.model';
 
 export const GET_QUIZ = 'Get Quiz';
 export const GET_QUIZ_SUCCESS = 'Get Quiz Success';

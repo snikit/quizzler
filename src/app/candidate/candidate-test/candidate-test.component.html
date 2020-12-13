@@ -6,7 +6,10 @@
   <div class="row h-100 d-flex align-items-center">
     <div class="col-2">
       <div class="d-none d-lg-block">
-        <app-next-prev (click)="previousQuestion()"></app-next-prev>
+        <app-next-prev
+          [visible]="!question.isFirst"
+          (click)="previousQuestion()"
+        ></app-next-prev>
       </div>
     </div>
     <div class="col-8">
@@ -23,15 +26,14 @@
     </div>
     <div class="col-2">
       <div class="d-none d-lg-block">
-        <app-next-prev (click)="nextQuestion()" right="true"></app-next-prev>
+        <app-next-prev
+          [visible]="!question.isLast"
+          (click)="nextQuestion()"
+          right="true"
+        ></app-next-prev>
       </div>
     </div>
   </div>
-  <!-- <div>
-    <app-question-nav [test]="test"> </app-question-nav>
-  </div> -->
-  {{ (storeState$ | async).answers | json }}
-  {{ question | json }}
 </div>
 
 <p-sidebar

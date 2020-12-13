@@ -12,6 +12,9 @@ export interface Quiz {
 }
 
 export interface Question {
+  index?: number;
+  isFirst?: boolean;
+  isLast?: boolean;
   id: number;
   text: string;
   answers: Answer[];

@@ -23,8 +23,7 @@ export class CandidateTestComponent implements OnInit, OnDestroy {
   destroy$: Subject<{}> = new Subject(); // Managing Unsubscription
   details: Quiz;
   storeState$: Observable<any>;
-  canSkip = true;
-  isAnswered = false;
+  canSkip = false;
   shakeQuestion = false;
 
   @ViewChild('theQuestion')
@@ -40,18 +39,11 @@ export class CandidateTestComponent implements OnInit, OnDestroy {
     this.quizStore.quizDetails.subscribe((details) => (this.details = details));
 
     this.quizStore.currentQuestion
-      .pipe(
-        tap(() => this.reset()),
-        takeUntil(this.destroy$)
-      )
+      .pipe(takeUntil(this.destroy$))
       .subscribe((q) => (this.question = q));
   }
 
   ngOnInit(): void {}
-
-  reset() {
-    this.isAnswered = false;
-  }
 
   visibleSidebar = false;
 
@@ -60,7 +52,7 @@ export class CandidateTestComponent implements OnInit, OnDestroy {
   }
 
   nextQuestion() {
-    if (!this.canSkip && !this.isAnswered) {
+    if (!this.canSkip && !this.question.isAnswered) {
       this.warnCannotSkip();
       return;
     } else {
@@ -81,7 +73,6 @@ export class CandidateTestComponent implements OnInit, OnDestroy {
   }
 
   onAnswerSelect($event: QuestionAnswer) {
-    this.isAnswered = true;
     this.quizStore.saveAnswer($event);
   }
 

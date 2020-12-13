@@ -1,5 +1,5 @@
 <div class="swappy-radios" role="radiogroup" aria-labelledby="qstn-statement">
-  <h4 id="qstn-header">Question 1</h4>
+  <h4 id="qstn-header">Question {{ question.index }}</h4>
 
   <h5 id="qstn-statement">
     {{ question.text }}
@@ -11,7 +11,7 @@
         (mouseup)="onClick(option, i)"
         [ngClass]="{ 'left-border': activeIndex === i }"
       >
-        <input type="radio" name="options" />
+        <input type="radio" name="options" [checked]="activeIndex == i" />
         <span class="radio"></span>
         <h5>{{ option.text }}</h5>
       </label>

@@ -32,7 +32,14 @@ export class QuestionComponent implements OnInit {
   @Input()
   set question(question: Question) {
     this._question = question;
-    this.activeIndex = -1;
+
+    if (question.isAnswered) {
+      this.activeIndex = question.answers.findIndex((ans) => {
+        return ans.id === question.userAnswer.answer.id;
+      });
+    } else {
+      this.activeIndex = -1;
+    }
   }
 
   get question() {
