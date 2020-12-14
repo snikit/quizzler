@@ -1,1 +1,7 @@
-<p>candidate-nav works!</p>
+<app-question-nav
+  *ngIf="isQuizMode"
+  (navReviewButtonClick)="onNavReviewButtonClick()"
+  [quiz]="details"
+  [progress]="progress$ | async"
+>
+</app-question-nav>

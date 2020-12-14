@@ -11,8 +11,6 @@ export interface QuizStore {
 export interface State {
   loaded: boolean;
   quiz: Quiz;
-
-  //---------------------------
   currentQuestionIndex: number;
 }
 
@@ -157,15 +155,15 @@ export const selectQuestion = createSelector(
 //   (state: State) => state.isFinised
 // );
 
-// export const selectQuizProgress = createSelector(
-//   selectQuizState,
-//   (state: State) =>
-//     state.quiz
-//       ? state.quiz.questions
-//         ? `${state.progress}/${state.quiz.questions.length}`
-//         : null
-//       : null
-// );
+export const selectQuizProgress = createSelector(
+  selectQuizState,
+  (state: State) => {
+    return state.loaded
+      ? state.quiz.questions.filter((qstn) => qstn.isAnswered === true).length /
+          state.quiz.questions.length
+      : 0;
+  }
+);
 
 // export const selectScoreDetails = createSelector(
 //   selectQuizState,
@@ -185,13 +183,15 @@ export const selectIsQuizLoaded = createSelector(
 export const selectQuizDetails = createSelector(
   selectQuizState,
   (state: State) => {
-    return {
-      title: state.quiz.title,
-      subtitle: state.quiz.subtitle,
-      timer: state.quiz.timer,
-      details: state.quiz.details,
-      sections: state.quiz.sections,
-    } as Quiz;
+    return (state.loaded
+      ? {
+          title: state.quiz.title,
+          subtitle: state.quiz.subtitle,
+          timer: state.quiz.timer,
+          details: state.quiz.details,
+          sections: state.quiz.sections,
+        }
+      : {}) as Quiz;
   }
 );
 

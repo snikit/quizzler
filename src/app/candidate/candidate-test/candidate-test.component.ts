@@ -11,6 +11,7 @@ import { Question, QuestionAnswer, Quiz } from 'src/app/data/model/quiz.model';
 import { RootMsgService } from 'src/app/data/services/root.msg.service';
 import { QuizStoreService } from 'src/app/store/quiz/quiz.store.service';
 import { RootAnimateService } from 'src/app/data/services/root.animate.service';
+import { CANDIDATE_NAV_MODES } from '../candidate-nav/candidate-nav.component';
 
 @Component({
   templateUrl: './candidate-test.component.html',
@@ -25,6 +26,7 @@ export class CandidateTestComponent implements OnInit, OnDestroy {
   storeState$: Observable<any>;
   canSkip = false;
   shakeQuestion = false;
+  candidateNavMode = CANDIDATE_NAV_MODES.QUIZ_ACTIVE;
 
   @ViewChild('theQuestion')
   questionDiv: ElementRef<HTMLDivElement>;
@@ -47,7 +49,8 @@ export class CandidateTestComponent implements OnInit, OnDestroy {
 
   visibleSidebar = false;
 
-  onSubmit(): void {
+  onNavReviewButtonClick(): void {
+    console.log('nowhere');
     this.visibleSidebar = !this.visibleSidebar;
   }
 

@@ -49,9 +49,9 @@ export class QuizStoreService {
     return this.store.select(reducer.selectQuizInstructions);
   }
 
-  // get quizProgress(): Observable<any> {
-  //   return this.store.select(reducer.selectQuizProgress);
-  // }
+  get quizProgress(): Observable<number> {
+    return this.store.select(reducer.selectQuizProgress);
+  }
 
   get currentQuestion(): Observable<Question> {
     return this.store.select(reducer.selectQuestion);

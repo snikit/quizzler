@@ -18,13 +18,16 @@ export class QuestionNavComponent implements OnInit {
   @Input()
   public quiz: Quiz;
   @Output()
-  submitClick = new EventEmitter();
+  navReviewButtonClick = new EventEmitter();
+
+  @Input()
+  progress: number;
 
   constructor() {}
 
   ngOnInit(): void {}
 
   onSubmit(): void {
-    this.submitClick.emit();
+    this.navReviewButtonClick.emit();
   }
 }
