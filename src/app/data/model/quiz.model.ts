@@ -1,5 +1,10 @@
 import { Instruction } from './question.model';
 
+export interface Details {
+  title: string;
+  subtitle: string;
+}
+
 export interface Quiz {
   id: number;
   title: string;

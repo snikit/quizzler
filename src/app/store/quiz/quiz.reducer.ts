@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { cloneDeep } from 'lodash';
-import { Quiz, Question } from 'src/app/data/model/quiz.model';
+import { Quiz, Question, Details } from 'src/app/data/model/quiz.model';
 import * as QuizActions from './quiz.actions';
 
 export const QuizFeatureToken = 'quiz';
@@ -264,3 +264,13 @@ export const selectQuizDetails = createSelector(selectState, (state: State) => {
 //       .map((answer) => answer.answerIndex)
 //       .filter((index) => index === 0).length
 // );
+
+// section -----
+
+export const selectSectionDetails = createSelector(
+  selectState,
+  (state: State) => {
+    const { title, subtitle } = state.quiz.sections[state.currentSectionIndex];
+    return { title, subtitle } as Details;
+  }
+);

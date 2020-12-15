@@ -3,7 +3,12 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { Instruction } from 'src/app/data/model/question.model';
-import { Question, QuestionAnswer, Quiz } from 'src/app/data/model/quiz.model';
+import {
+  Details,
+  Question,
+  QuestionAnswer,
+  Quiz,
+} from 'src/app/data/model/quiz.model';
 import * as QuizActions from './quiz.actions';
 import * as reducer from './quiz.reducer';
 
@@ -96,5 +101,9 @@ export class QuizStoreService {
     return this.store
       .select(reducer.selectCanSkipQuestionsAbiity)
       .pipe(take(1));
+  }
+
+  get sectionDetails(): Observable<Details> {
+    return this.store.select(reducer.selectSectionDetails).pipe(take(1));
   }
 }

@@ -38,7 +38,7 @@ export class QuizEffects {
   getQuizSuccess$: Observable<Action> = this.actions$.pipe(
     ofType(QuizActions.GET_QUIZ_SUCCESS),
     map(() => {
-      this.router.navigateByUrl('candidate/test/start'); // start
+      this.router.navigateByUrl('candidate/test/section'); // start //instructions
       return new QuizActions.GetQuestion();
     })
   );

@@ -20,6 +20,7 @@ import { CandidateTestComponent } from './candidate-test/candidate-test.componen
 import { CandidateComponent } from './candidate.component';
 import { QuizRouteGuardService } from './core/guards/quiz.guard.service';
 import { QuestionService } from './core/services/question.service';
+import { SectionLanderComponent } from './section/section-lander/section-lander.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { QuestionService } from './core/services/question.service';
     CandiddateDetailsComponent,
     CandidatePhotoComponent,
     CandidateIdPhotoComponent,
+    SectionLanderComponent,
   ],
   providers: [QuestionService, QuizRouteGuardService],
   imports: [

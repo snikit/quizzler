@@ -1,0 +1,11 @@
+<div style="height: 100vh" class="d-flex justify-content-center">
+  <div class="d-flex flex-column justify-content-center">
+    <app-detailed-lander
+      [heading]="details.title"
+      [subheading]="details.subtitle"
+    ></app-detailed-lander>
+  </div>
+  <div class="d-flex flex-column justify-content-center next">
+    <app-next-prev (click)="onNext()" right="true"></app-next-prev>
+  </div>
+</div>

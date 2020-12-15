@@ -17,6 +17,7 @@ import { DeadCenterComponent } from './layout/dead-center/dead-center.component'
 import { SubmissionReviewComponent } from './submission-review/submission-review.component';
 import { ButtonModule } from 'primeng/button';
 import { ToggleButtonModule } from 'primeng/togglebutton';
+import { DetailedLanderComponent } from './detailed-lander/detailed-lander.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
     TestDetailsComponent,
     DeadCenterComponent,
     SubmissionReviewComponent,
+    DetailedLanderComponent,
   ],
   imports: [
     CommonModule,
@@ -50,6 +52,7 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
     NextPrevComponent,
     QuestionComponent,
     SubmissionReviewComponent,
+    DetailedLanderComponent,
   ],
 })
 export class SharedModule {}

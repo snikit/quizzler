@@ -1,14 +1,14 @@
 .wrapper-left {
-  position: absolute;
+  /* position: absolute;
   top: 0;
-  left: 15%;
+  left: 15%; */
   /* transform: translate(-50%, -50%); */
 }
 
 .wrapper-right {
-  position: absolute;
+  /* position: absolute;
   top: 0;
-  right: 15%;
+  right: 15%; */
   /* transform: translate(-50%, -50%); */
 }
 

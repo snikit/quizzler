@@ -12,8 +12,13 @@ import { CandidateComponent } from './candidate.component';
 import { CandidateIdPhotoComponent } from './candidate-registration/screens/candidate-id-photo/candidate-id-photo.component';
 import { CandidatePhotoComponent } from './candidate-registration/screens/candidate-photo/candidate-photo.component';
 import { QuizRouteGuardService } from './core/guards/quiz.guard.service';
+import { SectionLanderComponent } from './section/section-lander/section-lander.component';
 
 const routes: Routes = [
+  {
+    path: 'section',
+    component: SectionLanderComponent,
+  },
   {
     path: '',
     component: CandidateComponent,
@@ -24,6 +29,7 @@ const routes: Routes = [
     component: CandidateTestHomeComponent,
     canActivate: [QuizRouteGuardService],
     children: [
+      { path: 'section', component: SectionLanderComponent },
       { path: 'start', component: CandidateTestComponent },
       { path: 'details', component: CandidateTestDetailsComponent },
       { path: 'instructions', component: CandidateInstructionsComponent },

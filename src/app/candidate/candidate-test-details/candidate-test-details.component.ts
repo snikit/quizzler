@@ -18,6 +18,6 @@ export class CandidateTestDetailsComponent implements OnInit {
   ngOnInit(): void {}
 
   onStart(): void {
-    this.router.navigateByUrl('candidate/test/start');
+    this.router.navigateByUrl('candidate/test/section');
   }
 }

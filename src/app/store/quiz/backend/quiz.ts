@@ -31,7 +31,8 @@ export const data: Quiz = {
 
   sections: [
     {
-      title: 'Session 1',
+      title: 'Section 1',
+      subtitle: 'Object Oriented Programming (JAVA)',
       timer: 10,
       canSkipQuestions: false,
       type: 'mcq',
@@ -147,6 +148,7 @@ export const data: Quiz = {
     },
     {
       title: 'Session 1',
+      subtitle: 'lorem ipsoum sit dolor tempor fugiat fugiat culpa qui',
       timer: 10,
       canSkipQuestions: false,
       type: 'mcq',
