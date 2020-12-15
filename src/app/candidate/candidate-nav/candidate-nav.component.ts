@@ -20,6 +20,8 @@ export enum CANDIDATE_NAV_MODES {
 })
 export class CandidateNavComponent implements OnInit {
   details: Quiz;
+  canSkip = false;
+  isLastQuestion$: Observable<boolean>;
 
   @Output()
   navReviewButtonClick = new EventEmitter();
@@ -28,7 +30,12 @@ export class CandidateNavComponent implements OnInit {
 
   constructor(private quizStore: QuizStoreService) {
     this.quizStore.quizDetails.subscribe((details) => (this.details = details));
-    this.progress$ = this.quizStore.quizProgress;
+    this.progress$ = this.quizStore.activeSectionProgress;
+    this.quizStore.canSkipQuestionsAbiity.subscribe(
+      (canSkip) => (this.canSkip = canSkip)
+    );
+
+    this.isLastQuestion$ = this.quizStore.isLastQuestion;
   }
 
   ngOnInit(): void {}
@@ -39,5 +46,9 @@ export class CandidateNavComponent implements OnInit {
 
   get isQuizMode() {
     return true;
+  }
+
+  finishSection() {
+    console.log('finish section');
   }
 }

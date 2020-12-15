@@ -1,5 +1,13 @@
 <div class="swappy-radios" role="radiogroup" aria-labelledby="qstn-statement">
-  <h4 id="qstn-header">Question {{ question.index }}</h4>
+  <div class="d-flex justify-content-between">
+    <h4 id="qstn-header">Question {{ question.index }}</h4>
+    <em
+      *ngIf="showBookmark"
+      class="pi pi-bookmark qstn-pin"
+      [ngClass]="{ 'qstn-pin-checked': question.isBookmarked }"
+      (click)="bookmarkClick(!question.isBookmarked)"
+    ></em>
+  </div>
 
   <h5 id="qstn-statement">
     {{ question.text }}

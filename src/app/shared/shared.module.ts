@@ -16,6 +16,8 @@ import { TestDetailsComponent } from './test-details/test-details.component';
 import { DeadCenterComponent } from './layout/dead-center/dead-center.component';
 import { SubmissionReviewComponent } from './submission-review/submission-review.component';
 import { ButtonModule } from 'primeng/button';
+import { ToggleButtonModule } from 'primeng/togglebutton';
+
 @NgModule({
   declarations: [
     QuestionComponent,
@@ -37,6 +39,7 @@ import { ButtonModule } from 'primeng/button';
     AccordionModule,
     TableModule,
     ButtonModule,
+    ToggleButtonModule,
   ],
   exports: [
     QuestionerComponent,

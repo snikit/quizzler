@@ -36,13 +36,17 @@ export class CandidateTestComponent implements OnInit, OnDestroy {
     private messageService: RootMsgService,
     private animateService: RootAnimateService
   ) {
-    this.storeState$ = this.quizStore.getState();
+    this.storeState$ = this.quizStore.getQuizState();
 
     this.quizStore.quizDetails.subscribe((details) => (this.details = details));
 
     this.quizStore.currentQuestion
       .pipe(takeUntil(this.destroy$))
       .subscribe((q) => (this.question = q));
+
+    this.quizStore.canSkipQuestionsAbiity.subscribe(
+      (canSkip) => (this.canSkip = canSkip)
+    );
   }
 
   ngOnInit(): void {}
@@ -82,5 +86,17 @@ export class CandidateTestComponent implements OnInit, OnDestroy {
   warnCannotSkip() {
     this.animateService.shakeX(this.questionDiv);
     this.messageService.showError('Cannot Skip', 'Please mark an answer !');
+  }
+
+  finishSection() {
+    console.log('finishSection');
+  }
+
+  bookmarkToggle(isMarked: boolean) {
+    this.quizStore.bookmarkToggleQuestion();
+  }
+
+  get allowBookmark() {
+    return this.canSkip;
   }
 }

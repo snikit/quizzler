@@ -17,7 +17,7 @@ export class QuizEffects {
     private actions$: Actions,
     private quizService: QuizService,
     private router: Router,
-    private store: Store<reducer.QuizStore>
+    private store: Store<reducer.Store>
   ) {}
 
   getQuiz$ = createEffect(() =>
@@ -38,7 +38,7 @@ export class QuizEffects {
   getQuizSuccess$: Observable<Action> = this.actions$.pipe(
     ofType(QuizActions.GET_QUIZ_SUCCESS),
     map(() => {
-      this.router.navigateByUrl('candidate/test/start');
+      this.router.navigateByUrl('candidate/test/start'); // start
       return new QuizActions.GetQuestion();
     })
   );

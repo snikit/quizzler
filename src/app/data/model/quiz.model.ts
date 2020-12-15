@@ -1,4 +1,4 @@
-import { Instruction, Section } from './question.model';
+import { Instruction } from './question.model';
 
 export interface Quiz {
   id: number;
@@ -7,7 +7,6 @@ export interface Quiz {
   details: string;
   timer: number;
   instruction: Instruction;
-  questions: Question[];
   sections: Section[];
 }
 
@@ -19,6 +18,7 @@ export interface Question {
   text: string;
   answers: Answer[];
   isAnswered?: boolean;
+  isBookmarked?: boolean;
   userAnswer?: QuestionAnswer;
 }
 
@@ -40,4 +40,14 @@ export interface Answer {
 export interface Answering {
   questionId: number;
   answerIndex: number;
+}
+
+export interface Section {
+  title: string;
+  subtitle?: string;
+  timer: number;
+  instruction?: Instruction;
+  type: string;
+  questions: Question[];
+  canSkipQuestions: boolean;
 }

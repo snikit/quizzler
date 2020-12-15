@@ -1,4 +1,13 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Question } from 'src/app/data/model/quiz.model';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  Output,
+  EventEmitter,
+} from '@angular/core';
+import { Observable } from 'rxjs';
+import { QuizStoreService } from 'src/app/store/quiz/quiz.store.service';
 
 @Component({
   selector: 'app-submission-review',
@@ -8,28 +17,50 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class SubmissionReviewComponent implements OnInit {
   rows = new Array(50);
+  qstnState$: Observable<any>;
 
-  constructor() {}
+  @Output()
+  cancelClick = new EventEmitter();
+
+  @Output()
+  submitClick = new EventEmitter();
+
+  constructor(private quizStore: QuizStoreService) {
+    this.qstnState$ = this.quizStore.getQuestionsState();
+  }
 
   ngOnInit(): void {}
 
-  getIcon(index: number): string {
-    if (index % 3 === 0) {
-      return 'pi pi-check';
-    } else if (index % 5 === 0) {
+  getIcon(qstn: Question): string {
+    if (qstn.isBookmarked) {
       return 'pi pi-bookmark';
+    } else if (qstn.isAnswered) {
+      return 'pi pi-check';
     } else {
       return 'pi pi-exclamation-circle';
     }
   }
 
-  getColorClass(index: number): string {
-    if (index % 3 === 0) {
-      return 'p-button-success';
-    } else if (index % 5 === 0) {
+  getColorClass(qstn: Question): string {
+    if (qstn.isBookmarked) {
       return 'p-button-warning';
+    } else if (qstn.isAnswered) {
+      return 'p-button-success';
     } else {
       return 'p-button-danger';
     }
+  }
+
+  loadQuestionIndex(index: number) {
+    this.quizStore.setCurrentQuestionIndex(index);
+    this.onCancelClick();
+  }
+
+  onCancelClick() {
+    this.cancelClick.emit();
+  }
+
+  onSubmitClick() {
+    this.submitClick.emit();
   }
 }

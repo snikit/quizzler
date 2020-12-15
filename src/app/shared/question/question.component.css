@@ -11,6 +11,16 @@
   color: #f44336;
 }
 
+.qstn-pin {
+  font-size: 3em;
+  color: gray;
+  cursor: pointer;
+}
+
+.qstn-pin-checked {
+  color: #f44336 !important;
+}
+
 #qstn-statement {
   margin-bottom: 4rem;
 }

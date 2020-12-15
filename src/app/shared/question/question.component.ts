@@ -1,15 +1,14 @@
 import {
-  Component,
-  OnInit,
   ChangeDetectionStrategy,
-  Input,
-  Output,
+  Component,
   EventEmitter,
+  Input,
+  OnInit,
+  Output,
 } from '@angular/core';
-import { last } from 'rxjs/operators';
 import {
-  Question,
   Answer,
+  Question,
   QuestionAnswer,
 } from 'src/app/data/model/quiz.model';
 
@@ -25,7 +24,15 @@ export class QuestionComponent implements OnInit {
   @Output()
   public answerSelect = new EventEmitter<QuestionAnswer>();
 
+  @Output()
+  public bookmarkToggle = new EventEmitter<boolean>();
+
+  @Input()
+  public showBookmark;
+
   activeIndex = -1;
+
+  pinned = false;
 
   constructor() {}
 
@@ -58,5 +65,9 @@ export class QuestionComponent implements OnInit {
         id: answer.id,
       },
     });
+  }
+
+  bookmarkClick(checked: boolean) {
+    this.bookmarkToggle.emit(checked);
   }
 }

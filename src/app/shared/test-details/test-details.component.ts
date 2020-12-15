@@ -32,7 +32,7 @@ export class TestDetailsComponent implements OnInit {
     this.counter = this.details.sections.reduce(
       (counter, section) => {
         return {
-          questionCount: counter.questionCount + section.noOfQuestions,
+          questionCount: counter.questionCount + section.questions.length,
           timeCount: counter.timeCount + section.timer,
         };
       },

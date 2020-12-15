@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { ProgressBarModule } from 'primeng/progressbar';
 import { SidebarModule } from 'primeng/sidebar';
 import { ToastModule } from 'primeng/toast';
 import { SharedModule } from '../shared/shared.module';
@@ -19,6 +20,7 @@ import { CandidateTestComponent } from './candidate-test/candidate-test.componen
 import { CandidateComponent } from './candidate.component';
 import { QuizRouteGuardService } from './core/guards/quiz.guard.service';
 import { QuestionService } from './core/services/question.service';
+
 @NgModule({
   declarations: [
     CandidateComponent,
@@ -42,6 +44,7 @@ import { QuestionService } from './core/services/question.service';
     QuizModule,
     SidebarModule,
     ToastModule,
+    ProgressBarModule,
   ],
 })
 export class CandidateModule {}

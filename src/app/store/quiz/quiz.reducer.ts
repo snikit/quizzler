@@ -1,23 +1,26 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { Quiz } from 'src/app/data/model/quiz.model';
+import { cloneDeep } from 'lodash';
+import { Quiz, Question } from 'src/app/data/model/quiz.model';
 import * as QuizActions from './quiz.actions';
 
 export const QuizFeatureToken = 'quiz';
 
-export interface QuizStore {
-  quiz: State;
+export interface Store {
+  quizState: State;
 }
 
 export interface State {
   loaded: boolean;
   quiz: Quiz;
   currentQuestionIndex: number;
+  currentSectionIndex: number;
 }
 
 const initialState: State = {
   loaded: false,
   quiz: null,
   currentQuestionIndex: 0,
+  currentSectionIndex: 0,
 };
 
 export function reducer(
@@ -30,6 +33,7 @@ export function reducer(
         ...state,
         loaded: false,
         currentQuestionIndex: 0,
+        currentSectionIndex: 0,
       };
     }
     case QuizActions.GET_QUIZ_SUCCESS: {
@@ -45,12 +49,6 @@ export function reducer(
         ...state,
       };
     }
-    // case QuizActions.GET_QUESTION_SUCCESS: {
-    //   return {
-    //     ...state,
-
-    //   };
-    // }
 
     case QuizActions.GET_QUESTION_PREVIOUS: {
       const currentIndex = state.currentQuestionIndex - 1;
@@ -68,7 +66,8 @@ export function reducer(
       return {
         ...state,
         currentQuestionIndex:
-          currentIndex < state.quiz.questions.length
+          currentIndex <
+          state.quiz.sections[state.currentSectionIndex].questions.length
             ? currentIndex
             : state.currentQuestionIndex,
       };
@@ -79,18 +78,23 @@ export function reducer(
         throw new Error('ANSWER_QUESTION_ERROR');
       }
 
-      const questions = [...state.quiz.questions];
+      const questions = [
+        ...state.quiz.sections[state.currentSectionIndex].questions,
+      ];
       const currentQuestion = { ...questions[state.currentQuestionIndex] };
       currentQuestion.isAnswered = true;
       currentQuestion.userAnswer = action.payload;
 
       questions[state.currentQuestionIndex] = currentQuestion;
 
+      const sections = cloneDeep(state.quiz.sections);
+      sections[state.currentSectionIndex].questions = questions;
+
       return {
         ...state,
         quiz: {
           ...state.quiz,
-          questions: questions,
+          sections: sections,
         },
       };
     }
@@ -126,41 +130,94 @@ export function reducer(
     //     answers: state.answers.sort((a, b) => a.questionId - b.questionId), // sorting answers before showing score
     //   };
     // }
+
+    case QuizActions.SECTION_SET_INDEX: {
+      return {
+        ...state,
+        currentSectionIndex: action.payload,
+      };
+    }
+
+    case QuizActions.QUESTION_SET_INDEX: {
+      return {
+        ...state,
+        currentQuestionIndex: action.payload,
+      };
+    }
+
+    case QuizActions.QUESTION_BOOKMARK_TOGGLE: {
+      const questions = [
+        ...state.quiz.sections[state.currentSectionIndex].questions,
+      ];
+      const currentQuestion = { ...questions[state.currentQuestionIndex] };
+      currentQuestion.isBookmarked = !currentQuestion.isBookmarked;
+
+      questions[state.currentQuestionIndex] = currentQuestion;
+
+      const sections = cloneDeep(state.quiz.sections);
+      sections[state.currentSectionIndex].questions = questions;
+
+      return {
+        ...state,
+        quiz: {
+          ...state.quiz,
+          sections: sections,
+        },
+      };
+    }
+
     default: {
       return state;
     }
   }
 }
 
-export const selectQuizState = createFeatureSelector<State>(QuizFeatureToken);
+export const selectState = createFeatureSelector<State>(QuizFeatureToken);
 
-// export const selectQuizState = (state: QuizState) => {
-//   console.log(state);
-//   return state;
-// };
-export const selectQuestion = createSelector(
-  selectQuizState,
+export const selectQuizState = createSelector(selectState, (state: State) => {
+  return state.quiz;
+});
+
+export const selectQuestionsState = createSelector(
+  selectState,
   (state: State) => {
-    return {
-      ...state.quiz.questions[state.currentQuestionIndex],
-      index: state.currentQuestionIndex + 1,
-      isFirst: state.currentQuestionIndex == 0,
-      isLast: state.currentQuestionIndex == state.quiz.questions.length - 1,
-    };
+    return state.quiz.sections[state.currentSectionIndex].questions;
   }
 );
 
-// export const selectQuizStatus = createSelector(
-//   selectQuizState,
-//   (state: State) => state.isFinised
-// );
-
-export const selectQuizProgress = createSelector(
-  selectQuizState,
+export const selectCurrentQuestion = createSelector(
+  selectState,
   (state: State) => {
     return state.loaded
-      ? state.quiz.questions.filter((qstn) => qstn.isAnswered === true).length /
-          state.quiz.questions.length
+      ? {
+          ...state.quiz.sections[state.currentSectionIndex].questions[
+            state.currentQuestionIndex
+          ],
+          index: state.currentQuestionIndex + 1,
+          isFirst: state.currentQuestionIndex == 0,
+          isLast:
+            state.currentQuestionIndex ==
+            state.quiz.sections[state.currentSectionIndex].questions.length - 1,
+        }
+      : ({} as Question);
+  }
+);
+
+export const selectIsLastQuestion = createSelector(
+  selectCurrentQuestion,
+  (question: Question) => {
+    return question.isLast;
+  }
+);
+
+export const selectSectionProgress = createSelector(
+  selectState,
+  (state: State) => {
+    return state.loaded
+      ? state.quiz.sections[state.currentSectionIndex].questions.filter(
+          (qstn) => qstn.isAnswered === true
+        ).length /
+          state.quiz.sections[state.currentSectionIndex].questions.length
       : 0;
   }
 );
@@ -171,29 +228,34 @@ export const selectQuizProgress = createSelector(
 // );
 
 export const selectQuizInstructions = createSelector(
-  selectQuizState,
+  selectState,
   (state: State) => state.quiz.instruction
 );
 
 export const selectIsQuizLoaded = createSelector(
-  selectQuizState,
+  selectState,
   (state: State) => state.loaded
 );
 
-export const selectQuizDetails = createSelector(
-  selectQuizState,
-  (state: State) => {
-    return (state.loaded
-      ? {
-          title: state.quiz.title,
-          subtitle: state.quiz.subtitle,
-          timer: state.quiz.timer,
-          details: state.quiz.details,
-          sections: state.quiz.sections,
-        }
-      : {}) as Quiz;
-  }
+export const selectCanSkipQuestionsAbiity = createSelector(
+  selectState,
+  (state: State) =>
+    state.loaded
+      ? state.quiz.sections[state.currentSectionIndex].canSkipQuestions
+      : false
 );
+
+export const selectQuizDetails = createSelector(selectState, (state: State) => {
+  return (state.loaded
+    ? {
+        title: state.quiz.title,
+        subtitle: state.quiz.subtitle,
+        timer: state.quiz.timer,
+        details: state.quiz.details,
+        sections: state.quiz.sections,
+      }
+    : {}) as Quiz;
+});
 
 // export const selectScore = createSelector(
 //   selectQuizState,

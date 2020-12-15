@@ -17,6 +17,11 @@ export const ANSWER_QUESTION = 'Answer the Question';
 export const ANSWER_SUCCESS = 'Answer Success';
 export const ANSWER_FAIL = 'Answer Fail';
 
+export const QUESTION_SET_INDEX = 'Question Set Index';
+export const QUESTION_BOOKMARK_TOGGLE = 'Question Bookmark Toggle';
+
+export const SECTION_SET_INDEX = 'Section Set Index';
+
 export const GET_SCORE = 'Get Score';
 
 export class GetQuiz implements Action {
@@ -84,6 +89,21 @@ export class GetScore implements Action {
   constructor() {}
 }
 
+export class SetQuestionIndex implements Action {
+  readonly type = QUESTION_SET_INDEX;
+  constructor(public payload: number) {}
+}
+
+export class SetSectionIndex implements Action {
+  readonly type = SECTION_SET_INDEX;
+  constructor(public payload: number) {}
+}
+
+export class BookmarkToggleQuestion implements Action {
+  readonly type = QUESTION_BOOKMARK_TOGGLE;
+  constructor() {}
+}
+
 export type Actions =
   | GetQuestionPrevious
   | GetQuiz
@@ -96,4 +116,7 @@ export type Actions =
   | AnswerQuestion
   | AnswerSuccess
   | AnswerFail
-  | GetScore;
+  | GetScore
+  | SetQuestionIndex
+  | SetSectionIndex
+  | BookmarkToggleQuestion;

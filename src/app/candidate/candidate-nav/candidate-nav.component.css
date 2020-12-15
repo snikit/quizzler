@@ -1,0 +1,26 @@
+.content {
+  padding: 2rem;
+}
+
+.clock {
+  font-size: 2.5rem;
+  color: #f44336;
+}
+
+.session-txt {
+  color: rgba(85, 85, 85, 0.678);
+}
+
+.clock-txt {
+  color: #555;
+  margin-bottom: 0px;
+}
+
+.time-left-txt {
+  font-size: 0.9rem;
+  color: rgba(85, 85, 85, 0.678);
+}
+
+.progress-bar-container {
+  width: 30vw;
+}

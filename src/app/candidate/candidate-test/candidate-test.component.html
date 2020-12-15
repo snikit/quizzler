@@ -21,6 +21,8 @@
         <app-question
           (answerSelect)="onAnswerSelect($event)"
           [question]="question"
+          (bookmarkToggle)="bookmarkToggle($event)"
+          [showBookmark]="allowBookmark"
         ></app-question>
       </div>
     </div>
@@ -35,13 +37,15 @@
     </div>
   </div>
 </div>
-
 <p-sidebar
   [(visible)]="visibleSidebar"
   [fullScreen]="true"
   [baseZIndex]="10000"
 >
   <div class="content">
-    <!-- <app-submission-review></app-submission-review> -->
+    <app-submission-review
+      (cancelClick)="visibleSidebar = !visibleSidebar"
+      (submitClick)="finishSection()"
+    ></app-submission-review>
   </div>
 </p-sidebar>

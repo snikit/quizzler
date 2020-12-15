@@ -11,14 +11,18 @@ import * as reducer from './quiz.reducer';
 export class QuizStoreService {
   question;
 
-  constructor(private store: Store<reducer.QuizStore>) {}
+  constructor(private store: Store<reducer.Store>) {}
 
   getQuiz() {
     this.store.dispatch(new QuizActions.GetQuiz());
   }
 
-  getState() {
+  getQuizState() {
     return this.store.select(reducer.selectQuizState);
+  }
+
+  getQuestionsState() {
+    return this.store.select(reducer.selectQuestionsState);
   }
 
   // postAnswer(answer: Answering) {
@@ -41,6 +45,21 @@ export class QuizStoreService {
     this.store.dispatch(new QuizActions.AnswerQuestion(answer));
   }
 
+  bookmarkToggleQuestion() {
+    this.store.dispatch(new QuizActions.BookmarkToggleQuestion());
+  }
+
+  setCurrentQuestionIndex(index: number) {
+    this.store.dispatch(new QuizActions.SetQuestionIndex(index));
+  }
+  setCurrentSectionIndex(index: number) {
+    this.store.dispatch(new QuizActions.SetSectionIndex(index));
+  }
+
+  get isLastQuestion(): Observable<boolean> {
+    return this.store.select(reducer.selectIsLastQuestion);
+  }
+
   get isQuizLoaded(): Observable<boolean> {
     return this.store.select(reducer.selectIsQuizLoaded);
   }
@@ -49,12 +68,12 @@ export class QuizStoreService {
     return this.store.select(reducer.selectQuizInstructions);
   }
 
-  get quizProgress(): Observable<number> {
-    return this.store.select(reducer.selectQuizProgress);
+  get activeSectionProgress(): Observable<number> {
+    return this.store.select(reducer.selectSectionProgress);
   }
 
   get currentQuestion(): Observable<Question> {
-    return this.store.select(reducer.selectQuestion);
+    return this.store.select(reducer.selectCurrentQuestion);
   }
 
   // get quizStatus(): Observable<boolean> {
@@ -72,4 +91,10 @@ export class QuizStoreService {
   // get quizScore(): Observable<number> {
   //   return this.store.select(reducer.selectScore);
   // }
+
+  get canSkipQuestionsAbiity(): Observable<boolean> {
+    return this.store
+      .select(reducer.selectCanSkipQuestionsAbiity)
+      .pipe(take(1));
+  }
 }

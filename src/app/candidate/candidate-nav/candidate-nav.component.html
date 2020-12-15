@@ -1,7 +1,48 @@
-<app-question-nav
-  *ngIf="isQuizMode"
-  (navReviewButtonClick)="onNavReviewButtonClick()"
-  [quiz]="details"
-  [progress]="progress$ | async"
->
-</app-question-nav>
+<div class="d-flex justify-content-around content" *ngIf="isQuizMode">
+  <div class="p-2">
+    <div class="d-flex flex-column">
+      <h5>{{ details?.title }}</h5>
+      <div class="d-flex justify-content-left">
+        <h5 class="session-txt">{{ details?.subtitle }}</h5>
+      </div>
+    </div>
+  </div>
+  <div class="p-2 pt-3 progress-bar-container">
+    <p-progressBar [value]="(progress$ | async) * 100"></p-progressBar>
+  </div>
+  <div class="p-2">
+    <button
+      *ngIf="canSkip"
+      type="button"
+      (click)="onNavReviewButtonClick()"
+      class="btn btn-danger btn-round"
+    >
+      <span class="p-2">review & submit</span>
+    </button>
+    &nbsp;
+    <button
+      *ngIf="!canSkip"
+      [ngStyle]="{
+        visibility: (isLastQuestion$ | async) ? 'visible' : 'hidden'
+      }"
+      type="button"
+      (click)="finishSection()"
+      class="btn btn-danger btn-round"
+    >
+      <span class="p-2">submit & finish</span>
+    </button>
+  </div>
+  <div>
+    <div class="d-flex flex-row">
+      <div class="p-2 pr-4">
+        <em class="pi pi-clock clock"> </em>
+      </div>
+      <div class="d-flex flex-column">
+        <h5 class="clock-txt">{{ details?.timer }}</h5>
+        <div class="d-flex justify-content-center">
+          <span class="time-left-txt">time left</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

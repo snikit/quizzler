@@ -33,233 +33,191 @@ export const data: Quiz = {
     {
       title: 'Session 1',
       timer: 10,
-      noOfQuestions: 10,
+      canSkipQuestions: false,
       type: 'mcq',
+      questions: [
+        {
+          id: 1,
+          text: 'Quis sit dolor tempor fugiat fugiat culpa qui?',
+          answers: [
+            {
+              Index: 0,
+              text: 'Correct',
+              id: '0',
+            },
+            {
+              Index: 1,
+              text: 'Incorrect',
+              id: '1',
+            },
+            {
+              Index: 2,
+              text: 'Incorrect',
+              id: '2',
+            },
+            {
+              Index: 3,
+              text: 'Incorrect',
+              id: '3',
+            },
+          ],
+          isAnswered: true,
+          userAnswer: { answer: { id: '1' } },
+        },
+        {
+          id: 2,
+          text: 'Culpa ad Lorem nostrud labore officia irure ea aute?',
+          answers: [
+            {
+              Index: 0,
+              text: 'Correct',
+              id: '0',
+            },
+            {
+              Index: 1,
+              text: 'Incorrect',
+              id: '1',
+            },
+            {
+              Index: 2,
+              text: 'Incorrect',
+              id: '2',
+            },
+            {
+              Index: 3,
+              text: 'Incorrect',
+              id: '3',
+            },
+          ],
+        },
+        {
+          id: 3,
+          text: 'Aliquip elit in nostrud cupidatat?',
+          isBookmarked: true,
+          answers: [
+            {
+              Index: 0,
+              text: 'Correct',
+              id: '0',
+            },
+            {
+              Index: 1,
+              text: 'Incorrect',
+              id: '1',
+            },
+            {
+              Index: 2,
+              text: 'Incorrect',
+              id: '2',
+            },
+            {
+              Index: 3,
+              text: 'Incorrect',
+              id: '3',
+            },
+          ],
+        },
+        {
+          id: 4,
+          text: 'Sint reprehenderit aute aliquip excepteur?',
+          answers: [
+            {
+              Index: 0,
+              text: 'Correct',
+              id: '0',
+            },
+            {
+              Index: 1,
+              text: 'Incorrect',
+              id: '1',
+            },
+            {
+              Index: 2,
+              text: 'Incorrect',
+              id: '2',
+            },
+            {
+              Index: 3,
+              text: 'Incorrect',
+              id: '3',
+            },
+          ],
+        },
+      ],
     },
     {
-      title: 'Session 2',
-      timer: 20,
-      noOfQuestions: 20,
-      type: 'mcq',
-    },
-    {
-      title: 'Session 3',
+      title: 'Session 1',
       timer: 10,
-      noOfQuestions: 10,
+      canSkipQuestions: false,
       type: 'mcq',
-    },
-  ],
-
-  questions: [
-    {
-      id: 1,
-      text: 'Quis sit dolor tempor fugiat fugiat culpa qui?',
-      answers: [
+      questions: [
         {
-          Index: 0,
-          text: 'Correct',
-          id: '0',
+          id: 1,
+          text: 'Quis sit dolor tempor fugiat fugiat culpa qui?',
+          answers: [
+            {
+              Index: 0,
+              text: 'Correct',
+              id: '0',
+            },
+            {
+              Index: 1,
+              text: 'Incorrect',
+              id: '1',
+            },
+            {
+              Index: 2,
+              text: 'Incorrect',
+              id: '2',
+            },
+            {
+              Index: 3,
+              text: 'Incorrect',
+              id: '3',
+            },
+          ],
+          isAnswered: true,
+          userAnswer: { answer: { id: '1' } },
         },
         {
-          Index: 1,
-          text: 'Incorrect',
-          id: '1',
-        },
-        {
-          Index: 2,
-          text: 'Incorrect',
-          id: '2',
-        },
-        {
-          Index: 3,
-          text: 'Incorrect',
-          id: '3',
-        },
-      ],
-      isAnswered: true,
-      userAnswer: { answer: { id: '1' } },
-    },
-    {
-      id: 2,
-      text: 'Culpa ad Lorem nostrud labore officia irure ea aute?',
-      answers: [
-        {
-          Index: 0,
-          text: 'Correct',
-          id: '0',
-        },
-        {
-          Index: 1,
-          text: 'Incorrect',
-          id: '1',
-        },
-        {
-          Index: 2,
-          text: 'Incorrect',
-          id: '2',
-        },
-        {
-          Index: 3,
-          text: 'Incorrect',
-          id: '3',
-        },
-      ],
-    },
-    {
-      id: 3,
-      text: 'Aliquip elit in nostrud cupidatat?',
-      answers: [
-        {
-          Index: 0,
-          text: 'Correct',
-          id: '0',
-        },
-        {
-          Index: 1,
-          text: 'Incorrect',
-          id: '1',
-        },
-        {
-          Index: 2,
-          text: 'Incorrect',
-          id: '2',
-        },
-        {
-          Index: 3,
-          text: 'Incorrect',
-          id: '3',
+          id: 2,
+          text: 'Culpa ad Lorem nostrud labore officia irure ea aute?',
+          answers: [
+            {
+              Index: 0,
+              text: 'Correct',
+              id: '0',
+            },
+            {
+              Index: 1,
+              text: 'Incorrect',
+              id: '1',
+            },
+            {
+              Index: 2,
+              text: 'Incorrect',
+              id: '2',
+            },
+            {
+              Index: 3,
+              text: 'Incorrect',
+              id: '3',
+            },
+          ],
         },
       ],
     },
-    {
-      id: 4,
-      text: 'Sint reprehenderit aute aliquip excepteur?',
-      answers: [
-        {
-          Index: 0,
-          text: 'Correct',
-          id: '0',
-        },
-        {
-          Index: 1,
-          text: 'Incorrect',
-          id: '1',
-        },
-        {
-          Index: 2,
-          text: 'Incorrect',
-          id: '2',
-        },
-        {
-          Index: 3,
-          text: 'Incorrect',
-          id: '3',
-        },
-      ],
-    },
-    {
-      id: 5,
-      text: 'Deserunt esse nisi do est in excepteur tempor?',
-      answers: [
-        {
-          Index: 0,
-          text: 'Correct',
-          id: '0',
-        },
-        {
-          Index: 1,
-          text: 'Incorrect',
-          id: '1',
-        },
-        {
-          Index: 2,
-          text: 'Incorrect',
-          id: '2',
-        },
-        {
-          Index: 3,
-          text: 'Incorrect',
-          id: '3',
-        },
-      ],
-    },
-    {
-      id: 6,
-      text: 'Eu ipsum fugiat enim laboris magna velit cillum aliqua?',
-      answers: [
-        {
-          Index: 0,
-          text: 'Correct',
-          id: '0',
-        },
-        {
-          Index: 1,
-          text: 'Incorrect',
-          id: '1',
-        },
-        {
-          Index: 2,
-          text: 'Incorrect',
-          id: '2',
-        },
-        {
-          Index: 3,
-          text: 'Incorrect',
-          id: '3',
-        },
-      ],
-    },
-    {
-      id: 7,
-      text: 'Amet deserunt velit incididunt velit?',
-      answers: [
-        {
-          Index: 0,
-          text: 'Correct',
-          id: '0',
-        },
-        {
-          Index: 1,
-          text: 'Incorrect',
-          id: '1',
-        },
-        {
-          Index: 2,
-          text: 'Incorrect',
-          id: '2',
-        },
-        {
-          Index: 3,
-          text: 'Incorrect',
-          id: '3',
-        },
-      ],
-    },
-    {
-      id: 8,
-      text: 'Nisi consectetur qui nostrud aute quis irure in?',
-      answers: [
-        {
-          Index: 0,
-          text: 'Correct',
-          id: '0',
-        },
-        {
-          Index: 1,
-          text: 'Incorrect',
-          id: '1',
-        },
-        {
-          Index: 2,
-          text: 'Incorrect',
-          id: '2',
-        },
-        {
-          Index: 3,
-          text: 'Incorrect',
-          id: '3',
-        },
-      ],
-    },
+    // {
+    //   title: 'Session 2',
+    //   timer: 20,
+    //   noOfQuestions: 20,
+    //   type: 'mcq',
+    // },
+    // {
+    //   title: 'Session 3',
+    //   timer: 10,
+    //   noOfQuestions: 10,
+    //   type: 'mcq',
+    // },
   ],
 };
