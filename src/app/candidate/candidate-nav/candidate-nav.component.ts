@@ -6,8 +6,8 @@ import {
   Output,
 } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Quiz } from 'src/app/data/model/quiz.model';
-import { QuizStoreService } from 'src/app/store/quiz/quiz.store.service';
+import { Quiz } from 'src/app/@data/model/quiz.model';
+import { QuizStoreService } from 'src/app/@store/quiz/quiz.store.service';
 
 export enum CANDIDATE_NAV_MODES {
   QUIZ_ACTIVE = 'QUIZ_ACTIVE',
@@ -35,7 +35,7 @@ export class CandidateNavComponent implements OnInit {
       (canSkip) => (this.canSkip = canSkip)
     );
 
-    this.isLastQuestion$ = this.quizStore.isLastQuestion;
+    this.isLastQuestion$ = this.quizStore.selectIsLastQuestionAnswered;
   }
 
   ngOnInit(): void {}

@@ -1,4 +1,4 @@
-import { Instruction } from './../../data/model/question.model';
+import { Instruction } from 'src/app/@data/model/question.model';
 import {
   ChangeDetectionStrategy,
   Component,

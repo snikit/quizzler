@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, asyncScheduler, scheduled } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { Quiz, Answering } from 'src/app/data/model/quiz.model';
+import { Quiz, Answering } from 'src/app/@data/model/quiz.model';
 import { data } from './backend/quiz';
 
 @Injectable()

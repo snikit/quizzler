@@ -1,9 +1,9 @@
-import { Quiz } from 'src/app/data/model/quiz.model';
+import { Quiz } from 'src/app/@data/model/quiz.model';
 
 export const data: Quiz = {
   id: 0,
-  title: 'MCT Quiz',
-  subtitle: 'Level 1',
+  title: 'MCT Info Quiz',
+  subtitle: 'Sr Engineer Level 1 ',
   timer: 30,
   details: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed
   consequuntur error repudiandae numquam deserunt quisquam repellat libero

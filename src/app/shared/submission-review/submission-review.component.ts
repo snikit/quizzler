@@ -1,4 +1,4 @@
-import { Question } from 'src/app/data/model/quiz.model';
+import { Question } from 'src/app/@data/model/quiz.model';
 import {
   Component,
   OnInit,
@@ -7,7 +7,7 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { Observable } from 'rxjs';
-import { QuizStoreService } from 'src/app/store/quiz/quiz.store.service';
+import { QuizStoreService } from 'src/app/@store/quiz/quiz.store.service';
 
 @Component({
   selector: 'app-submission-review',

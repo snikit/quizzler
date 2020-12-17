@@ -7,10 +7,10 @@ import {
 } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
-import { Question, QuestionAnswer, Quiz } from 'src/app/data/model/quiz.model';
-import { RootMsgService } from 'src/app/data/services/root.msg.service';
-import { QuizStoreService } from 'src/app/store/quiz/quiz.store.service';
-import { RootAnimateService } from 'src/app/data/services/root.animate.service';
+import { Question, QuestionAnswer, Quiz } from 'src/app/@data/model/quiz.model';
+import { RootMsgService } from 'src/app/@data/services/root.msg.service';
+import { QuizStoreService } from 'src/app/@store/quiz/quiz.store.service';
+import { RootAnimateService } from 'src/app/@data/services/root.animate.service';
 import { CANDIDATE_NAV_MODES } from '../candidate-nav/candidate-nav.component';
 
 @Component({

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Quiz } from 'src/app/data/model/quiz.model';
-import { QuizStoreService } from 'src/app/store/quiz/quiz.store.service';
+import { Quiz } from 'src/app/@data/model/quiz.model';
+import { QuizStoreService } from 'src/app/@store/quiz/quiz.store.service';
 
 @Component({
   templateUrl: './candidate-test-details.component.html',

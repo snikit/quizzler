@@ -11,7 +11,7 @@ import { CandidateTestComponent } from './candidate-test/candidate-test.componen
 import { CandidateComponent } from './candidate.component';
 import { CandidateIdPhotoComponent } from './candidate-registration/screens/candidate-id-photo/candidate-id-photo.component';
 import { CandidatePhotoComponent } from './candidate-registration/screens/candidate-photo/candidate-photo.component';
-import { QuizRouteGuardService } from './core/guards/quiz.guard.service';
+import { QuizRouteGuardService } from './@core/guards/quiz.guard.service';
 import { SectionLanderComponent } from './section/section-lander/section-lander.component';
 
 const routes: Routes = [

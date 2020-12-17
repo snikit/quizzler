@@ -43,3 +43,7 @@ body {
 .theme-color {
   color: #f44336;
 }
+
+.stretch {
+  min-height: 100vh;
+}

@@ -10,7 +10,7 @@ import {
   Answer,
   Question,
   QuestionAnswer,
-} from 'src/app/data/model/quiz.model';
+} from 'src/app/@data/model/quiz.model';
 
 @Component({
   selector: 'app-question',

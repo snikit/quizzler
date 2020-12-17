@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { QuizStoreService } from 'src/app/store/quiz/quiz.store.service';
+import { Observable, asyncScheduler, scheduled } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { QuizStoreService } from 'src/app/@store/quiz/quiz.store.service';
 
 @Injectable()
 export class QuizRouteGuardService implements CanActivate {
@@ -17,6 +17,9 @@ export class QuizRouteGuardService implements CanActivate {
           this.router.navigate(['/candidate']);
           return false;
         }
+      }),
+      catchError((err) => {
+        return scheduled([false], asyncScheduler);
       })
     );
   }

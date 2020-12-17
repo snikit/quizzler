@@ -1,6 +1,7 @@
+import { Section } from './../../@data/model/quiz.model';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { cloneDeep } from 'lodash';
-import { Quiz, Question, Details } from 'src/app/data/model/quiz.model';
+import { Quiz, Question, Details } from 'src/app/@data/model/quiz.model';
 import * as QuizActions from './quiz.actions';
 
 export const QuizFeatureToken = 'quiz';
@@ -174,10 +175,6 @@ export function reducer(
 
 export const selectState = createFeatureSelector<State>(QuizFeatureToken);
 
-export const selectQuizState = createSelector(selectState, (state: State) => {
-  return state.quiz;
-});
-
 export const selectQuestionsState = createSelector(
   selectState,
   (state: State) => {
@@ -210,6 +207,13 @@ export const selectIsLastQuestion = createSelector(
   }
 );
 
+export const selectIsLastQuestionAnswered = createSelector(
+  selectCurrentQuestion,
+  (question: Question) => {
+    return question.isLast && question.isAnswered;
+  }
+);
+
 export const selectSectionProgress = createSelector(
   selectState,
   (state: State) => {
@@ -227,22 +231,20 @@ export const selectSectionProgress = createSelector(
 //   (state: State) => state.answers
 // );
 
+export const selectQuizState = createSelector(selectState, (state: State) => {
+  return state.loaded ? state.quiz : {};
+});
+
 export const selectQuizInstructions = createSelector(
-  selectState,
-  (state: State) => state.quiz.instruction
+  selectQuizState,
+  (quiz: Quiz) => quiz.instruction
 );
+
+// quiz -----
 
 export const selectIsQuizLoaded = createSelector(
   selectState,
   (state: State) => state.loaded
-);
-
-export const selectCanSkipQuestionsAbiity = createSelector(
-  selectState,
-  (state: State) =>
-    state.loaded
-      ? state.quiz.sections[state.currentSectionIndex].canSkipQuestions
-      : false
 );
 
 export const selectQuizDetails = createSelector(selectState, (state: State) => {
@@ -257,20 +259,32 @@ export const selectQuizDetails = createSelector(selectState, (state: State) => {
     : {}) as Quiz;
 });
 
-// export const selectScore = createSelector(
-//   selectQuizState,
-//   (state: State) =>
-//     state.answers
-//       .map((answer) => answer.answerIndex)
-//       .filter((index) => index === 0).length
-// );
-
 // section -----
 
-export const selectSectionDetails = createSelector(
+export const selectCurrentSectionIndex = createSelector(
   selectState,
-  (state: State) => {
-    const { title, subtitle } = state.quiz.sections[state.currentSectionIndex];
+  (state: State) => state.currentSectionIndex
+);
+
+export const selectCurrentSection = createSelector(
+  selectIsQuizLoaded,
+  selectQuizState,
+  selectCurrentSectionIndex,
+  (loaded: boolean, quiz: Quiz, currentSectionIndex: number) =>
+    loaded ? quiz.sections[currentSectionIndex] : {}
+);
+
+export const selectSectionDetails = createSelector(
+  selectCurrentSection,
+  (section: Section) => {
+    const { title, subtitle } = section;
     return { title, subtitle } as Details;
   }
+);
+
+// abilities -----
+
+export const selectCanSkipQuestionsAbiity = createSelector(
+  selectCurrentSection,
+  (section: Section) => section.canSkipQuestions
 );

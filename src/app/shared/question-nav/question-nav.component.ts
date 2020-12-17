@@ -6,7 +6,7 @@ import {
   Output,
   EventEmitter,
 } from '@angular/core';
-import { Quiz } from 'src/app/data/model/quiz.model';
+import { Quiz } from 'src/app/@data/model/quiz.model';
 
 @Component({
   selector: 'app-question-nav',

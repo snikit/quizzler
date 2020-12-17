@@ -4,7 +4,7 @@ import { Actions, createEffect, Effect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
-import { Question } from 'src/app/data/model/quiz.model';
+import { Question } from 'src/app/@data/model/quiz.model';
 import * as QuizActions from './quiz.actions';
 import * as reducer from './quiz.reducer';
 import { QuizService } from './quiz.service';
@@ -38,7 +38,7 @@ export class QuizEffects {
   getQuizSuccess$: Observable<Action> = this.actions$.pipe(
     ofType(QuizActions.GET_QUIZ_SUCCESS),
     map(() => {
-      this.router.navigateByUrl('candidate/test/section'); // start //instructions
+      this.router.navigateByUrl('candidate/test/section'); // start //instructions //section
       return new QuizActions.GetQuestion();
     })
   );

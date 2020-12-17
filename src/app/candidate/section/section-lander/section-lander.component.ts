@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
-import { Details } from 'src/app/data/model/quiz.model';
-import { QuizStoreService } from 'src/app/store/quiz/quiz.store.service';
+import { Details } from 'src/app/@data/model/quiz.model';
+import { QuizStoreService } from 'src/app/@store/quiz/quiz.store.service';
 
 @Component({
   selector: 'app-section-lander',

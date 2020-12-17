@@ -4,7 +4,7 @@ import {
   ChangeDetectionStrategy,
   Input,
 } from '@angular/core';
-import { Question, Quiz } from 'src/app/data/model/quiz.model';
+import { Question, Quiz } from 'src/app/@data/model/quiz.model';
 
 @Component({
   selector: 'app-questioner',

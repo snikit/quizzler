@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { Instruction } from 'src/app/data/model/question.model';
+import { Instruction } from 'src/app/@data/model/question.model';
 import {
   Details,
   Question,
   QuestionAnswer,
   Quiz,
-} from 'src/app/data/model/quiz.model';
+} from 'src/app/@data/model/quiz.model';
 import * as QuizActions from './quiz.actions';
 import * as reducer from './quiz.reducer';
 
@@ -63,6 +63,10 @@ export class QuizStoreService {
 
   get isLastQuestion(): Observable<boolean> {
     return this.store.select(reducer.selectIsLastQuestion);
+  }
+
+  get selectIsLastQuestionAnswered(): Observable<boolean> {
+    return this.store.select(reducer.selectIsLastQuestionAnswered);
   }
 
   get isQuizLoaded(): Observable<boolean> {
