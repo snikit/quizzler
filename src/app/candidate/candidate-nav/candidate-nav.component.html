@@ -11,19 +11,18 @@
     <p-progressBar [value]="(progress$ | async) * 100"></p-progressBar>
   </div>
   <div class="p-2">
-    <button
+    <!-- <button
       *ngIf="canSkip"
       type="button"
       (click)="onNavReviewButtonClick()"
       class="btn btn-danger btn-round"
     >
       <span class="p-2">review & submit</span>
-    </button>
+    </button> -->
     &nbsp;
     <button
-      *ngIf="!canSkip"
       [ngStyle]="{
-        visibility: (isLastQuestion$ | async) ? 'visible' : 'hidden'
+        visibility: question.isLast ? 'visible' : 'hidden'
       }"
       type="button"
       (click)="finishSection()"

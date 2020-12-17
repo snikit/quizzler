@@ -50,6 +50,12 @@ export class QuizStoreService {
     this.store.dispatch(new QuizActions.AnswerQuestion(answer));
   }
 
+  postAnswer(questionIndex: number, sectionIndex: number) {
+    this.store.dispatch(
+      new QuizActions.PostAnswer(questionIndex, sectionIndex)
+    );
+  }
+
   bookmarkToggleQuestion() {
     this.store.dispatch(new QuizActions.BookmarkToggleQuestion());
   }

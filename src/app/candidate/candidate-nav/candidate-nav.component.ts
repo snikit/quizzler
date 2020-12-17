@@ -1,12 +1,14 @@
+import { first, takeUntil } from 'rxjs/operators';
 import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
+  OnDestroy,
   OnInit,
   Output,
 } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Quiz } from 'src/app/@data/model/quiz.model';
+import { Observable, Subject } from 'rxjs';
+import { Question, Quiz } from 'src/app/@data/model/quiz.model';
 import { QuizStoreService } from 'src/app/@store/quiz/quiz.store.service';
 
 export enum CANDIDATE_NAV_MODES {
@@ -18,37 +20,43 @@ export enum CANDIDATE_NAV_MODES {
   styleUrls: ['./candidate-nav.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CandidateNavComponent implements OnInit {
+export class CandidateNavComponent implements OnInit, OnDestroy {
   details: Quiz;
   canSkip = false;
-  isLastQuestion$: Observable<boolean>;
-
-  @Output()
-  navReviewButtonClick = new EventEmitter();
-
+  question: Question;
+  destroy$: Subject<{}> = new Subject(); // Managing Unsubscription
   progress$: Observable<number>;
 
   constructor(private quizStore: QuizStoreService) {
-    this.quizStore.quizDetails.subscribe((details) => (this.details = details));
+    this.quizStore.quizDetails
+      .pipe(first())
+      .subscribe((details) => (this.details = details));
     this.progress$ = this.quizStore.activeSectionProgress;
-    this.quizStore.canSkipQuestionsAbiity.subscribe(
-      (canSkip) => (this.canSkip = canSkip)
-    );
+    // this.quizStore.canSkipQuestionsAbiity.subscribe(
+    //   (canSkip) => (this.canSkip = canSkip)
+    // );
 
-    this.isLastQuestion$ = this.quizStore.selectIsLastQuestionAnswered;
+    // this.isLastQuestion$ = this.quizStore.selectIsLastQuestionAnswered;
+
+    this.quizStore.currentQuestion
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((q) => (this.question = q));
   }
 
   ngOnInit(): void {}
-
-  onNavReviewButtonClick() {
-    this.navReviewButtonClick.emit();
-  }
 
   get isQuizMode() {
     return true;
   }
 
   finishSection() {
+    this.quizStore.postAnswer(this.question.index, this.question.sectionIndex);
+    // this.quizStore.
     console.log('finish section');
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.unsubscribe();
   }
 }

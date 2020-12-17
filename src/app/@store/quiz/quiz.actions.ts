@@ -14,6 +14,9 @@ export const GET_QUESTION_NEXT = 'Get Question Next';
 export const GET_QUESTION_PREVIOUS = 'Get Question Previous';
 
 export const ANSWER_QUESTION = 'Answer the Question';
+export const POST_ANSWER = 'Post the Question';
+export const POST_ANSWER_RESULT = 'Post the Question [Result]';
+
 export const ANSWER_SUCCESS = 'Answer Success';
 export const ANSWER_FAIL = 'Answer Fail';
 
@@ -74,6 +77,20 @@ export class AnswerQuestion implements Action {
   constructor(public payload: QuestionAnswer) {}
 }
 
+export class PostAnswer implements Action {
+  readonly type = POST_ANSWER;
+  constructor(public questionIndex: number, public sectionIndex: number) {}
+}
+
+export class PostAnswerResult implements Action {
+  readonly type = POST_ANSWER_RESULT;
+  constructor(
+    public questionIndex: number,
+    public sectionIndex: number,
+    public isSuccess: boolean
+  ) {}
+}
+
 export class AnswerSuccess implements Action {
   readonly type = ANSWER_SUCCESS;
   constructor(public payload: Answering) {}
@@ -113,6 +130,8 @@ export type Actions =
   | GetQuestion
   | GetQuestionSuccess
   | GetQuestionFail
+  | PostAnswer
+  | PostAnswerResult
   | AnswerQuestion
   | AnswerSuccess
   | AnswerFail

@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect, Effect, ofType } from '@ngrx/effects';
-import { Action, Store } from '@ngrx/store';
+import { Action, select, Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
-import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
+import {
+  catchError,
+  map,
+  switchMap,
+  take,
+  withLatestFrom,
+} from 'rxjs/operators';
 import { Question } from 'src/app/@data/model/quiz.model';
 import * as QuizActions from './quiz.actions';
 import * as reducer from './quiz.reducer';
@@ -83,6 +89,60 @@ export class QuizEffects {
       // this.router.navigateByUrl(payload ? 'quiz/score' : 'quiz');
     })
   );
+
+  @Effect()
+  postAnswer$ = this.actions$.pipe(
+    ofType(QuizActions.POST_ANSWER),
+    switchMap((action: { questionIndex: number; sectionIndex: number }) => {
+      return this.store.pipe(
+        select(reducer.selectQuestion, {
+          questionIndex: action.questionIndex,
+          sectionIndex: action.sectionIndex,
+        }),
+        take(1)
+      );
+    }),
+
+    switchMap((question) => {
+      return this.quizService.postAnswer(question as any).pipe(
+        map(
+          () =>
+            new QuizActions.PostAnswerResult(
+              question.index,
+              question.sectionIndex,
+              true
+            )
+        ),
+        catchError(() =>
+          of(
+            new QuizActions.PostAnswerResult(
+              question.index,
+              question.sectionIndex,
+              false
+            )
+          )
+        )
+      );
+    })
+
+    // map(([action, question]) => {
+    //   console.log(question);
+  );
+
+  // @Effect({ dispatch: false })
+  // postAnswer$ = this.actions$.pipe(
+  //   ofType(QuizActions.POST_ANSWER),
+  //   withLatestFrom(this.store),
+  //   map(([action, store]) => {
+  //     const state = store.quiz;
+  //     const section = state.quiz.sections[state.currentSectionIndex];
+  //     const currentQuestion = section.questions[state.currentQuestionIndex];
+
+  //     console.log(currentQuestion);
+
+  //     this.quizService.postAnswer(currentQuestion as any);
+  //   })
+  // );
 
   // @Effect()
   // answer$ = this.actions$.pipe(

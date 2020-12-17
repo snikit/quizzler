@@ -36,7 +36,7 @@ export class CandidateTestComponent implements OnInit, OnDestroy {
     private messageService: RootMsgService,
     private animateService: RootAnimateService
   ) {
-    this.storeState$ = this.quizStore.getQuizState();
+    this.storeState$ = this.quizStore.getQuestionsState();
 
     this.quizStore.quizDetails.subscribe((details) => (this.details = details));
 
@@ -54,24 +54,28 @@ export class CandidateTestComponent implements OnInit, OnDestroy {
   visibleSidebar = false;
 
   onNavReviewButtonClick(): void {
-    console.log('nowhere');
     this.visibleSidebar = !this.visibleSidebar;
   }
 
   nextQuestion() {
-    if (!this.canSkip && !this.question.isAnswered) {
-      this.warnCannotSkip();
-      return;
-    } else {
-      this.quizStore.nextQuestion();
-      this.animateService.fadeInRight(this.questionDiv);
-    }
+    // if (!this.canSkip && !this.question.isAnswered) {
+    //   this.warnCannotSkip();
+    //   return;
+    // } else {
+    this.postAnswer();
+    this.quizStore.nextQuestion();
+    this.animateService.fadeInRight(this.questionDiv);
+    // }
   }
 
-  previousQuestion() {
-    this.quizStore.previousQuestion();
-    this.animateService.fadeInLeft(this.questionDiv);
+  private postAnswer() {
+    this.quizStore.postAnswer(this.question.index, this.question.sectionIndex);
   }
+
+  // previousQuestion() {
+  //   this.quizStore.previousQuestion();
+  //   this.animateService.fadeInLeft(this.questionDiv);
+  // }
 
   ngOnDestroy() {
     this.destroy$.next();
@@ -86,10 +90,6 @@ export class CandidateTestComponent implements OnInit, OnDestroy {
   warnCannotSkip() {
     this.animateService.shakeX(this.questionDiv);
     this.messageService.showError('Cannot Skip', 'Please mark an answer !');
-  }
-
-  finishSection() {
-    console.log('finishSection');
   }
 
   bookmarkToggle(isMarked: boolean) {

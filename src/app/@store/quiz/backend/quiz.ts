@@ -62,8 +62,6 @@ export const data: Quiz = {
               id: '3',
             },
           ],
-          isAnswered: true,
-          userAnswer: { answer: { id: '1' } },
         },
         {
           id: 2,

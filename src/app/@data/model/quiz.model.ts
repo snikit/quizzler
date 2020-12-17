@@ -17,6 +17,7 @@ export interface Quiz {
 
 export interface Question {
   index?: number;
+  sectionIndex?: number;
   isFirst?: boolean;
   isLast?: boolean;
   id: number;
@@ -24,6 +25,7 @@ export interface Question {
   answers: Answer[];
   isAnswered?: boolean;
   isBookmarked?: boolean;
+  isPosted?: boolean;
   userAnswer?: QuestionAnswer;
 }
 
