@@ -116,44 +116,18 @@ export const data: Quiz = {
             },
           ],
         },
-        {
-          id: 4,
-          text: 'Sint reprehenderit aute aliquip excepteur?',
-          answers: [
-            {
-              Index: 0,
-              text: 'Correct',
-              id: '0',
-            },
-            {
-              Index: 1,
-              text: 'Incorrect',
-              id: '1',
-            },
-            {
-              Index: 2,
-              text: 'Incorrect',
-              id: '2',
-            },
-            {
-              Index: 3,
-              text: 'Incorrect',
-              id: '3',
-            },
-          ],
-        },
       ],
     },
     {
-      title: 'Session 1',
-      subtitle: 'lorem ipsoum sit dolor tempor fugiat fugiat culpa qui',
+      title: 'Section 2',
+      subtitle: 'Database (SQL)',
       timer: 10,
       canSkipQuestions: false,
       type: 'mcq',
       questions: [
         {
           id: 1,
-          text: 'Quis sit dolor tempor fugiat fugiat culpa qui?',
+          text: 'Quis sit dolor tempor fugiat fugiat culpa qui SQL?',
           answers: [
             {
               Index: 0,
@@ -176,12 +150,10 @@ export const data: Quiz = {
               id: '3',
             },
           ],
-          isAnswered: true,
-          userAnswer: { answer: { id: '1' } },
         },
         {
           id: 2,
-          text: 'Culpa ad Lorem nostrud labore officia irure ea aute?',
+          text: 'Culpa ad Lorem nostrud labore officia irure ea aute SQL ?',
           answers: [
             {
               Index: 0,

@@ -1,15 +1,15 @@
-import { first, takeUntil } from 'rxjs/operators';
+import { Section } from './../../@data/model/quiz.model';
 import {
   ChangeDetectionStrategy,
   Component,
-  EventEmitter,
   OnDestroy,
   OnInit,
-  Output,
 } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { first, takeUntil } from 'rxjs/operators';
 import { Question, Quiz } from 'src/app/@data/model/quiz.model';
 import { QuizStoreService } from 'src/app/@store/quiz/quiz.store.service';
+import { QuizService } from 'src/app/@store/quiz/quiz.service';
 
 export enum CANDIDATE_NAV_MODES {
   QUIZ_ACTIVE = 'QUIZ_ACTIVE',
@@ -21,17 +21,22 @@ export enum CANDIDATE_NAV_MODES {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CandidateNavComponent implements OnInit, OnDestroy {
-  details: Quiz;
+  details: Section;
   canSkip = false;
   question: Question;
   destroy$: Subject<{}> = new Subject(); // Managing Unsubscription
   progress$: Observable<number>;
 
-  constructor(private quizStore: QuizStoreService) {
-    this.quizStore.quizDetails
+  constructor(
+    private quizStore: QuizStoreService,
+    private quizService: QuizService
+  ) {
+    this.quizStore.sectionDetails
       .pipe(first())
       .subscribe((details) => (this.details = details));
-    this.progress$ = this.quizStore.activeSectionProgress;
+    this.progress$ = this.quizStore.activeSectionProgress.pipe(
+      takeUntil(this.destroy$)
+    );
     // this.quizStore.canSkipQuestionsAbiity.subscribe(
     //   (canSkip) => (this.canSkip = canSkip)
     // );
@@ -51,7 +56,10 @@ export class CandidateNavComponent implements OnInit, OnDestroy {
 
   finishSection() {
     this.quizStore.postAnswer(this.question.index, this.question.sectionIndex);
-    // this.quizStore.
+
+    // this.quizService.syncSection(this.question.sectionIndex);
+    // this.quizStore.makeQuizProgress();
+
     console.log('finish section');
   }
 

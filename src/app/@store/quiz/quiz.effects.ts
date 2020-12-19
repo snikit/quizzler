@@ -1,3 +1,4 @@
+import { Section, Quiz } from './../../@data/model/quiz.model';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect, Effect, ofType } from '@ngrx/effects';
@@ -6,6 +7,7 @@ import { Observable, of } from 'rxjs';
 import {
   catchError,
   map,
+  mergeMap,
   switchMap,
   take,
   withLatestFrom,
@@ -14,6 +16,7 @@ import { Question } from 'src/app/@data/model/quiz.model';
 import * as QuizActions from './quiz.actions';
 import * as reducer from './quiz.reducer';
 import { QuizService } from './quiz.service';
+import { flatMap } from 'lodash';
 
 @Injectable()
 export class QuizEffects {
@@ -129,6 +132,45 @@ export class QuizEffects {
     //   console.log(question);
   );
 
+  @Effect()
+  postAnswerResult$ = this.actions$.pipe(
+    ofType(QuizActions.POST_ANSWER_RESULT),
+    withLatestFrom(this.store),
+    map(([action, store]) => {
+      let actionPayload = action as {
+        sectionIndex: number;
+        questionIndex: number;
+      };
+
+      const questions =
+        store.quiz.quiz.sections[actionPayload.sectionIndex].questions;
+      return {
+        isLastQuestion: questions.length == actionPayload.questionIndex + 1,
+        sectionIndex: actionPayload.sectionIndex,
+      };
+    }),
+    switchMap(({ isLastQuestion, sectionIndex }) => {
+      if (isLastQuestion) {
+        return [
+          new QuizActions.SectionComplete(sectionIndex),
+          new QuizActions.MakeQuizProgress(),
+        ];
+      } else {
+        return [new QuizActions.GetQuestionNext(true)];
+      }
+    })
+  );
+
+  // @Effect({dispatch : false})
+  // quizProgressSectionalSync$ = this.actions$.pipe(
+  //   ofType(QuizActions.MAKE_QUIZ_PROGRESS),
+  //   withLatestFrom(this.store),
+  //   map(([action, store]) => {
+  //     const sections = store.quiz.quiz.sections.length;
+
+  //   })
+  // );
+
   // @Effect({ dispatch: false })
   // postAnswer$ = this.actions$.pipe(
   //   ofType(QuizActions.POST_ANSWER),
@@ -171,9 +213,53 @@ export class QuizEffects {
   //   })
   // );
 
-  // @Effect()
-  // answerFailed$ = this.actions$.pipe(
-  //   ofType(QuizActions.ANSWER_FAIL),
-  //   map(() => new QuizActions.GetQuestion())
-  // );
+  @Effect()
+  quizProgress$ = this.actions$.pipe(
+    ofType(QuizActions.MAKE_QUIZ_PROGRESS),
+    withLatestFrom(this.store),
+    map(([action, store]) => {
+      const sections = store.quiz.quiz.sections.length;
+
+      if (store.quiz.currentSectionIndex + 1 < sections) {
+        this.router.navigateByUrl('candidate/test/section');
+        return new QuizActions.MakeQuizProgress_OnSection();
+      } else {
+        this.router.navigateByUrl('candidate/test/done');
+        return new QuizActions.QuizComplete();
+      }
+    })
+  );
+
+  @Effect({ dispatch: false })
+  quizComplete$ = this.actions$.pipe(
+    ofType(QuizActions.QUIZ_COMPLETE),
+    withLatestFrom(this.store),
+    switchMap(([action, store]) => {
+      return this.quizService.syncQuiz(store.quiz.quiz);
+    })
+  );
+
+  @Effect({ dispatch: false })
+  sectionComplete$ = this.actions$.pipe(
+    ofType(QuizActions.SECTION_COMPLETE),
+    switchMap((sectionIndex: number) => {
+      return this.store.pipe(
+        select(reducer.selectSectionByIndex, {
+          sectionIndex: sectionIndex,
+        }),
+        take(1)
+      );
+    }),
+
+    switchMap((section) => {
+      return this.quizService.syncSection(section as Section);
+      // .pipe(
+      //   map(() => new QuizActions.MakeQuizProgress_OnSection()),
+      //   catchError(() => of(new QuizActions.MakeQuizProgress_OnSection()))
+      // );
+    })
+
+    // map(([action, question]) => {
+    //   console.log(question);
+  );
 }

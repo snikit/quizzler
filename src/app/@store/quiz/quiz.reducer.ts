@@ -12,6 +12,7 @@ export interface Store {
 
 export interface State {
   loaded: boolean;
+  loading: boolean;
   quiz: Quiz;
   currentQuestionIndex: number;
   currentSectionIndex: number;
@@ -19,6 +20,7 @@ export interface State {
 
 const initialState: State = {
   loaded: false,
+  loading: false,
   quiz: null,
   currentQuestionIndex: 0,
   currentSectionIndex: 0,
@@ -133,6 +135,28 @@ export function reducer(
     //     answers: state.answers.sort((a, b) => a.questionId - b.questionId), // sorting answers before showing score
     //   };
     // }
+
+    case QuizActions.MAKE_QUIZ_PROGRESS: {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+
+    case QuizActions.MAKE_QUIZ_PROGRESS_ON_SECTION: {
+      return {
+        ...state,
+        loading: false,
+        currentSectionIndex: state.currentSectionIndex + 1,
+        currentQuestionIndex: 0,
+      };
+    }
+
+    case QuizActions.MAKE_QUIZ_PROGRESS_ON_SCORE: {
+      return {
+        ...state,
+      };
+    }
 
     case QuizActions.SECTION_SET_INDEX: {
       return {
@@ -294,6 +318,18 @@ export const selectCurrentSectionIndex = createSelector(
   (state: State) => state.currentSectionIndex
 );
 
+export const selectSectionByIndex = createSelector(
+  selectIsQuizLoaded,
+  selectQuizState,
+  (
+    loaded: boolean,
+    quiz: Quiz,
+    props: {
+      sectionIndex: number;
+    }
+  ) => (loaded ? quiz.sections[props.sectionIndex] : {})
+);
+
 export const selectCurrentSection = createSelector(
   selectIsQuizLoaded,
   selectQuizState,
@@ -305,8 +341,8 @@ export const selectCurrentSection = createSelector(
 export const selectSectionDetails = createSelector(
   selectCurrentSection,
   (section: Section) => {
-    const { title, subtitle } = section;
-    return { title, subtitle } as Details;
+    const { title, subtitle, timer } = section;
+    return { title, subtitle } as Section;
   }
 );
 

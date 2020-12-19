@@ -5,6 +5,11 @@ import { QuestionAnswer } from 'src/app/@data/model/quiz.model';
 export const GET_QUIZ = 'Get Quiz';
 export const GET_QUIZ_SUCCESS = 'Get Quiz Success';
 export const GET_QUIZ_FAIL = 'Get Quiz Fail';
+export const QUIZ_COMPLETE = 'Quiz Completed';
+
+export const MAKE_QUIZ_PROGRESS = 'Make Quiz Progress';
+export const MAKE_QUIZ_PROGRESS_ON_SECTION = 'Make Quiz Progress [on section]';
+export const MAKE_QUIZ_PROGRESS_ON_SCORE = 'Make Quiz Progress [on score]';
 
 export const GET_QUESTION = 'Get Question from Quiz';
 export const GET_QUESTION_SUCCESS = 'Get Question Success';
@@ -24,6 +29,7 @@ export const QUESTION_SET_INDEX = 'Question Set Index';
 export const QUESTION_BOOKMARK_TOGGLE = 'Question Bookmark Toggle';
 
 export const SECTION_SET_INDEX = 'Section Set Index';
+export const SECTION_COMPLETE = 'Section Complete';
 
 export const GET_SCORE = 'Get Score';
 
@@ -39,6 +45,21 @@ export class GetQuizSuccess implements Action {
 
 export class GetQuizFail implements Action {
   readonly type = GET_QUIZ_FAIL;
+  constructor() {}
+}
+
+export class MakeQuizProgress implements Action {
+  readonly type = MAKE_QUIZ_PROGRESS;
+  constructor() {}
+}
+
+export class MakeQuizProgress_OnSection implements Action {
+  readonly type = MAKE_QUIZ_PROGRESS_ON_SECTION;
+  constructor() {}
+}
+
+export class MakeQuizProgress_OnScore implements Action {
+  readonly type = MAKE_QUIZ_PROGRESS_ON_SCORE;
   constructor() {}
 }
 
@@ -116,6 +137,16 @@ export class SetSectionIndex implements Action {
   constructor(public payload: number) {}
 }
 
+export class SectionComplete implements Action {
+  readonly type = SECTION_COMPLETE;
+  constructor(public payload: number) {}
+}
+
+export class QuizComplete implements Action {
+  readonly type = QUIZ_COMPLETE;
+  constructor() {}
+}
+
 export class BookmarkToggleQuestion implements Action {
   readonly type = QUESTION_BOOKMARK_TOGGLE;
   constructor() {}
@@ -124,9 +155,13 @@ export class BookmarkToggleQuestion implements Action {
 export type Actions =
   | GetQuestionPrevious
   | GetQuiz
+  | QuizComplete
   | GetQuestionNext
   | GetQuizSuccess
   | GetQuizFail
+  | MakeQuizProgress
+  | MakeQuizProgress_OnSection
+  | MakeQuizProgress_OnScore
   | GetQuestion
   | GetQuestionSuccess
   | GetQuestionFail
@@ -138,4 +173,5 @@ export type Actions =
   | GetScore
   | SetQuestionIndex
   | SetSectionIndex
+  | SectionComplete
   | BookmarkToggleQuestion;

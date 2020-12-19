@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, asyncScheduler, scheduled } from 'rxjs';
+import { asyncScheduler, Observable, scheduled } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { Quiz, Answering } from 'src/app/@data/model/quiz.model';
+import { Answering, Section, Quiz } from 'src/app/@data/model/quiz.model';
 import { data } from './backend/quiz';
 
 @Injectable()
@@ -17,5 +17,13 @@ export class QuizService {
 
   postAnswer(answer: Answering): Observable<any> {
     return this.http.post('/answer', answer);
+  }
+
+  syncSection(section: Section) {
+    return this.http.post('/section', section);
+  }
+
+  syncQuiz(quiz: Quiz) {
+    return this.http.post('/quiz', quiz);
   }
 }

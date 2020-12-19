@@ -1,3 +1,4 @@
+import { CandidateTestDoneComponent } from './candidate-test-done/candidate-test-done.component';
 import { CandiddateDetailsComponent } from './candidate-registration/screens/candiddate-details/candiddate-details.component';
 import { CandidateRegistrationComponent } from './candidate-registration/candidate-registration.component';
 import { CandidateTestHomeComponent } from './candidate-test-home/candidate-test-home.component';
@@ -29,6 +30,7 @@ const routes: Routes = [
     component: CandidateTestHomeComponent,
     canActivate: [QuizRouteGuardService],
     children: [
+      { path: 'done', component: CandidateTestDoneComponent }, //auth guard test is done
       { path: 'section', component: SectionLanderComponent },
       { path: 'start', component: CandidateTestComponent },
       { path: 'details', component: CandidateTestDetailsComponent },

@@ -36,7 +36,9 @@ export class CandidateTestComponent implements OnInit, OnDestroy {
     private messageService: RootMsgService,
     private animateService: RootAnimateService
   ) {
-    this.storeState$ = this.quizStore.getQuestionsState();
+    this.storeState$ = this.quizStore
+      .getQuestionsState()
+      .pipe(takeUntil(this.destroy$));
 
     this.quizStore.quizDetails.subscribe((details) => (this.details = details));
 
@@ -63,7 +65,7 @@ export class CandidateTestComponent implements OnInit, OnDestroy {
     //   return;
     // } else {
     this.postAnswer();
-    this.quizStore.nextQuestion();
+    // this.quizStore.nextQuestion();
     this.animateService.fadeInRight(this.questionDiv);
     // }
   }

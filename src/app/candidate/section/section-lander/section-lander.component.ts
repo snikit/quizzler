@@ -14,7 +14,10 @@ export class SectionLanderComponent implements OnInit {
 
   constructor(private quizStore: QuizStoreService, private router: Router) {
     this.quizStore.sectionDetails.subscribe((details) => {
-      this.details = details;
+      this.details = {
+        title: details.title,
+        subtitle: details.subtitle,
+      };
     });
   }
 

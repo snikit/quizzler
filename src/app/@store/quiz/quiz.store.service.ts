@@ -1,3 +1,4 @@
+import { Section } from './../../@data/model/quiz.model';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -113,7 +114,11 @@ export class QuizStoreService {
       .pipe(take(1));
   }
 
-  get sectionDetails(): Observable<Details> {
+  get sectionDetails(): Observable<Section> {
     return this.store.select(reducer.selectSectionDetails).pipe(take(1));
+  }
+
+  makeQuizProgress() {
+    this.store.dispatch(new QuizActions.MakeQuizProgress());
   }
 }
