@@ -1,0 +1,38 @@
+<div
+  class="d-flex h-100 flex-column mb-3"
+  #sidenav
+  id="sidenav"
+  [@changeTabSize]="navState"
+>
+  <div class="sidenav-content">
+    <div class="p-2 collapser">
+      <div>
+        <a class="nav-link toggler">
+          <button type="button" class="btn btn-circle" (click)="toggleNav()">
+            <em
+              [ngClass]="{ 'dark-collapser': sidenavClosed }"
+              class="pi pi-align-center"
+            >
+            </em>
+          </button>
+        </a>
+      </div>
+    </div>
+    <div class="flex-fill p-2">
+      <div *ngFor="let tab of tabs; index as i">
+        <a class="nav-link">
+          <button
+            type="button"
+            [ngClass]="{ 'btn-active': activeIndex == i }"
+            hover-class="btn-active"
+            [remove-class-on-mouseleave]="!(activeIndex == i)"
+            class="btn btn-circle"
+            (click)="activate(i, tab.tabKey)"
+          >
+            <em class="pi {{ tab.iconClass }}"> </em>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

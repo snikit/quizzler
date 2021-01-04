@@ -1,0 +1,50 @@
+.btn-circle em {
+  font-size: 2rem;
+  color: #fbfbfb;
+  font-weight: 200;
+}
+
+.btn-circle {
+  width: 65px;
+  height: 65px;
+  padding: 0.5rem 0.5rem;
+  border-radius: 40px;
+  text-align: center;
+  /* line-height: 2.6rem; */
+}
+
+.btn-active {
+  background-color: #fbfbfb;
+}
+
+.btn-active em {
+  color: #0e1111;
+  font-weight: 400;
+  font-size: 2.2rem;
+}
+
+#sidenav {
+  background-color: #0e1111;
+  transition: width 1s;
+}
+
+.sidenav-content {
+  transition: 1s;
+}
+
+.nav-item {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 1rem;
+}
+
+.dark-collapser {
+  color: #0e1111 !important;
+}
+.collapser {
+  margin-bottom: 6rem;
+}
+
+.toggler {
+  position: absolute;
+}

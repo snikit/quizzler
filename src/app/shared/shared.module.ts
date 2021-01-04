@@ -18,6 +18,7 @@ import { SubmissionReviewComponent } from './submission-review/submission-review
 import { ButtonModule } from 'primeng/button';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { DetailedLanderComponent } from './detailed-lander/detailed-lander.component';
+import { HoverClassDirective } from './directives/hover-class.directive';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { DetailedLanderComponent } from './detailed-lander/detailed-lander.compo
     DeadCenterComponent,
     SubmissionReviewComponent,
     DetailedLanderComponent,
+    HoverClassDirective,
   ],
   imports: [
     CommonModule,
@@ -53,6 +55,7 @@ import { DetailedLanderComponent } from './detailed-lander/detailed-lander.compo
     QuestionComponent,
     SubmissionReviewComponent,
     DetailedLanderComponent,
+    HoverClassDirective,
   ],
 })
 export class SharedModule {}
