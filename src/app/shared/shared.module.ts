@@ -19,6 +19,9 @@ import { ButtonModule } from 'primeng/button';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { DetailedLanderComponent } from './detailed-lander/detailed-lander.component';
 import { HoverClassDirective } from './directives/hover-class.directive';
+import { QuestionSearchComponent } from './question-search/question-search.component';
+import { FabButtonComponent } from './fab-button/fab-button.component';
+import { FabCrossButtonComponent } from './fab-cross-button/fab-cross-button.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { HoverClassDirective } from './directives/hover-class.directive';
     SubmissionReviewComponent,
     DetailedLanderComponent,
     HoverClassDirective,
+    QuestionSearchComponent,
+    FabButtonComponent,
+    FabCrossButtonComponent,
   ],
   imports: [
     CommonModule,
@@ -56,6 +62,9 @@ import { HoverClassDirective } from './directives/hover-class.directive';
     SubmissionReviewComponent,
     DetailedLanderComponent,
     HoverClassDirective,
+    QuestionSearchComponent,
+    FabButtonComponent,
+    FabCrossButtonComponent,
   ],
 })
 export class SharedModule {}

@@ -1,0 +1,40 @@
+<div class="d-flex flex-column h-100 container-fluid p-2">
+  <div class="d-flex">
+    <h2>QUESTION BANK</h2>
+  </div>
+  <div class="m-2 pt-3">
+    <app-question-search></app-question-search>
+  </div>
+
+  <div
+    class="d-flex flex-column h-100 container-fluid p-2 justify-content-around"
+  >
+    <p-table
+      [columns]="cols"
+      [value]="products"
+      [rows]="5"
+      [paginator]="true"
+      [showCurrentPageReport]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} questions"
+      styleClass="p-datatable-responsive-demo"
+    >
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns" scope="col">
+            {{ col.header }}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+          <td *ngFor="let col of columns">
+            <!-- <span class="p-column-title">{{ col.header }}</span> -->
+            {{ rowData[col.field] }}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <app-admin-question-bank-fab> </app-admin-question-bank-fab>
+</div>

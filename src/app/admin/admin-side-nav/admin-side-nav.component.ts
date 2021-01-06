@@ -1,9 +1,12 @@
+import { Router } from '@angular/router';
 export const ADMIN_TABS = {
   HOME: 'HOME',
   USERS: 'USERS',
   FOLDER: 'FOLDER',
   CHAT: 'CHAT',
   SETTINGS: 'SETTINGS',
+  QUESTION_BANK: 'QUESTION_BANK',
+  TEST_MAKER: 'TEST_MAKER',
 };
 
 import {
@@ -59,14 +62,18 @@ export class AdminSideNavComponent implements OnInit {
   sidenavClosed = false;
 
   tabs = [
-    { iconClass: 'pi-home', tabKey: ADMIN_TABS.HOME },
+    { iconClass: 'pi-home', tabKey: ADMIN_TABS.HOME, url: '/' },
     { iconClass: 'pi-users', tabKey: ADMIN_TABS.USERS },
-    { iconClass: 'pi-folder', tabKey: ADMIN_TABS.FOLDER },
-    { iconClass: 'pi-comment', tabKey: ADMIN_TABS.CHAT },
+    { iconClass: 'pi-book', tabKey: ADMIN_TABS.TEST_MAKER, url: 'testmaker' },
+    {
+      iconClass: 'pi-question-circle',
+      tabKey: ADMIN_TABS.QUESTION_BANK,
+      url: 'questionbank',
+    },
     { iconClass: 'pi-cog', tabKey: ADMIN_TABS.SETTINGS },
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -77,8 +84,10 @@ export class AdminSideNavComponent implements OnInit {
 
   activeIndex = 0;
 
-  activate(index: number, key: string) {
+  activate(index: number, tabValue: any) {
     this.activeIndex = index;
-    this.indexChange.emit({ index: this.activeIndex, key: key });
+    this.indexChange.emit({ index: this.activeIndex, key: tabValue.tabKey });
+
+    if (tabValue.url) this.router.navigateByUrl('/admin/' + tabValue.url);
   }
 }
