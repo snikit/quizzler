@@ -1,0 +1,22 @@
+<div class="card crd p-1 m-3" [routerLink]="['/admin/testview']">
+  <div class="d-flex">
+    <div class="p-2">
+      <img alt="test avatar" class="crd-img" [src]="testInfo.imgsrc" />
+    </div>
+    <div class="d-flex flex-column p-2 crd-bdy">
+      <div class="crd-title" [pTooltip]="testInfo.title">
+        {{ testInfo.title }}
+      </div>
+      <div class="crd-content" [pTooltip]="testInfo.info">
+        {{ testInfo.info | ellipsis: 100 }}
+      </div>
+    </div>
+  </div>
+  <div class="card-footer d-flex flex-wrap justify-content-end p-2">
+    <p-chip
+      *ngFor="let cats of testInfo.categories"
+      [label]="cats"
+      styleClass="p-mr-2"
+    ></p-chip>
+  </div>
+</div>

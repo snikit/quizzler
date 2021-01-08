@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminTestmakerComponent } from './admin-testmaker/admin-testmaker.component';
+import { TestViewComponent } from './test-view/test-view.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
       { path: '', component: AdminDashboardComponent },
       { path: 'questionbank', component: AdminQuestionBankComponent },
       { path: 'testmaker', component: AdminTestmakerComponent },
+      { path: 'testview', component: TestViewComponent },
     ],
   },
 ];

@@ -1,16 +1,31 @@
 <div class="d-flex flex-column h-100 container-fluid p-2">
   <div class="d-flex">
-    <h2>TEST MAKER</h2>
+    <!-- <h2>TEST MAKER</h2> -->
   </div>
 
-  <div class="container" *ngIf="newPage">
-    <app-create-test> </app-create-test>
-    <app-fab-cross-button (click)="newPage = false"></app-fab-cross-button>
-  </div>
+  <section>
+    <div class="container pt-4 mt-4" *ngIf="newPage">
+      <div>
+        <app-create-test> </app-create-test>
+      </div>
+      <app-fab-cross-button
+        tooltip="Cancel test creation"
+        (click)="cancelTest()"
+      ></app-fab-cross-button>
+    </div>
 
-  <div *ngIf="!newPage">
-    sda ads das
+    <div *ngIf="!newPage">
+      <app-test-list></app-test-list>
+      <app-fab-button
+        tooltip="Create new test"
+        (click)="newPage = true"
+      ></app-fab-button>
+    </div>
 
-    <app-fab-button (click)="newPage = true"></app-fab-button>
-  </div>
+    <p-confirmDialog
+      key="positionDialog"
+      [baseZIndex]="10000"
+      rejectButtonStyleClass="p-button-outlined"
+    ></p-confirmDialog>
+  </section>
 </div>

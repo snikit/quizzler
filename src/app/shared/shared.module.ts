@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QuestionComponent } from './question/question.component';
@@ -22,6 +23,10 @@ import { HoverClassDirective } from './directives/hover-class.directive';
 import { QuestionSearchComponent } from './question-search/question-search.component';
 import { FabButtonComponent } from './fab-button/fab-button.component';
 import { FabCrossButtonComponent } from './fab-cross-button/fab-cross-button.component';
+import { TooltipModule } from 'primeng/tooltip';
+import { TestCardComponent } from './test-card/test-card.component';
+import { ChipModule } from 'primeng/chip';
+import { EllipsisPipe } from './pipes/ellipsis.pipe';
 
 @NgModule({
   declarations: [
@@ -38,6 +43,8 @@ import { FabCrossButtonComponent } from './fab-cross-button/fab-cross-button.com
     QuestionSearchComponent,
     FabButtonComponent,
     FabCrossButtonComponent,
+    TestCardComponent,
+    EllipsisPipe,
   ],
   imports: [
     CommonModule,
@@ -50,6 +57,9 @@ import { FabCrossButtonComponent } from './fab-cross-button/fab-cross-button.com
     TableModule,
     ButtonModule,
     ToggleButtonModule,
+    TooltipModule,
+    ChipModule,
+    RouterModule,
   ],
   exports: [
     QuestionerComponent,
@@ -65,6 +75,7 @@ import { FabCrossButtonComponent } from './fab-cross-button/fab-cross-button.com
     QuestionSearchComponent,
     FabButtonComponent,
     FabCrossButtonComponent,
+    TestCardComponent,
   ],
 })
 export class SharedModule {}

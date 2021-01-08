@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ConfirmationService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
+import { CreateTestComponent } from '../create-test/create-test.component';
 
 @Component({
   selector: 'app-admin-testmaker',
@@ -10,20 +12,33 @@ import { DialogService } from 'primeng/dynamicdialog';
 export class AdminTestmakerComponent implements OnInit {
   newPage = false;
 
-  constructor(private dialogService: DialogService) {}
+  constructor(private confirmationService: ConfirmationService) {}
 
   ngOnInit(): void {}
 
-  createTest() {
-    // const dialogRef = this.dialogService.open(CreateTestComponent, {
-    //   showHeader: false,
-    //   baseZIndex: 10000,
-    //   dismissableMask: true,
-    //   style: { 'border-radius': '30px' },
-    //   contentStyle: { 'border-radius': '30px' },
-    // });
-    // dialogRef.onClose.subscribe((something) => {
-    //   console.log(something);
-    // });
+  // cancelTest() {
+  //   const dialogRef = this.dialogService.open(CreateTestComponent, {
+  //     showHeader: false,
+  //     baseZIndex: 10000,
+  //     dismissableMask: true,
+  //     style: { 'border-radius': '30px' },
+  //     contentStyle: { 'border-radius': '30px' },
+  //   });
+  //   dialogRef.onClose.subscribe((something) => {
+  //     console.log(something);
+  //   });
+  // }
+
+  cancelTest() {
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to proceed?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.newPage = false;
+      },
+      reject: () => {},
+      key: 'positionDialog',
+    });
   }
 }

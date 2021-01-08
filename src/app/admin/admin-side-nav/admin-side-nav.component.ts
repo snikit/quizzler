@@ -7,6 +7,7 @@ export const ADMIN_TABS = {
   SETTINGS: 'SETTINGS',
   QUESTION_BANK: 'QUESTION_BANK',
   TEST_MAKER: 'TEST_MAKER',
+  TEST_VIEW: 'TEST_VIEW',
 };
 
 import {

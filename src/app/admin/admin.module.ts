@@ -16,7 +16,13 @@ import { ButtonModule } from 'primeng/button';
 import { CreateTestComponent } from './create-test/create-test.component';
 import { AccordionModule } from 'primeng/accordion';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
-
+import { ConfirmationService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { FormsModule } from '@angular/forms';
+import { TestListComponent } from './test-list/test-list.component';
+import { TestViewComponent } from './test-view/test-view.component';
+import { ChipModule } from 'primeng/chip';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -27,6 +33,8 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
     AdminQuestionBankFabComponent,
     AdminTestmakerComponent,
     CreateTestComponent,
+    TestListComponent,
+    TestViewComponent,
   ],
   imports: [
     TableModule,
@@ -38,7 +46,11 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
     ButtonModule,
     AccordionModule,
     ScrollPanelModule,
+    ToastModule,
+    ConfirmDialogModule,
+    FormsModule,
+    ChipModule,
   ],
-  providers: [DialogService],
+  providers: [DialogService, ConfirmationService],
 })
 export class AdminModule {}

@@ -1,0 +1,34 @@
+.crd-img {
+  width: 90px;
+  height: auto;
+}
+
+.crd-title {
+  margin: 0 0 5px 0;
+  font-weight: 600;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.crd-content {
+  font-size: 0.8em;
+  margin: 0;
+}
+
+.crd-bdy {
+  overflow: hidden;
+}
+
+.crd {
+  border-radius: 4px;
+  box-shadow: 0 12px 24px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.crd:hover {
+  transform: translateY(-5px);
+  /* transform: scale(1.1); */
+  transition: all 0.2s ease;
+}

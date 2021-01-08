@@ -23,7 +23,6 @@
   z-index: 1;
   /* border-bottom-right-radius: 6px; */
   border: 1px solid #0d0f0f;
-  transform: rotate(45deg);
 }
 
 .fab:before {
@@ -58,14 +57,16 @@
   width: 32px;
   border-radius: 10px;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+  transition: all 1s ease;
 }
 
 .fab-dots-3 {
   width: 32px;
   border-radius: 10px;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transition: all 1s ease;
 }
 
 .fab .fab-dots-2 {

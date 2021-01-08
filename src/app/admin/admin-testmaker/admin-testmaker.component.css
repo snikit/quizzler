@@ -1,0 +1,16 @@
+:host::ng-deep .p-button:last-child {
+  background: #fbc02d !important;
+  border: 1px solid #fbc02d !important;
+}
+
+:host::ng-deep .p-button-label {
+  color: #0e1111 !important;
+}
+
+:host::ng-deep .p-button-icon {
+  color: #0e1111 !important;
+}
+
+:host::ng-deep .p-button.p-button-outlined {
+  color: #0e1111 !important;
+}

@@ -56,6 +56,9 @@
   background-color: #0e1111 !important;
 }
 
+.md-stepper-horizontal .md-step.done .md-step-title {
+  color: #0e1111 !important;
+}
 .md-stepper-horizontal .md-step.active .md-step-circle {
   background-color: #fbc02d !important;
 }
@@ -71,7 +74,7 @@
 }
 .md-stepper-horizontal .md-step.active .md-step-title {
   font-weight: 600;
-  color: rgba(0, 0, 0, 0.87);
+  color: #fbc02d;
 }
 .md-stepper-horizontal .md-step.active.done .md-step-title,
 .md-stepper-horizontal .md-step.active.editable .md-step-title {
