@@ -26,6 +26,8 @@
 #sidenav {
   background-color: #0e1111;
   transition: width 1s;
+  position: fixed;
+  z-index: 999;
 }
 
 .sidenav-content {
@@ -46,5 +48,10 @@
 }
 
 .toggler {
+  z-index: 9999;
   position: absolute;
+}
+
+.non-collapser {
+  overflow: hidden;
 }

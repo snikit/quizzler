@@ -14,7 +14,8 @@ export class AdminQuestionBankComponent implements OnInit {
 
   products = [
     {
-      code: '1983-08-02',
+      code:
+        'The figure above shows the graph of the function f, defined by f of x = the absolute value of 2x, end absolute value, + 4 for all numbers x. For which of the following functions g, defined for all numbers x, does the graph of g intersect the graph of f ?',
       quantity: 201,
       category: 'Java',
       name: 'Jemie',
@@ -72,24 +73,6 @@ export class AdminQuestionBankComponent implements OnInit {
       quantity: 325,
       category: 'AWS',
       name: 'Ana',
-    },
-    {
-      code: '1987-08-16',
-      quantity: 965,
-      category: 'AWS',
-      name: 'Jorry',
-    },
-    {
-      code: '1997-09-12',
-      quantity: 523,
-      category: 'Java',
-      name: 'Minne',
-    },
-    {
-      code: '1997-01-03',
-      quantity: 919,
-      category: 'AWS',
-      name: 'Etta',
     },
   ];
 

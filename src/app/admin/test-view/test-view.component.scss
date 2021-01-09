@@ -1,0 +1,32 @@
+.title {
+  font-size: 4.5rem;
+}
+
+.img {
+  width: 300px;
+}
+
+:host ::ng-deep p-tabmenu {
+  width: 100%;
+}
+
+:host ::ng-deep .p-tabmenu {
+  width: 100%;
+}
+
+:host ::ng-deep .p-tabmenu-nav {
+  width: 100%;
+}
+
+:host ::ng-deep .tabview-custom {
+  a {
+    text-decoration: none;
+  }
+  em,
+  span {
+    vertical-align: middle;
+  }
+  span {
+    margin: 0 0.5rem;
+  }
+}

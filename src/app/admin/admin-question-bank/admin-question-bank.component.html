@@ -1,15 +1,10 @@
 <div class="d-flex flex-column h-100 container-fluid p-2">
-  <div class="d-flex">
-    <h2>QUESTION BANK</h2>
-  </div>
   <div class="m-2 pt-3">
     <app-question-search></app-question-search>
   </div>
 
-  <div
-    class="d-flex flex-column h-100 container-fluid p-2 justify-content-around"
-  >
-    <p-table
+  <div class="p-2">
+    <!-- <p-table
       [columns]="cols"
       [value]="products"
       [rows]="5"
@@ -26,14 +21,74 @@
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-rowData let-columns="columns">
-        <tr>
-          <td *ngFor="let col of columns">
-            <!-- <span class="p-column-title">{{ col.header }}</span> -->
+        <tr class="d-flex" >
+          <td
+            *ngFor="let col of columns; let i = index"
+            [ngClass]="{ 'flex-fill': i == 0 }"
+          >
             {{ rowData[col.field] }}
           </td>
         </tr>
       </ng-template>
-    </p-table>
+    </p-table> -->
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Question</th>
+          <th>Category</th>
+          <th>Topic</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of products; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>
+            <p-accordion>
+              <p-accordionTab [header]="item.code">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item border-0">
+                    <strong> A. </strong>Cras justo odio
+                  </li>
+                  <li class="list-group-item border-0">
+                    <strong> B. </strong>Dapibus ac facilisis in
+                  </li>
+                  <li class="list-group-item border-0">
+                    <strong> C. </strong>Morbi leo risus
+                  </li>
+                  <li class="list-group-item border-0">
+                    <strong> D. </strong>Porta ac consectetur ac
+                  </li>
+                </ul>
+              </p-accordionTab>
+            </p-accordion>
+          </td>
+          <td>{{ item.category }}</td>
+          <td>{{ item.name }}</td>
+          <td>
+            <div class="d-flex">
+              <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-pencil"
+                class="p-button-rounded p-button-secondary p-button-text"
+              ></button>
+              <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-trash"
+                class="p-button-rounded p-button-danger p-button-text"
+              ></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p-paginator [rows]="10" [totalRecords]="100"></p-paginator>
   </div>
 
   <app-admin-question-bank-fab> </app-admin-question-bank-fab>

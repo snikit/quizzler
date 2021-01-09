@@ -1,9 +1,10 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-test-view',
   templateUrl: './test-view.component.html',
-  styleUrls: ['./test-view.component.css'],
+  styleUrls: ['./test-view.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TestViewComponent implements OnInit {
@@ -15,7 +16,19 @@ export class TestViewComponent implements OnInit {
     categories: ['algorithm', 'program', 'fraction', 'dynamic'],
   };
 
+  items: MenuItem[];
+
+  activeItem: string;
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.items = [
+      { label: 'Info', icon: 'pi pi-fw pi-info-circle' },
+      { label: 'Reports', icon: 'pi pi-fw pi-credit-card' },
+      { label: 'Settings', icon: 'pi pi-fw pi-cog' },
+    ];
+
+    this.activeItem = this.items[0].label;
+  }
 }

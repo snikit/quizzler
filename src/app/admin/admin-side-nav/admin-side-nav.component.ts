@@ -57,6 +57,9 @@ export class AdminSideNavComponent implements OnInit {
   @Output()
   indexChange = new EventEmitter<any>();
 
+  @Output()
+  visibilityToggle = new EventEmitter<boolean>();
+
   @ViewChild('sidenav')
   sidenav: ElementRef<HTMLDivElement>;
 
@@ -81,6 +84,7 @@ export class AdminSideNavComponent implements OnInit {
   toggleNav() {
     this.sidenavClosed = !this.sidenavClosed;
     this.navState = this.sidenavClosed ? 'closed' : 'open';
+    this.visibilityToggle.emit(!this.sidenavClosed);
   }
 
   activeIndex = 0;

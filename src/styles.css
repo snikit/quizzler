@@ -47,3 +47,7 @@ body {
 .stretch {
   min-height: 100vh;
 }
+
+.bg-drk {
+  background-color: #0e1111;
+}
