@@ -7,15 +7,20 @@
       <div class="crd-title" [pTooltip]="testInfo.title">
         {{ testInfo.title }}
       </div>
-      <div class="crd-content" [pTooltip]="testInfo.info">
+      <div class="crd-content">
         {{ testInfo.info | ellipsis: 100 }}
       </div>
     </div>
   </div>
   <div class="card-footer d-flex flex-wrap justify-content-end p-2">
     <p-chip
-      *ngFor="let cats of testInfo.categories"
+      *ngFor="let cats of testInfo.categories | slice: 0:3"
       [label]="cats"
+      styleClass="p-mr-2"
+    ></p-chip>
+    <p-chip
+      *ngIf="testInfo.categories.length > 3"
+      label="..."
       styleClass="p-mr-2"
     ></p-chip>
   </div>

@@ -29,7 +29,8 @@ import { TestReportsComponent } from './test-reports/test-reports.component';
 import { TestSettingsComponent } from './test-settings/test-settings.component';
 import { TestViewComponent } from './test-view/test-view.component';
 import { PanelModule } from 'primeng/panel';
-
+import { BreadCrumbService } from './@data/service/bread-crumb-service.service';
+import { InputTextModule } from 'primeng/inputtext';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -63,7 +64,8 @@ import { PanelModule } from 'primeng/panel';
     PaginatorModule,
     TabViewModule,
     PanelModule,
+    InputTextModule,
   ],
-  providers: [DialogService, ConfirmationService],
+  providers: [DialogService, ConfirmationService, BreadCrumbService],
 })
 export class AdminModule {}

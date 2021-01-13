@@ -25,6 +25,7 @@ import {
   EventEmitter,
   ViewChild,
   ElementRef,
+  HostListener,
 } from '@angular/core';
 
 @Component({
@@ -87,12 +88,18 @@ export class AdminSideNavComponent implements OnInit {
     this.visibilityToggle.emit(!this.sidenavClosed);
   }
 
+  @HostListener('window:scroll', ['$event']) onScrollEvent($event) {
+    if (!this.sidenavClosed) this.toggleNav();
+  }
+
   activeIndex = 0;
 
   activate(index: number, tabValue: any) {
     this.activeIndex = index;
     this.indexChange.emit({ index: this.activeIndex, key: tabValue.tabKey });
 
-    if (tabValue.url) this.router.navigateByUrl('/admin/' + tabValue.url);
+    if (tabValue.url) {
+      this.router.navigateByUrl('/admin/' + tabValue.url);
+    }
   }
 }

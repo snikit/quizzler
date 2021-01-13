@@ -27,6 +27,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { TestCardComponent } from './test-card/test-card.component';
 import { ChipModule } from 'primeng/chip';
 import { EllipsisPipe } from './pipes/ellipsis.pipe';
+import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { EllipsisPipe } from './pipes/ellipsis.pipe';
     FabCrossButtonComponent,
     TestCardComponent,
     EllipsisPipe,
+    BreadCrumbComponent,
   ],
   imports: [
     CommonModule,
@@ -76,6 +78,7 @@ import { EllipsisPipe } from './pipes/ellipsis.pipe';
     FabButtonComponent,
     FabCrossButtonComponent,
     TestCardComponent,
+    BreadCrumbComponent,
   ],
 })
 export class SharedModule {}

@@ -1,9 +1,5 @@
 <div class="d-flex flex-column h-100 container-fluid p-2">
-  <div class="d-flex">
-    <!-- <h2>TEST MAKER</h2> -->
-  </div>
-
-  <section>
+  <div class="flex-fill">
     <div class="container pt-4 mt-4" *ngIf="newPage">
       <div>
         <app-create-test> </app-create-test>
@@ -14,7 +10,7 @@
       ></app-fab-cross-button>
     </div>
 
-    <div *ngIf="!newPage">
+    <div class="h-100" *ngIf="!newPage">
       <app-test-list></app-test-list>
       <app-fab-button
         tooltip="Create new test"
@@ -27,5 +23,5 @@
       [baseZIndex]="10000"
       rejectButtonStyleClass="p-button-outlined"
     ></p-confirmDialog>
-  </section>
+  </div>
 </div>

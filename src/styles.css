@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa:400,700,300|Righteous");
+
 /* You can add global styles to this file, and also import other style files */
 @import "~animate.css/animate.min";
 
@@ -14,13 +16,24 @@ ANIMATE CSS OVERRIDES-----------
 }
 
 /*
+---------------- TEXT
+*/
+
+.robotic {
+  font-family: "Righteous", Helvetica, Arial, sans-serif;
+}
+
+/*
 -----------ANIMATE CSS OVERRIDES
 */
+
+* {
+  font-family: "Comfortaa", Helvetica, Arial, sans-serif;
+}
 
 html,
 body {
   height: 100%;
-  font-family: "Rubik", sans-serif;
 }
 body {
   margin: 0;
@@ -50,4 +63,17 @@ body {
 
 .bg-drk {
   background-color: #0e1111;
+}
+
+.breadcrumb div span {
+  font-family: "Righteous", Helvetica, Arial, sans-serif;
+  font-size: 2.5rem;
+  color: #fff;
+}
+.breadcrumb div {
+  background-color: #0e1111;
+  position: fixed;
+  top: 0rem;
+  right: 0rem;
+  z-index: 999;
 }

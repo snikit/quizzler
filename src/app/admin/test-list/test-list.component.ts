@@ -1,12 +1,28 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { BreadCrumbService } from '../@data/service/bread-crumb-service.service';
 
 @Component({
   selector: 'app-test-list',
   templateUrl: './test-list.component.html',
   styleUrls: ['./test-list.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  // animations: [
+  //   trigger('inOutAnimation', [
+  //     transition(':enter', [
+  //       style({ height: 0, opacity: 0 }),
+  //       animate('0.2s ease-out'),
+  //     ]),
+  //     transition(':leave', [
+  //       style({ height: 'auto', opacity: 1 }),
+  //       animate('0.2s ease-in'),
+  //     ]),
+  //   ]),
+  // ],
 })
 export class TestListComponent implements OnInit {
+  filtersShown = false;
+  searchExpanded = false;
+
   testInfos = [
     {
       title: 'AWS Programmming Programmming Programmming Level 1',
@@ -42,16 +58,11 @@ export class TestListComponent implements OnInit {
       imgsrc: '/assets/imgs/avatar (6).svg',
       categories: ['managa'],
     },
-    {
-      title: 'Senior Java Engineer Part 1',
-      info:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodtempor incididunt ut labor.',
-      imgsrc: '/assets/imgs/avatar (8).svg',
-      categories: ['algorithm', 'program', 'fraction', 'dynamic'],
-    },
   ];
 
-  constructor() {}
+  constructor(private breadCrumbService: BreadCrumbService) {
+    this.testInfos = [...this.testInfos, ...this.testInfos.reverse()];
+  }
 
   ngOnInit(): void {}
 }

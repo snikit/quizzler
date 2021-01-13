@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   templateUrl: './admin-home.component.html',
@@ -8,12 +8,18 @@ export class AdminHomeComponent implements OnInit {
   @ViewChild('inContent')
   inContent: ElementRef<HTMLDivElement>;
 
+  // crumbs = [];
+
+  // private breadCrumbService: BreadCrumbService
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.crumbs = this.breadCrumbService.crumbs;
+  }
 
   onTabSelect(event: any) {
     console.log(event);
+    // this.breadCrumbService.addCrumb(event.key);
   }
 
   onTabToggle(visible: boolean) {

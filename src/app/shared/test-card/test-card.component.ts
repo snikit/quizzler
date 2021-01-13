@@ -4,6 +4,7 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-test-card',
@@ -21,7 +22,15 @@ export class TestCardComponent implements OnInit {
     categories: ['sql', 'aws', 'java'],
   };
 
-  constructor() {}
+  constructor(
+    private router: Router
+  ) // private breadCrumbService: BreadCrumbService
+  {}
 
   ngOnInit(): void {}
+
+  route() {
+    // this.breadCrumbService.addCrumb('testview');
+    this.router.navigateByUrl('/admin/testview');
+  }
 }
