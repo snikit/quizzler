@@ -28,6 +28,8 @@ import { TestCardComponent } from './test-card/test-card.component';
 import { ChipModule } from 'primeng/chip';
 import { EllipsisPipe } from './pipes/ellipsis.pipe';
 import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
+import { TitleWithSearchComponent } from './title-with-search/title-with-search.component';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
     TestCardComponent,
     EllipsisPipe,
     BreadCrumbComponent,
+    TitleWithSearchComponent,
   ],
   imports: [
     CommonModule,
@@ -62,6 +65,7 @@ import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
     TooltipModule,
     ChipModule,
     RouterModule,
+    DropdownModule,
   ],
   exports: [
     QuestionerComponent,
@@ -79,6 +83,7 @@ import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
     FabCrossButtonComponent,
     TestCardComponent,
     BreadCrumbComponent,
+    TitleWithSearchComponent,
   ],
 })
 export class SharedModule {}

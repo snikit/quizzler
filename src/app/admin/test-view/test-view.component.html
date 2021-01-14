@@ -1,5 +1,7 @@
-<div class="container-fluid border-0">
-  <div class="mb-3 border-0">
+<app-fab-cross-button (click)="(true == true)"></app-fab-cross-button>
+
+<div class="border-0 d-flex flex-column h-100">
+  <div class="p-3 border-0">
     <div class="row g-0">
       <div class="col-md-3 d-flex justify-content-center align-items-center">
         <div>
@@ -7,30 +9,33 @@
         </div>
       </div>
       <div class="col-md-9">
-        <div class="d-flex h-100 flex-column justify-content-center">
+        <div class="d-flex h-100 flex-column justify-content-center mr-5">
           <h1 class="card-title title">AWS Programming Level 1</h1>
-          <h5 class="card-text text-muted">
+          <h5 class="card-text">
             This is a wider card with supporting text below as a natural lead-in
             to additional content. This content is a little bit longer. This is
-            wider card with supporting text below as a natural lead-in to
+            wider card with supporting text below as a natural lead-in to.
           </h5>
-          <div class="d-flex flex-wrap justify-content-end p-2">
+
+          <div class="card-text d-flex align-items-center mt-4">
+            <em class="pi pb-1 mr-2 pi-clock"></em>
+            <small> Last updated 3 mins ago.</small>
+          </div>
+
+          <div class="d-flex flex-wrap mt-2 justify-content-end p-2">
             <p-chip
               *ngFor="let cats of testInfo.categories"
               [label]="cats"
-              styleClass="p-mr-2"
+              styleClass="ml-1"
             ></p-chip>
           </div>
-          <p class="card-text mb-5">
-            <small>Last updated 3 mins ago</small>
-          </p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="container-fluid base-view">
-    <p-tabView styleClass="tabview-custom">
+  <div class="base-view flex-fill">
+    <p-tabView styleClass="tabview-custom ">
       <p-tabPanel>
         <ng-template pTemplate="header">
           <em [class]="items[0].icon"></em>

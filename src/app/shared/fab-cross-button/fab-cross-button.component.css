@@ -6,11 +6,14 @@
   position: fixed;
   top: 3rem;
   right: 3rem;
+
+  z-index: 999;
 }
 .fab-checkbox {
   display: none;
 }
 .fab {
+  cursor: pointer;
   position: absolute;
   top: -1rem;
   right: -1rem;
@@ -18,11 +21,11 @@
   height: 4rem;
   border-radius: 50%;
   background: #0e1111;
-  box-shadow: 0px 5px 20px #0e111170;
+
   transition: all 1s ease;
   z-index: 1;
   /* border-bottom-right-radius: 6px; */
-  border: 1px solid #0d0f0f;
+  border: 1px solid #0d0f0f78;
 }
 
 .fab:before {
@@ -38,7 +41,7 @@
 
 .fab:hover {
   background: #0b0c0c;
-  box-shadow: 0px 5px 20px 5px #0e111170;
+  box-shadow: 0px 5px 20px #0e111170;
 }
 
 .fab-dots {
@@ -58,7 +61,7 @@
   border-radius: 10px;
   left: 50%;
   transform: translateX(-50%) translateY(-50%) rotate(-45deg);
-  transition: all 1s ease;
+  transition: all 0.1s ease;
 }
 
 .fab-dots-3 {
@@ -66,7 +69,7 @@
   border-radius: 10px;
   left: 50%;
   transform: translateX(-50%) translateY(-50%) rotate(45deg);
-  transition: all 1s ease;
+  transition: all 0.1s ease;
 }
 
 .fab .fab-dots-2 {
@@ -84,7 +87,7 @@
   justify-content: center;
   color: White;
   box-shadow: 0 0.1rem 1rem rgba(24, 66, 154, 0.82);
-  transition: all 1s ease;
+  transition: all 0.1s ease;
 
   opacity: 0;
 }

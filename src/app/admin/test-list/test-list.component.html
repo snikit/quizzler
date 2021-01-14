@@ -3,87 +3,10 @@
     <span class="p-2">LIST OF TESTs</span>
   </div>
 </div> -->
-<div class="d-flex flex-column outer">
-  <div class="test-type h-100 flex-fill">
-    <div class="mb-2">
-      <div class="pt-4 pb-3 d-flex justify-content-between align-items-center">
-        <span class="title">LIST OF TESTs</span>
-        <div
-          class="search search-holder flex-fill d-flex justify-content-end align-items-center"
-        >
-          <div *ngIf="searchExpanded" class="flex-fill">
-            <input type="text" />
-          </div>
-          <div>
-            <em
-              (click)="searchExpanded = !searchExpanded"
-              class="search pi pi-search"
-            >
-            </em>
-          </div>
-          <div>
-            <em
-              (click)="filtersShown = !filtersShown"
-              class="search pi pi-ellipsis-v"
-            >
-            </em>
-          </div>
-        </div>
-      </div>
-      <div *ngIf="filtersShown" class="filter-reveal mt-3 pb-3 mr-5">
-        <div class="d-flex flex-wrap flex-fill justify-content-between">
-          <div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect01"
-                  >Category</label
-                >
-              </div>
-              <p-dropdown [options]="['All', 'New York']"></p-dropdown>
-            </div>
-          </div>
+<div class="d-flex flex-column">
+  <div class="flex-fill">
+    <app-title-with-search title="LIST OF TESTs"></app-title-with-search>
 
-          <div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect01"
-                  >Subject</label
-                >
-              </div>
-              <p-dropdown
-                [options]="['All', 'New York', 'Rome', 'London', 'India']"
-              ></p-dropdown>
-            </div>
-          </div>
-
-          <div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect01"
-                  >Topic</label
-                >
-              </div>
-              <p-dropdown
-                [options]="['All', 'New York', 'Rome', 'London', 'India']"
-              ></p-dropdown>
-            </div>
-          </div>
-
-          <div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect01"
-                  >Question Type</label
-                >
-              </div>
-              <p-dropdown
-                [options]="['All', 'New York', 'Rome', 'London', 'India']"
-              ></p-dropdown>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="crd-container">
       <app-test-card
         *ngFor="let testInfo of testInfos"

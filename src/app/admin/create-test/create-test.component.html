@@ -1,4 +1,4 @@
-<div class="m-4 borderify">
+<div class="m-4 borderify card p-5">
   <div>
     <div class="md-stepper-horizontal orange">
       <div
@@ -64,72 +64,99 @@
       <div *ngSwitchCase="TABS[2]">third pagge</div>
 
       <div *ngSwitchCase="TABS[3]">
-        <p-scrollPanel [style]="{ height: '400px' }">
-          <div class="p-2">
-            <p-accordion [multiple]="true">
-              <p-accordionTab [header]="TABS[0]" [selected]="true">
-                <div class="input-group mb-3 mt-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="test-title">Title</span>
-                  </div>
+        <!-- <p-scrollPanel [style]="{ height: '400px' }"> -->
+        <p-tabView styleClass="tabview-custom pt-5 pb-5">
+          <p-tabPanel>
+            <ng-template pTemplate="header">
+              <em class="pi pi-fw pi-info-circle"></em>
+              <span>{{ TABS[0] }}</span>
+            </ng-template>
+            <div class="input-group mb-3 mt-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="test-title">Title</span>
+              </div>
 
-                  <input
-                    readonly
-                    type="text"
-                    class="form-control"
-                    placeholder="title"
-                    value="AWS Level 1"
-                    aria-label="title for the test"
-                    aria-describedby="test-title"
-                  />
-                </div>
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                placeholder="title"
+                value="AWS Level 1"
+                aria-label="title for the test"
+                aria-describedby="test-title"
+              />
+            </div>
 
-                <div class="input-group mb-3 mt-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="test-title"
-                      >Category</span
-                    >
-                  </div>
+            <div class="input-group mb-3 mt-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="test-title">Category</span>
+              </div>
 
-                  <input
-                    readonly
-                    type="text"
-                    class="form-control"
-                    placeholder="category"
-                    value="Cloud"
-                    aria-label="title for the test"
-                    aria-describedby="test-title"
-                  />
-                </div>
-              </p-accordionTab>
-
-              <p-accordionTab [header]="TABS[1]">
-                <div>
-                  <ul>
-                    <li>
-                      Before starting test close all chat windows, screen shot
-                      etc and make sure you have a stable internet connection
-                    </li>
-                    <li>
-                      Pressing F5 during the test will close your test and you
-                      will not be able to enter again
-                    </li>
-                    <li>
-                      If you computer shuts down you will able to continue again
-                      from the place you left
-                    </li>
-                    <li>Your test will open in a new window</li>
-                    <li>
-                      When resuming, please start your test as you did earlier
-                    </li>
-                  </ul>
-                </div>
-              </p-accordionTab>
-
-              <p-accordionTab [header]="TABS[2]"> Sections </p-accordionTab>
-            </p-accordion>
-          </div>
-        </p-scrollPanel>
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                placeholder="category"
+                value="Cloud"
+                aria-label="title for the test"
+                aria-describedby="test-title"
+              />
+            </div>
+          </p-tabPanel>
+          <p-tabPanel>
+            <ng-template pTemplate="header">
+              <em class="pi pi-fw pi-credit-card"></em>
+              <span>{{ TABS[1] }}</span>
+            </ng-template>
+            <div>
+              <ul>
+                <li>
+                  Before starting test close all chat windows, screen shot etc
+                  and make sure you have a stable internet connection
+                </li>
+                <li>
+                  Pressing F5 during the test will close your test and you will
+                  not be able to enter again
+                </li>
+                <li>
+                  If you computer shuts down you will able to continue again
+                  from the place you left
+                </li>
+                <li>Your test will open in a new window</li>
+                <li>
+                  When resuming, please start your test as you did earlier
+                </li>
+              </ul>
+            </div>
+          </p-tabPanel>
+          <p-tabPanel>
+            <ng-template pTemplate="header">
+              <em class="pi pi-fw pi-cog"></em>
+              <span>{{ TABS[2] }}</span>
+            </ng-template>
+            <div>
+              <ul>
+                <li>
+                  Before starting test close all chat windows, screen shot etc
+                  and make sure you have a stable internet connection
+                </li>
+                <li>
+                  Pressing F5 during the test will close your test and you will
+                  not be able to enter again
+                </li>
+                <li>
+                  If you computer shuts down you will able to continue again
+                  from the place you left
+                </li>
+                <li>Your test will open in a new window</li>
+                <li>
+                  When resuming, please start your test as you did earlier
+                </li>
+              </ul>
+            </div>
+          </p-tabPanel>
+        </p-tabView>
+        <!-- </p-scrollPanel> -->
       </div>
     </div>
 

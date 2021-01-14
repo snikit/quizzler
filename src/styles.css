@@ -77,3 +77,20 @@ body {
   right: 0rem;
   z-index: 999;
 }
+
+.greeny {
+  background-color: #148f6f;
+}
+
+.bluee {
+  background-color: #0e7995;
+}
+.primary-col {
+  background-color: #28395b;
+}
+
+.secondary-col {
+  background-color: #f0ac13;
+}
+
+/* 28395b 28a3a1 1f1f4a*/

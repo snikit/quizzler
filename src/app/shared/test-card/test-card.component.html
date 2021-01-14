@@ -16,12 +16,12 @@
     <p-chip
       *ngFor="let cats of testInfo.categories | slice: 0:3"
       [label]="cats"
-      styleClass="p-mr-2"
+      styleClass="ml-1"
     ></p-chip>
     <p-chip
       *ngIf="testInfo.categories.length > 3"
       label="..."
-      styleClass="p-mr-2"
+      styleClass="ml-1"
     ></p-chip>
   </div>
 </div>

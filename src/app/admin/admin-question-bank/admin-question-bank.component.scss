@@ -1,0 +1,63 @@
+:host ::ng-deep .p-accordion-header-link {
+  text-decoration: none;
+  border: 0px !important;
+  padding-top: 2px !important;
+}
+
+:host ::ng-deep .p-accordion-toggle-icon {
+  display: none;
+}
+
+:host ::ng-deep .p-accordion-content {
+  border: 0px !important;
+}
+
+:host ::ng-deep .p-accordion-header-link:focus {
+  box-shadow: none !important;
+}
+
+.table td,
+.table th {
+  padding: 0.7rem !important;
+}
+
+.pginator {
+  /* background: #148f6f; */
+  padding-bottom: 2rem;
+}
+.pginator ::ng-deep .p-paginator {
+  background: none;
+}
+
+.pginator ::ng-deep .p-link {
+  color: #fff;
+}
+
+.custom-select option {
+  margin: 5rem !important;
+}
+
+:host::ng-deep .p-scrollpanel-wrapper {
+  border-right: 9px solid #fbc12d2f;
+}
+
+:host::ng-deep .p-scrollpanel-bar {
+  background-color: #fbc02d;
+  opacity: 1;
+  transition: background-color 0.2s;
+}
+:host::ng-deep .p-scrollpanel-bar :hover {
+  background-color: #fbc02d;
+}
+
+.outest {
+  // display: flex;
+  // flex-direction: column;
+}
+
+.top-bar {
+  // height: auto;
+}
+.bottom-bar {
+  background-color: #fff;
+}

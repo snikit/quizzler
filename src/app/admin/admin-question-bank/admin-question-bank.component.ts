@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   templateUrl: './admin-question-bank.component.html',
-  styleUrls: ['./admin-question-bank.component.css'],
+  styleUrls: ['./admin-question-bank.component.scss'],
 })
 export class AdminQuestionBankComponent implements OnInit {
+  filtersShown = false;
+  searchExpanded = false;
   cols = [
     { field: 'code', header: 'Code' },
     { field: 'name', header: 'Name' },
@@ -67,6 +69,36 @@ export class AdminQuestionBankComponent implements OnInit {
       quantity: 671,
       category: 'Java',
       name: 'Janis',
+    },
+    {
+      code: '1988-09-09',
+      quantity: 325,
+      category: 'AWS',
+      name: 'Ana',
+    },
+    {
+      code: '1988-09-09',
+      quantity: 325,
+      category: 'AWS',
+      name: 'Ana',
+    },
+    {
+      code: '1988-09-09',
+      quantity: 325,
+      category: 'AWS',
+      name: 'Ana',
+    },
+    {
+      code: '1988-09-09',
+      quantity: 325,
+      category: 'AWS',
+      name: 'Ana',
+    },
+    {
+      code: '1988-09-09',
+      quantity: 325,
+      category: 'AWS',
+      name: 'Ana',
     },
     {
       code: '1988-09-09',

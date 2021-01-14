@@ -12,7 +12,7 @@ export class TestViewComponent implements OnInit {
     title: 'Senior Java Engineer Part 1Engineer Part 1Engineer Part 1',
     info:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodtempor incididunt ut laboradipiscing elit, sed do eiusmodtempor incididunt ut laboradipiscing elit, sed do eiusmodtempor incididunt ut laboradipiscing elit, sed do eiusmodtempor incididunt ut laboradipiscing elit, sed do eiusmodtempor incididunt ut laboradipiscing elit, sed do eiusmodtempor incididunt ut laboradipiscing elit, sed do eiusmodtempor incididunt ut laboradipiscing elit, sed do eiusmodtempor incididunt ut laboradipiscing elit, sed do eiusmodtempor incididunt ut labor.',
-    imgsrc: '/assets/imgs/avatar (8).svg',
+    imgsrc: '/assets/imgs/avatar (5).svg',
     categories: ['algorithm', 'program', 'fraction', 'dynamic'],
   };
 

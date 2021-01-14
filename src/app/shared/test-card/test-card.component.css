@@ -31,3 +31,8 @@
   /* transform: scale(1.1); */
   transition: all 0.2s ease;
 }
+
+:host ::ng-deep .p-chip {
+  background-color: #f0ac13;
+  color: #fff;
+}

@@ -1,11 +1,11 @@
-<div class="d-flex wrapper-content">
+<div class="d-flex wrapper-content primary-col">
   <div>
     <app-admin-side-nav
       (indexChange)="onTabSelect($event)"
       (visibilityToggle)="onTabToggle($event)"
     ></app-admin-side-nav>
   </div>
-  <div class="p-2 flex-fill out-content">
+  <div class="flex-fill out-content">
     <div class="in-content" #inContent style="padding-left: 100px">
       <router-outlet></router-outlet>
     </div>

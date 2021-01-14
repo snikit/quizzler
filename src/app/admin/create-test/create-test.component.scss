@@ -11,7 +11,6 @@
 }
 .md-stepper-horizontal .md-step:hover,
 .md-stepper-horizontal .md-step:active {
-  background-color: rgba(0, 0, 0, 0.04);
 }
 .md-stepper-horizontal .md-step:active {
   border-radius: 15% / 75%;
@@ -53,11 +52,11 @@
   background-color: rgb(33, 150, 243);
 }
 .md-stepper-horizontal .md-step.done .md-step-circle {
-  background-color: #0e1111 !important;
+  background-color: #28395b !important;
 }
 
 .md-stepper-horizontal .md-step.done .md-step-title {
-  color: #0e1111 !important;
+  color: #28395b !important;
 }
 .md-stepper-horizontal .md-step.active .md-step-circle {
   background-color: #fbc02d !important;
@@ -70,7 +69,7 @@
 .md-stepper-horizontal .md-step .md-step-title,
 .md-stepper-horizontal .md-step .md-step-optional {
   text-align: center;
-  color: rgba(0, 0, 0, 0.26);
+  color: #28395b;
 }
 .md-stepper-horizontal .md-step.active .md-step-title {
   font-weight: 600;
@@ -84,7 +83,7 @@
   font-size: 12px;
 }
 .md-stepper-horizontal .md-step.active .md-step-optional {
-  color: rgba(0, 0, 0, 0.54);
+  color: #28395b;
 }
 .md-stepper-horizontal .md-step .md-step-bar-left,
 .md-stepper-horizontal .md-step .md-step-bar-right {
@@ -115,4 +114,34 @@
 }
 :host::ng-deep .p-scrollpanel-bar :hover {
   background-color: #fbc02d;
+}
+
+:host ::ng-deep p-tabmenu {
+  width: 100%;
+}
+
+:host ::ng-deep .p-tabmenu {
+  width: 100%;
+}
+
+:host ::ng-deep .p-tabmenu-nav {
+  width: 100%;
+}
+
+:host ::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  color: #28395b !important;
+  border-color: #28395b !important;
+}
+
+:host ::ng-deep .tabview-custom {
+  a {
+    text-decoration: none;
+  }
+  em,
+  span {
+    vertical-align: middle;
+  }
+  span {
+    margin: 0 0.5rem;
+  }
 }
