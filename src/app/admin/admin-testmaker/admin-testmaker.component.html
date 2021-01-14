@@ -1,9 +1,8 @@
 <div class="d-flex flex-column h-100">
   <div class="flex-fill">
-    <div class="container pt-4 mt-4" *ngIf="newPage">
-      <div>
-        <app-create-test> </app-create-test>
-      </div>
+    <div *ngIf="newPage">
+      <app-create-test> </app-create-test>
+
       <app-fab-cross-button
         tooltip="Cancel test creation"
         (click)="cancelTest()"

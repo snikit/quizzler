@@ -18,6 +18,9 @@ export class TitleWithSearchComponent implements OnInit {
   @Input()
   title: string = 'AN INTERESTING TITLE !';
 
+  @Input()
+  search = true;
+
   constructor() {}
 
   ngOnInit(): void {}

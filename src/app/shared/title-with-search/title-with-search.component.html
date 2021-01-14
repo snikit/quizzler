@@ -4,6 +4,7 @@
       <div class="d-flex justify-content-between align-items-center">
         <span class="title">{{ title }}</span>
         <div
+          *ngIf="search"
           class="search search-holder flex-fill d-flex justify-content-end align-items-center"
         >
           <div *ngIf="searchExpanded" class="flex-fill">

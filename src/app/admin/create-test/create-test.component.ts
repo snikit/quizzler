@@ -1,5 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-create-test',

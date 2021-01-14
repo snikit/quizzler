@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -20,7 +21,7 @@ export class TestViewComponent implements OnInit {
 
   activeItem: string;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.items = [
@@ -30,5 +31,9 @@ export class TestViewComponent implements OnInit {
     ];
 
     this.activeItem = this.items[0].label;
+  }
+
+  goBack() {
+    this.router.navigateByUrl('/admin/testmaker');
   }
 }
