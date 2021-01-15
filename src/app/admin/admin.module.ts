@@ -31,6 +31,11 @@ import { TestViewComponent } from './test-view/test-view.component';
 import { PanelModule } from 'primeng/panel';
 import { BreadCrumbService } from './@data/service/bread-crumb-service.service';
 import { InputTextModule } from 'primeng/inputtext';
+import { AdminMngmntComponent } from './admin-mngmnt/admin-mngmnt.component';
+import { CommonMngmntComponent } from './common-mngmnt/common-mngmnt.component';
+import { AdminTopicMngmntComponent } from './admin-topic-mngmnt/admin-topic-mngmnt.component';
+import { AdminCourseMngmntComponent } from './admin-course-mngmnt/admin-course-mngmnt.component';
+import { AdminSubjectMngmntComponent } from './admin-subject-mngmnt/admin-subject-mngmnt.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -46,6 +51,11 @@ import { InputTextModule } from 'primeng/inputtext';
     TestInfoComponent,
     TestReportsComponent,
     TestSettingsComponent,
+    AdminMngmntComponent,
+    CommonMngmntComponent,
+    AdminTopicMngmntComponent,
+    AdminCourseMngmntComponent,
+    AdminSubjectMngmntComponent,
   ],
   imports: [
     TableModule,

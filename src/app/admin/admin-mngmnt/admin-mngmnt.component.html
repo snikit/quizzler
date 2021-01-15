@@ -1,0 +1,53 @@
+<div>
+  <div>
+    <app-title-with-search
+      title="MANAGEMENT"
+      [search]="false"
+    ></app-title-with-search>
+  </div>
+  <div>
+    <div class="container">
+      <div class="button-container">
+        <a href="#" class="card">
+          <p><em class="pi pi-user-edit card-icon"></em></p>
+          <p class="card-title">STUDENTS</p>
+        </a>
+      </div>
+
+      <div class="button-container">
+        <a href="#" class="card">
+          <p><em class="pi pi-id-card card-icon"></em></p>
+          <p class="card-title">SESSIONS</p>
+        </a>
+      </div>
+
+      <div class="button-container">
+        <a href="#" routerLink="/admin/mngmnt/course" class="card">
+          <p><em class="pi pi-book card-icon"></em></p>
+          <p class="card-title">COURSES</p>
+        </a>
+      </div>
+
+      <div class="button-container">
+        <a href="#" routerLink="/admin/mngmnt/subject" class="card">
+          <p><em class="pi pi-file card-icon"></em></p>
+          <p class="card-title">SUBJECTS</p>
+        </a>
+      </div>
+
+      <div class="button-container">
+        <a href="#" routerLink="/admin/mngmnt/topic" class="card">
+          <p><em class="pi pi-tags card-icon"></em></p>
+          <p class="card-title">TOPICS</p>
+        </a>
+      </div>
+
+      <!-- <div class="button-container">
+        <a href="#" class="card">
+          <p><em class="pi pi-home card-icon"></em></p>
+          <p class="card-title">CENTERS</p>
+        </a>
+      </div> -->
+    </div>
+  </div>
+</div>

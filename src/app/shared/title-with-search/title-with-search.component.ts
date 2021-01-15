@@ -16,6 +16,16 @@ export class TitleWithSearchComponent implements OnInit {
   searchExpanded = false;
 
   @Input()
+  back = false;
+  @Input()
+  backurl: string = '';
+
+  @Input()
+  icon = false;
+  @Input()
+  iconClass: string = '';
+
+  @Input()
   title: string = 'AN INTERESTING TITLE !';
 
   @Input()

@@ -1,0 +1,62 @@
+<app-title-with-search
+  [title]="title"
+  [back]="true"
+  backurl="/admin/mngmnt"
+></app-title-with-search>
+<app-fab-button></app-fab-button>
+
+<div class="card mr-5 ml-5 bottom-bar flex-fill d-flex flex-column">
+  <div class="mr-5 ml-5 mt-4">
+    <p-table
+      dataKey="id"
+      [value]="items"
+      [scrollable]="true"
+      scrollHeight="30rem"
+      columnResizeMode="expand"
+      styleClass="p-datatable-gridlines"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th pResizableColumn *ngFor="let prop of itemProps">
+            {{ prop.toUpperCase() }}
+          </th>
+          <th>ACTION</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item let-expanded="expanded">
+        <tr>
+          <td *ngFor="let prop of itemProps">{{ item[prop] }}</td>
+          <td>
+            <button
+              pButton
+              pRipple
+              type="button"
+              icon="pi pi-pencil"
+              class="p-button-rounded p-button-secondary mr-2 p-button-outlined"
+            ></button>
+
+            <button
+              pButton
+              pRipple
+              type="button"
+              icon="pi pi-trash"
+              class="p-button-rounded p-button-danger p-button-outlined"
+            ></button>
+            <!-- <em
+              class="pi pi-pencil mr-5"
+              style="font-size: 1rem; cursor: pointer"
+            ></em> -->
+            <!-- <em
+              class="pi pi-trash mr-5"
+              style="font-size: 1rem; cursor: pointer"
+            ></em> -->
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <div class="p-2 flex-fill d-flex align-items-center justify-content-center">
+    <p-paginator [rows]="10" [totalRecords]="100"></p-paginator>
+  </div>
+</div>

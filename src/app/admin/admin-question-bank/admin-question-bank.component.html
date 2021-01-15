@@ -3,13 +3,13 @@
     <app-title-with-search title="QUESTION BANK"></app-title-with-search>
   </div>
 
-  <div class="card m-5 bottom-bar flex-fill d-flex flex-column">
-    <div class="m-5">
+  <div class="card mr-5 ml-5 bottom-bar flex-fill d-flex flex-column">
+    <div class="mr-5 ml-5 mt-4">
       <p-table
         dataKey="code"
         [value]="products"
         [scrollable]="true"
-        scrollHeight="500px"
+        scrollHeight="30rem"
         columnResizeMode="expand"
         styleClass="p-datatable-gridlines"
       >
@@ -55,7 +55,7 @@
       </p-table>
     </div>
 
-    <div class="flex-fill d-flex align-items-center justify-content-center">
+    <div class="p-2 flex-fill d-flex align-items-center justify-content-center">
       <p-paginator [rows]="10" [totalRecords]="100"></p-paginator>
     </div>
   </div>

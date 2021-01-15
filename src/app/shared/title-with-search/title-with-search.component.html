@@ -2,7 +2,22 @@
   <div class="test-type h-100 flex-fill">
     <div class="mb-2">
       <div class="d-flex justify-content-between align-items-center">
-        <span class="title">{{ title }}</span>
+        <span class="title">
+          <em
+            *ngIf="back"
+            [routerLink]="backurl"
+            class="pi pi-chevron-left mr-5"
+            style="font-size: 2rem; cursor: pointer; z-index: 9999"
+          >
+          </em>
+          <em
+            *ngIf="icon"
+            class="pi {{ iconClass }} mr-2"
+            style="font-size: 2rem"
+          >
+          </em>
+          {{ title }}
+        </span>
         <div
           *ngIf="search"
           class="search search-holder flex-fill d-flex justify-content-end align-items-center"

@@ -8,6 +8,7 @@ export const ADMIN_TABS = {
   QUESTION_BANK: 'QUESTION_BANK',
   TEST_MAKER: 'TEST_MAKER',
   TEST_VIEW: 'TEST_VIEW',
+  MANAGEMENT: 'MANAGEMENT',
 };
 
 import {
@@ -68,7 +69,7 @@ export class AdminSideNavComponent implements OnInit {
 
   tabs = [
     { iconClass: 'pi-home', tabKey: ADMIN_TABS.HOME, url: '/' },
-    { iconClass: 'pi-users', tabKey: ADMIN_TABS.USERS },
+    { iconClass: 'pi-table', tabKey: ADMIN_TABS.MANAGEMENT, url: 'mngmnt' },
     { iconClass: 'pi-book', tabKey: ADMIN_TABS.TEST_MAKER, url: 'testmaker' },
     {
       iconClass: 'pi-question-circle',
