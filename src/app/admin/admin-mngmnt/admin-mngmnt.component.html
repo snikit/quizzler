@@ -1,53 +1,43 @@
-<div>
-  <div>
-    <app-title-with-search
-      title="MANAGEMENT"
-      [search]="false"
-    ></app-title-with-search>
-  </div>
-  <div>
-    <div class="container">
-      <div class="button-container">
-        <a href="#" class="card">
-          <p><em class="pi pi-user-edit card-icon"></em></p>
-          <p class="card-title">STUDENTS</p>
-        </a>
+<div class="wrapper">
+  <div class="d-flex flex-column content">
+    <div
+      class="d-flex flex-wrap projects-status my-menu align-items-center mb-3"
+    >
+      <div class="flex-fill">
+        <span class="title"> MANAGEMENT </span>
       </div>
 
-      <div class="button-container">
-        <a href="#" class="card">
-          <p><em class="pi pi-id-card card-icon"></em></p>
-          <p class="card-title">SESSIONS</p>
-        </a>
+      <div></div>
+      <div
+        class="my-menu-item"
+        *ngFor="let item of TABS"
+        [ngClass]="{ active: ACTIVE_TAB == item.key }"
+        (click)="activateTab(item.key)"
+      >
+        <span>{{ item.count }}</span>
+        <span class="my-menu-item-label"> {{ item.label }}</span>
       </div>
+    </div>
 
-      <div class="button-container">
-        <a href="#" routerLink="/admin/mngmnt/course" class="card">
-          <p><em class="pi pi-book card-icon"></em></p>
-          <p class="card-title">COURSES</p>
-        </a>
+    <div
+      [ngSwitch]="ACTIVE_TAB"
+      class="flex-fill justify-content-center align-items-center"
+    >
+      <div *ngSwitchCase="TABS[0].key">
+        <app-admin-course-mngmnt></app-admin-course-mngmnt>
       </div>
-
-      <div class="button-container">
-        <a href="#" routerLink="/admin/mngmnt/subject" class="card">
-          <p><em class="pi pi-file card-icon"></em></p>
-          <p class="card-title">SUBJECTS</p>
-        </a>
+      <div *ngSwitchCase="TABS[1].key">
+        <app-admin-subject-mngmnt></app-admin-subject-mngmnt>
       </div>
-
-      <div class="button-container">
-        <a href="#" routerLink="/admin/mngmnt/topic" class="card">
-          <p><em class="pi pi-tags card-icon"></em></p>
-          <p class="card-title">TOPICS</p>
-        </a>
+      <div *ngSwitchCase="TABS[2].key">
+        <app-admin-topic-mngmnt></app-admin-topic-mngmnt>
       </div>
-
-      <!-- <div class="button-container">
-        <a href="#" class="card">
-          <p><em class="pi pi-home card-icon"></em></p>
-          <p class="card-title">CENTERS</p>
-        </a>
-      </div> -->
+      <div *ngSwitchCase="TABS[3].key">
+        <app-admin-question-bank></app-admin-question-bank>
+      </div>
+      <div *ngSwitchCase="TABS[4].key">
+        <app-admin-student-mngmnt></app-admin-student-mngmnt>
+      </div>
     </div>
   </div>
 </div>

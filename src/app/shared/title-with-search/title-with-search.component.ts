@@ -16,6 +16,9 @@ export class TitleWithSearchComponent implements OnInit {
   searchExpanded = false;
 
   @Input()
+  color: string;
+
+  @Input()
   back = false;
   @Input()
   backurl: string = '';

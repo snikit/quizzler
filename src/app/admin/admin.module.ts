@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -36,6 +37,16 @@ import { CommonMngmntComponent } from './common-mngmnt/common-mngmnt.component';
 import { AdminTopicMngmntComponent } from './admin-topic-mngmnt/admin-topic-mngmnt.component';
 import { AdminCourseMngmntComponent } from './admin-course-mngmnt/admin-course-mngmnt.component';
 import { AdminSubjectMngmntComponent } from './admin-subject-mngmnt/admin-subject-mngmnt.component';
+import { ChartModule } from 'primeng/chart';
+import { DataViewModule } from 'primeng/dataview';
+import { RatingModule } from 'primeng/rating';
+import { RippleModule } from 'primeng/ripple';
+import { ProductService } from '../@data/services/productservice';
+import { AdminTestCardListComponent } from './shared/admin-test-card-list/admin-test-card-list.component';
+import { AdminTestSkeletonCardListComponent } from './shared/admin-test-skeleton-card-list/admin-test-skeleton-card-list.component';
+import { MenuModule } from 'primeng/menu';
+import { AdminStudentMngmntComponent } from './admin-student-mngmnt/admin-student-mngmnt.component';
+
 @NgModule({
   declarations: [
     AdminComponent,
@@ -56,6 +67,9 @@ import { AdminSubjectMngmntComponent } from './admin-subject-mngmnt/admin-subjec
     AdminTopicMngmntComponent,
     AdminCourseMngmntComponent,
     AdminSubjectMngmntComponent,
+    AdminTestCardListComponent,
+    AdminTestSkeletonCardListComponent,
+    AdminStudentMngmntComponent,
   ],
   imports: [
     TableModule,
@@ -75,7 +89,18 @@ import { AdminSubjectMngmntComponent } from './admin-subject-mngmnt/admin-subjec
     TabViewModule,
     PanelModule,
     InputTextModule,
+    ChartModule,
+    DataViewModule,
+    RatingModule,
+    RippleModule,
+    HttpClientModule,
+    MenuModule,
   ],
-  providers: [DialogService, ConfirmationService, BreadCrumbService],
+  providers: [
+    DialogService,
+    ConfirmationService,
+    BreadCrumbService,
+    ProductService,
+  ],
 })
 export class AdminModule {}

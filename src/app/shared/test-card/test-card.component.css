@@ -36,3 +36,14 @@
   background-color: #f0ac13;
   color: #fff;
 }
+:host ::ng-deep .p-chip {
+  font-size: small;
+  font-weight: bold;
+}
+
+.crd-title-sm {
+  font-family: "Righteous", Helvetica, Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: bolder;
+  color: #28395b;
+}

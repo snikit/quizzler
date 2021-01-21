@@ -1,3 +1,139 @@
-<div>
-  <app-title-with-search></app-title-with-search>
+<div class="wrapper">
+  <div class="d-flex flex-wrap flex-column content">
+    <div>
+      <div class="d-flex flex-wrap projects-status my-menu align-items-center">
+        <div class="flex-fill">
+          <span class="title m-0">
+            DASHBOARD
+            <!-- <em class="search pi pi-search"> </em> -->
+          </span>
+        </div>
+
+        <div></div>
+        <div
+          class="my-menu-item"
+          [ngClass]="{ active: ACTIVE_TAB === TABS.IN_PROGRESS }"
+          (click)="activateTab(TABS.IN_PROGRESS)"
+        >
+          <span>45</span>
+          <span class="my-menu-item-label">In Progress</span>
+        </div>
+        <div
+          class="my-menu-item"
+          [ngClass]="{ active: ACTIVE_TAB === TABS.TO_BE_REVIEWD }"
+          (click)="activateTab(TABS.TO_BE_REVIEWD)"
+        >
+          <span>3</span>
+          <span class="my-menu-item-label">To be reviewed</span>
+        </div>
+        <div
+          class="my-menu-item"
+          [ngClass]="{ active: ACTIVE_TAB === TABS.UPCOMING }"
+          (click)="activateTab(TABS.UPCOMING)"
+        >
+          <span>24</span>
+          <span class="my-menu-item-label">Upcoming</span>
+        </div>
+        <div
+          class="my-menu-item"
+          [ngClass]="{ active: ACTIVE_TAB === TABS.TOTAL }"
+          (click)="activateTab(TABS.TOTAL)"
+        >
+          <span>62</span>
+          <span class="my-menu-item-label">Total tests</span>
+        </div>
+      </div>
+
+      <div class="filter-reveal">
+        <div class="d-flex flex-wrap flex-fill justify-content-between">
+          <div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01"
+                  >Category</label
+                >
+              </div>
+              <p-dropdown [options]="['All', 'New York']"></p-dropdown>
+            </div>
+          </div>
+
+          <div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01"
+                  >Subject</label
+                >
+              </div>
+              <p-dropdown
+                [options]="['All', 'New York', 'Rome', 'London', 'India']"
+              ></p-dropdown>
+            </div>
+          </div>
+
+          <div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01"
+                  >Topic</label
+                >
+              </div>
+              <p-dropdown
+                [options]="['All', 'New York', 'Rome', 'London', 'India']"
+              ></p-dropdown>
+            </div>
+          </div>
+
+          <div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01"
+                  >Question Type</label
+                >
+              </div>
+              <p-dropdown
+                [options]="['All', 'New York', 'Rome', 'London', 'India']"
+              ></p-dropdown>
+            </div>
+          </div>
+
+          <div>
+            <div class="input-group mb-3">
+              <input type="text" placeholder="...search...query" />
+              <div class="input-group-append">
+                <label class="input-group-text" for="inputGroupSelect01"
+                  ><em class="pi pi-search"> </em
+                ></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        [ngSwitch]="ACTIVE_TAB"
+        class="flex-fill justify-content-center align-items-center"
+      >
+        <div *ngSwitchCase="TABS.TO_BE_REVIEWD">
+          <!-- <app-admin-test-skeleton-card-list></app-admin-test-skeleton-card-list> -->
+          <div
+            class="no-test-found d-flex flex-column flex-fill justify-content-center align-items-center"
+          >
+            <span>NO TEST TO BE REVIEWED !</span>
+          </div>
+        </div>
+        <div *ngSwitchCase="TABS.IN_PROGRESS">
+          <app-admin-test-card-list></app-admin-test-card-list>
+        </div>
+        <div *ngSwitchCase="TABS.UPCOMING">
+          <div
+            class="no-test-found d-flex flex-column flex-fill justify-content-center align-items-center"
+          >
+            <span>NO UPCOMING TESTS !</span>
+          </div>
+        </div>
+        <div *ngSwitchCase="TABS.TOTAL">
+          <app-admin-test-card-list></app-admin-test-card-list>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,21 +1,24 @@
-:host
-  ::ng-deep
-  .p-datatable.p-datatable-gridlines
-  .p-datatable-thead
-  > tr
-  > th {
-  font-size: 1.2rem;
-  font-family: "Righteous", Helvetica, Arial, sans-serif;
+.crd-img {
+  width: 60px;
+  height: auto;
 }
 
-:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
-  font-size: 1rem;
-  font-family: "Righteous", Helvetica, Arial, sans-serif;
-  padding: 0.5rem 1rem 0.5rem 1rem;
+.card {
+  width: 180px;
 }
 
-:host ::ng-deep .p-datatable .p-datatable-tbody > tr:hover {
-  background-color: rgba(0, 0, 0, 0.15);
+.crd-name {
+  font-family: "Righteous", Helvetica, Arial, sans-serif;
+  white-space: nowrap;
+  color: #495057;
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+  /* box-shadow: 0 12px 24px 4px rgba(255, 255, 255, 0.2); */
+  /* transform: scale(1.1); */
+  transition: all 0.2s ease;
 }
 
 .filter-reveal {

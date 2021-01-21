@@ -1,0 +1,56 @@
+.wrapper {
+  background-color: #f3f6fd;
+  height: 100vh;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 4rem;
+  font-weight: bolder;
+}
+
+.projects-status {
+  padding-bottom: 1rem;
+}
+
+.no-test-found {
+  height: 500px;
+}
+
+.no-test-found span {
+  font-size: 4em;
+  opacity: 0.5;
+  font-weight: bolder;
+}
+
+* {
+  font-family: "Righteous", Helvetica, Arial, sans-serif;
+}
+
+.search {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-left: 2rem;
+}
+
+.custom-select option {
+  margin: 5rem !important;
+}
+
+.filter-reveal {
+  padding-bottom: 0.5rem;
+}
+.filter-reveal ::ng-deep .p-dropdown {
+  /* background-color: #0e1111; */
+  color: #fff;
+  min-width: 8rem;
+  height: 100%;
+}
+
+.filter-reveal ::ng-deep .p-dropdown-panel {
+  color: #fff;
+}
+
+.filter-reveal ::ng-deep .p-dropdown-items-wrapper {
+  max-height: 400px !important;
+}

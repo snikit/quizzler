@@ -84,6 +84,7 @@ import { DropdownModule } from 'primeng/dropdown';
     TestCardComponent,
     BreadCrumbComponent,
     TitleWithSearchComponent,
+    EllipsisPipe,
   ],
 })
 export class SharedModule {}

@@ -54,7 +54,7 @@ import {
   ],
 })
 export class AdminSideNavComponent implements OnInit {
-  navState = 'open';
+  navState = 'closed';
 
   @Output()
   indexChange = new EventEmitter<any>();

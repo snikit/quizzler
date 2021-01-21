@@ -22,10 +22,12 @@ export class TestCardComponent implements OnInit {
     categories: ['sql', 'aws', 'java'],
   };
 
+  @Input()
+  small = false;
+
   constructor(
-    private router: Router
-  ) // private breadCrumbService: BreadCrumbService
-  {}
+    private router: Router // private breadCrumbService: BreadCrumbService
+  ) {}
 
   ngOnInit(): void {}
 

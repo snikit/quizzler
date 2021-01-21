@@ -1,8 +1,3 @@
-<!-- <app-title-with-search
-  [title]="title"
-  [back]="true"
-  backurl="/admin/mngmnt"
-></app-title-with-search> -->
 <app-fab-button></app-fab-button>
 
 <div class="border-0 bottom-bar flex-fill d-flex flex-column">
@@ -49,7 +44,7 @@
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <label class="input-group-text" for="inputGroupSelect01"
-              >Question Type</label
+              >Batch</label
             >
           </div>
           <p-dropdown
@@ -71,57 +66,24 @@
     </div>
   </div>
 
-  <div class="p-4">
-    <p-table
-      dataKey="id"
-      [value]="items"
-      [scrollable]="true"
-      scrollHeight="30rem"
-      columnResizeMode="expand"
-      styleClass="p-datatable-gridlines"
-    >
-      <ng-template pTemplate="header">
-        <tr>
-          <th pResizableColumn *ngFor="let prop of itemProps">
-            {{ prop.toUpperCase() }}
-          </th>
-          <th>ACTION</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-item let-expanded="expanded">
-        <tr>
-          <td *ngFor="let prop of itemProps">{{ item[prop] }}</td>
-          <td>
-            <button
-              pButton
-              pRipple
-              type="button"
-              icon="pi pi-pencil"
-              class="p-button-rounded p-button-secondary mr-2 p-button-outlined"
-            ></button>
+  <div class="d-flex flex-column flex-fill pt-4">
+    <div class="flex-fill d-flex justify-content-start flex-wrap">
+      <div
+        *ngFor="let info of infos"
+        class="card p-2 mb-2 mr-2"
+        [routerLink]="['/admin/testview']"
+      >
+        <div
+          class="d-flex flex-column align-items-center justify-content-center"
+        >
+          <img alt="test avatar" class="crd-img" [src]="info.imgsrc" />
+          <span class="crd-name">{{ info.title | ellipsis: 18 }}</span>
+        </div>
+      </div>
+    </div>
 
-            <button
-              pButton
-              pRipple
-              type="button"
-              icon="pi pi-trash"
-              class="p-button-rounded p-button-danger p-button-outlined"
-            ></button>
-            <!-- <em
-              class="pi pi-pencil mr-5"
-              style="font-size: 1rem; cursor: pointer"
-            ></em> -->
-            <!-- <em
-              class="pi pi-trash mr-5"
-              style="font-size: 1rem; cursor: pointer"
-            ></em> -->
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </div>
-
-  <div class="p-2 flex-fill d-flex align-items-center justify-content-center">
-    <p-paginator [rows]="10" [totalRecords]="100"></p-paginator>
+    <div class="pginator">
+      <p-paginator [rows]="10" [totalRecords]="100"></p-paginator>
+    </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="d-flex wrapper-content primary-col">
+<div class="d-flex wrapper-content">
   <div>
     <app-admin-side-nav
       (indexChange)="onTabSelect($event)"
@@ -6,7 +6,7 @@
     ></app-admin-side-nav>
   </div>
   <div class="flex-fill out-content">
-    <div class="in-content" #inContent style="padding-left: 100px">
+    <div class="in-content" #inContent>
       <router-outlet></router-outlet>
     </div>
   </div>

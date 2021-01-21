@@ -1,0 +1,282 @@
+<p-menu #menu [popup]="true" [model]="menuitems"></p-menu>
+<div class="project-boxes d-flex flex-wrap">
+  <div class="project-box-wrapper">
+    <div class="project-box" style="background-color: #fee4cb">
+      <div class="project-box-header">
+        <span>December 10, 2020</span>
+        <div class="more-wrapper">
+          <button class="project-btn-more" (click)="menu.toggle($event)">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-more-vertical"
+            >
+              <circle cx="12" cy="12" r="1" />
+              <circle cx="12" cy="5" r="1" />
+              <circle cx="12" cy="19" r="1" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="project-box-content-header">
+        <p class="box-content-header">Testing Prototyping Programming</p>
+        <p class="box-content-subheader">Prototyping</p>
+      </div>
+
+      <div class="box-progress-wrapper" pTooltip="50% Progress">
+        <div class="box-progress-bar">
+          <span
+            class="box-progress"
+            style="width: 50%; background-color: #ff942e"
+          ></span>
+        </div>
+      </div>
+      <div class="project-box-footer">
+        <div class="participants">
+          <!-- <button class="add-participant">i</button> -->
+        </div>
+        <div class="days-left" style="color: #ff942e">2 Days Left</div>
+      </div>
+    </div>
+  </div>
+  <div class="project-box-wrapper">
+    <div class="project-box" style="background-color: #e9e7fd">
+      <div class="project-box-header">
+        <span>December 10, 2020</span>
+        <div class="more-wrapper">
+          <button class="project-btn-more">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-more-vertical"
+            >
+              <circle cx="12" cy="12" r="1" />
+              <circle cx="12" cy="5" r="1" />
+              <circle cx="12" cy="19" r="1" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="project-box-content-header">
+        <p class="box-content-header">Svg Animations</p>
+        <p class="box-content-subheader">Prototyping</p>
+      </div>
+
+      <div class="box-progress-wrapper" pTooltip="50% Progress">
+        <div class="box-progress-bar">
+          <span
+            class="box-progress"
+            style="width: 50%; background-color: #096c86"
+          ></span>
+        </div>
+      </div>
+
+      <!-- <div class="project-box-footer">
+        <div class="participants">
+          <button class="add-participant">i</button>
+        </div>
+        <div class="days-left" style="color: #096c86">2 Days Left</div>
+      </div> -->
+    </div>
+  </div>
+  <div class="project-box-wrapper">
+    <div class="project-box" style="background-color: #ffd3e2">
+      <div class="project-box-header">
+        <span>December 10, 2020</span>
+        <div class="more-wrapper">
+          <button class="project-btn-more">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-more-vertical"
+            >
+              <circle cx="12" cy="12" r="1" />
+              <circle cx="12" cy="5" r="1" />
+              <circle cx="12" cy="19" r="1" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="project-box-content-header">
+        <p class="box-content-header">UI Development</p>
+        <p class="box-content-subheader">Prototyping</p>
+      </div>
+
+      <!-- <div class="box-progress-wrapper" pTooltip="20% Progress">
+        <div class="box-progress-bar">
+          <span
+            class="box-progress"
+            style="width: 20%; background-color: #df3670"
+          ></span>
+        </div>
+      </div> -->
+      <div class="project-box-footer">
+        <div class="participants">
+          <!-- <button class="add-participant">i</button> -->
+        </div>
+        <div class="days-left" style="color: #df3670">2 Days Left</div>
+      </div>
+    </div>
+  </div>
+  <div class="project-box-wrapper">
+    <div class="project-box" style="background-color: #c8f7dc">
+      <div class="project-box-header">
+        <span>December 10, 2020</span>
+        <div class="more-wrapper">
+          <button class="project-btn-more">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-more-vertical"
+            >
+              <circle cx="12" cy="12" r="1" />
+              <circle cx="12" cy="5" r="1" />
+              <circle cx="12" cy="19" r="1" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="project-box-content-header">
+        <p class="box-content-header">Data Analysis</p>
+        <p class="box-content-subheader">Prototyping</p>
+      </div>
+
+      <!-- <div class="box-progress-wrapper" pTooltip="20% Progress">
+        <div class="box-progress-bar">
+          <span
+            class="box-progress"
+            style="width: 60%; background-color: #34c471"
+          ></span>
+        </div>
+      </div> -->
+      <div class="project-box-footer">
+        <div class="participants">
+          <!-- <button class="add-participant">i</button> -->
+        </div>
+        <div class="days-left" style="color: #34c471">2 Days Left</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-box-wrapper">
+    <div class="project-box" style="background-color: #c8f7dc">
+      <div class="project-box-header">
+        <span>December 10, 2020</span>
+        <div class="more-wrapper">
+          <button class="project-btn-more">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-more-vertical"
+            >
+              <circle cx="12" cy="12" r="1" />
+              <circle cx="12" cy="5" r="1" />
+              <circle cx="12" cy="19" r="1" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="project-box-content-header">
+        <p class="box-content-header">Data Analysis</p>
+        <p class="box-content-subheader">Prototyping</p>
+      </div>
+
+      <!-- <div class="box-progress-wrapper" pTooltip="20% Progress">
+        <div class="box-progress-bar">
+          <span
+            class="box-progress"
+            style="width: 60%; background-color: #34c471"
+          ></span>
+        </div>
+      </div> -->
+
+      <div class="project-box-footer">
+        <div class="participants">
+          <!-- <button class="add-participant">i</button> -->
+        </div>
+        <div class="days-left" style="color: #34c471">2 Days Left</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-box-wrapper">
+    <div class="project-box" style="background-color: #c8f7dc">
+      <div class="project-box-header">
+        <span>December 10, 2020</span>
+        <div class="more-wrapper">
+          <button class="project-btn-more">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-more-vertical"
+            >
+              <circle cx="12" cy="12" r="1" />
+              <circle cx="12" cy="5" r="1" />
+              <circle cx="12" cy="19" r="1" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="project-box-content-header">
+        <p class="box-content-header">Data Analysis</p>
+        <p class="box-content-subheader">Prototyping</p>
+      </div>
+      <!-- <div class="box-progress-wrapper" pTooltip="20% Progress">
+        <div class="box-progress-bar">
+          <span
+            class="box-progress"
+            style="width: 60%; background-color: #34c471"
+          ></span>
+        </div>
+      </div> -->
+      <div class="project-box-footer">
+        <div class="participants">
+          <!-- <button class="add-participant">i</button> -->
+        </div>
+        <div class="days-left" style="color: #34c471">2 Days Left</div>
+      </div>
+    </div>
+  </div>
+</div>
