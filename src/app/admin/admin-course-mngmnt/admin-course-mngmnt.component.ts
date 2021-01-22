@@ -1,5 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { CourseVO } from '../@data/vo/mngmnt-vo';
+import { Observable } from 'rxjs';
+import { Course } from 'src/app/@data/model/course.model';
+import { CourseService } from '../@data/service/course.service';
 
 @Component({
   selector: 'app-admin-course-mngmnt',
@@ -8,34 +10,11 @@ import { CourseVO } from '../@data/vo/mngmnt-vo';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AdminCourseMngmntComponent implements OnInit {
-  constructor() {}
+  constructor(private courseService: CourseService) {}
 
-  ngOnInit(): void {}
+  courses: Observable<Course[]>;
 
-  items: CourseVO[] = [
-    {
-      id: '0',
-      course: 'fresher',
-    },
-    {
-      id: '1',
-      course: 'fresher',
-    },
-    {
-      id: '2',
-      course: 'fresher',
-    },
-    {
-      id: '3',
-      course: 'fresher',
-    },
-    {
-      id: '4',
-      course: 'fresher',
-    },
-    {
-      id: '5',
-      course: 'fresher',
-    },
-  ];
+  ngOnInit(): void {
+    this.courses = this.courseService.getAll();
+  }
 }

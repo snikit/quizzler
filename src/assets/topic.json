@@ -1,0 +1,100 @@
+{
+  "data": [
+    {
+      "id": "0",
+      "label": "General",
+      "subject": {
+        "id": "0",
+        "label": "AWS",
+        "course": {
+          "id": "1",
+          "label": "fresher"
+        }
+      }
+    },
+    {
+      "id": "0",
+      "label": "EC2",
+      "subject": {
+        "id": "1",
+        "label": "HTML Level 2",
+        "course": {
+          "id": "1",
+          "label": "experienced"
+        }
+      }
+    },
+    {
+      "id": "0",
+      "label": "Functions",
+      "subject": {
+        "id": "2",
+        "label": "OOPS",
+        "course": {
+          "id": "1",
+          "label": "java fresher"
+        }
+      }
+    },
+    {
+      "id": "0",
+      "label": "Arrays",
+      "subject": {
+        "id": "3",
+        "label": "CSS Level 2",
+        "course": {
+          "id": "1",
+          "label": "backend developer"
+        }
+      }
+    },
+    {
+      "id": "0",
+      "label": "Functions",
+      "subject": {
+        "id": "4",
+        "label": "Python",
+        "course": {
+          "id": "1",
+          "label": "frontend"
+        }
+      }
+    },
+    {
+      "id": "0",
+      "label": "Constructors",
+      "subject": {
+        "id": "5",
+        "label": "EC2",
+        "course": {
+          "id": "1",
+          "label": "Editor"
+        }
+      }
+    },
+    {
+      "id": "0",
+      "label": "Polymorphism",
+      "subject": {
+        "id": "6",
+        "label": "CPP",
+        "course": {
+          "id": "1",
+          "label": "Admin"
+        }
+      }
+    },
+    {
+      "id": "0",
+      "label": "Inheritance",
+      "subject": {
+        "id": "7",
+        "label": "C++",
+        "course": {
+          "id": "1",
+          "label": "Database Admin"
+        }
+      }
+    }
+  ]
+}

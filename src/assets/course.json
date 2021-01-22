@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "id": "0",
+      "label": "HTML Level 1"
+    },
+    { "id": "1", "label": "HTML Level 2" },
+    {
+      "id": "2",
+      "label": "CSS Level 1"
+    },
+    { "id": "3", "label": "CSS Level 2" },
+    {
+      "id": "4",
+      "label": "Java Fresher Programming"
+    },
+    { "id": "5", "label": "Java Experiences Programming" },
+    {
+      "id": "6",
+      "label": "Python Fresher"
+    },
+    { "id": "7", "label": "OOPS in depth" },
+    {
+      "id": "8",
+      "label": "Senior Software Developer"
+    },
+    { "id": "9", "label": "Juniour Fullstack Developer" }
+  ]
+}

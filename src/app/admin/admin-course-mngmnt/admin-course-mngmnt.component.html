@@ -1,5 +1,129 @@
-<app-common-mngmnt
-  title="COURSE MANAGEMENT"
-  [items]="items"
-  iconClass="pi-book"
-></app-common-mngmnt>
+<!-- <app-title-with-search
+  [title]="title"
+  [back]="true"
+  backurl="/admin/mngmnt"
+></app-title-with-search> -->
+<app-fab-button></app-fab-button>
+
+<div class="border-0 bottom-bar flex-fill d-flex flex-column">
+  <div class="filter-reveal">
+    <div class="d-flex flex-wrap flex-fill justify-content-between">
+      <div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01"
+              >Category</label
+            >
+          </div>
+          <p-dropdown [options]="['All', 'New York']"></p-dropdown>
+        </div>
+      </div>
+
+      <div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01"
+              >Subject</label
+            >
+          </div>
+          <p-dropdown
+            [options]="['All', 'New York', 'Rome', 'London', 'India']"
+          ></p-dropdown>
+        </div>
+      </div>
+
+      <div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01"
+              >Topic</label
+            >
+          </div>
+          <p-dropdown
+            [options]="['All', 'New York', 'Rome', 'London', 'India']"
+          ></p-dropdown>
+        </div>
+      </div>
+
+      <div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01"
+              >Question Type</label
+            >
+          </div>
+          <p-dropdown
+            [options]="['All', 'New York', 'Rome', 'London', 'India']"
+          ></p-dropdown>
+        </div>
+      </div>
+
+      <div>
+        <div class="input-group mb-3">
+          <input type="text" placeholder="...search...query" />
+          <div class="input-group-append">
+            <label class="input-group-text" for="inputGroupSelect01"
+              ><em class="pi pi-search"> </em
+            ></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-4">
+    <p-table
+      dataKey="id"
+      [value]="courses | async"
+      [scrollable]="true"
+      scrollHeight="30rem"
+      columnResizeMode="expand"
+      styleClass="p-datatable-gridlines"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <!-- <th pResizableColumn *ngFor="let prop of itemProps"> -->
+          <!-- <th>ID</th> -->
+          <th pResizableColumn>COURSE</th>
+          <th pResizableColumn>ACTION</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item let-expanded="expanded">
+        <tr>
+          <!-- <td>{{ item.id }}</td> -->
+          <td>{{ item.label }}</td>
+
+          <td>
+            <button
+              pButton
+              pRipple
+              type="button"
+              icon="pi pi-pencil"
+              class="p-button-rounded p-button-secondary mr-2 p-button-outlined"
+            ></button>
+
+            <button
+              pButton
+              pRipple
+              type="button"
+              icon="pi pi-trash"
+              class="p-button-rounded p-button-danger p-button-outlined"
+            ></button>
+            <!-- <em
+              class="pi pi-pencil mr-5"
+              style="font-size: 1rem; cursor: pointer"
+            ></em> -->
+            <!-- <em
+              class="pi pi-trash mr-5"
+              style="font-size: 1rem; cursor: pointer"
+            ></em> -->
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <div class="p-2 flex-fill d-flex align-items-center justify-content-center">
+    <p-paginator [rows]="10" [totalRecords]="100"></p-paginator>
+  </div>
+</div>

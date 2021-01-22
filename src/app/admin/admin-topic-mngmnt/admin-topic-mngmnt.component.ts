@@ -1,5 +1,7 @@
-import { TopicVo } from './../@data/vo/mngmnt-vo';
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Topic } from 'src/app/@data/model/topic.model';
+import { TopicService } from './../@data/service/topic.service';
 
 @Component({
   selector: 'app-admin-topic-mngmnt',
@@ -8,46 +10,11 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AdminTopicMngmntComponent implements OnInit {
-  constructor() {}
+  topics: Observable<Topic[]>;
 
-  ngOnInit(): void {}
+  constructor(private topicService: TopicService) {}
 
-  items: TopicVo[] = [
-    {
-      id: '0',
-      topic: 'General',
-      subject: 'AWS',
-      course: 'fresher',
-    },
-    {
-      id: '1',
-      topic: 'EC2',
-      subject: 'AWS',
-      course: 'fresher',
-    },
-    {
-      id: '2',
-      topic: 'Functions',
-      subject: 'Python',
-      course: 'fresher',
-    },
-    {
-      id: '3',
-      topic: 'Arrays',
-      subject: 'Java',
-      course: 'fresher',
-    },
-    {
-      id: '4',
-      topic: 'Constructor',
-      subject: 'OOPS',
-      course: 'fresher',
-    },
-    {
-      id: '5',
-      topic: 'Arrays',
-      subject: 'OOPS',
-      course: 'fresher',
-    },
-  ];
+  ngOnInit(): void {
+    this.topics = this.topicService.getAll();
+  }
 }

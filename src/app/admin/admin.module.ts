@@ -49,6 +49,9 @@ import { AdminStudentMngmntComponent } from './admin-student-mngmnt/admin-studen
 import { AdminTestMngmntComponent } from './admin-test-mngmnt/admin-test-mngmnt.component';
 import { StudentInfoComponent } from './student-info/student-info.component';
 import { DialogModule } from 'primeng/dialog';
+import { CourseService } from './@data/service/course.service';
+import { SubjectService } from './@data/service/subject.service';
+import { TopicService } from './@data/service/topic.service';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -106,6 +109,9 @@ import { DialogModule } from 'primeng/dialog';
     ConfirmationService,
     BreadCrumbService,
     ProductService,
+    CourseService,
+    SubjectService,
+    TopicService,
   ],
 })
 export class AdminModule {}
