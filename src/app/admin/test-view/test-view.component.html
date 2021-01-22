@@ -1,62 +1,43 @@
-<app-fab-cross-button (click)="goBack()"></app-fab-cross-button>
-
-<div class="border-0 d-flex flex-column card m-5">
-  <div class="p-3 border-0">
-    <div class="row g-0">
-      <div class="col-md-3 d-flex justify-content-center align-items-center">
-        <div>
-          <img class="img p-2" [src]="testInfo.imgsrc" alt="testInfo" />
-        </div>
+<div class="wrapper">
+  <div class="d-flex flex-column content">
+    <div
+      class="d-flex flex-wrap projects-status my-menu align-items-center mb-3"
+    >
+      <div class="flex-fill">
+        <span class="title"> Software Developer Programming Level 1 </span>
       </div>
-      <div class="col-md-9">
-        <div class="d-flex flex-column justify-content-center mt-5 mr-5">
-          <h1 class="card-title title">AWS Programming Level 1</h1>
-          <h5 class="card-text">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer. This is
-            wider card with supporting text below as a natural lead-in to.
-          </h5>
 
-          <div class="card-text d-flex align-items-center mt-4">
-            <em class="pi pb-1 mr-2 pi-clock"></em>
-            <small> Last updated 3 mins ago.</small>
-          </div>
-
-          <div class="d-flex flex-wrap mt-2 justify-content-end p-2">
-            <p-chip
-              *ngFor="let cats of testInfo.categories"
-              [label]="cats"
-              styleClass="ml-1"
-            ></p-chip>
-          </div>
-        </div>
+      <div></div>
+      <div
+        class="my-menu-item"
+        *ngFor="let item of TABS"
+        [ngClass]="{ active: ACTIVE_TAB == item.key }"
+        (click)="activateTab(item.key)"
+      >
+        <span>{{ item.count ? item.count : " &nbsp;" }}</span>
+        <span class="my-menu-item-label"> {{ item.label }}</span>
       </div>
     </div>
-  </div>
 
-  <div class="base-view flex-fill">
-    <p-tabView styleClass="tabview-custom ">
-      <p-tabPanel>
-        <ng-template pTemplate="header">
-          <em [class]="items[0].icon"></em>
-          <span>{{ items[0].label }}</span>
-        </ng-template>
+    <div
+      [ngSwitch]="ACTIVE_TAB"
+      class="flex-fill justify-content-center align-items-center"
+    >
+      <div *ngSwitchCase="TABS[0].key">
         <app-test-info></app-test-info>
-      </p-tabPanel>
-      <p-tabPanel>
-        <ng-template pTemplate="header">
-          <em class="pi pi-fw pi-credit-card"></em>
-          <span>{{ items[1].label }}</span>
-        </ng-template>
+      </div>
+      <div *ngSwitchCase="TABS[1].key">
+        <app-admin-question-bank></app-admin-question-bank>
+      </div>
+      <div *ngSwitchCase="TABS[2].key">
         <app-test-reports></app-test-reports>
-      </p-tabPanel>
-      <p-tabPanel>
-        <ng-template pTemplate="header">
-          <em class="pi pi-fw pi-cog"></em>
-          <span>{{ items[2].label }}</span>
-        </ng-template>
+      </div>
+      <div *ngSwitchCase="TABS[3].key">
+        <app-admin-student-mngmnt></app-admin-student-mngmnt>
+      </div>
+      <div *ngSwitchCase="TABS[4].key">
         <app-test-settings></app-test-settings>
-      </p-tabPanel>
-    </p-tabView>
+      </div>
+    </div>
   </div>
 </div>

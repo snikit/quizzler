@@ -46,7 +46,9 @@ import { AdminTestCardListComponent } from './shared/admin-test-card-list/admin-
 import { AdminTestSkeletonCardListComponent } from './shared/admin-test-skeleton-card-list/admin-test-skeleton-card-list.component';
 import { MenuModule } from 'primeng/menu';
 import { AdminStudentMngmntComponent } from './admin-student-mngmnt/admin-student-mngmnt.component';
-
+import { AdminTestMngmntComponent } from './admin-test-mngmnt/admin-test-mngmnt.component';
+import { StudentInfoComponent } from './student-info/student-info.component';
+import { DialogModule } from 'primeng/dialog';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -70,6 +72,8 @@ import { AdminStudentMngmntComponent } from './admin-student-mngmnt/admin-studen
     AdminTestCardListComponent,
     AdminTestSkeletonCardListComponent,
     AdminStudentMngmntComponent,
+    AdminTestMngmntComponent,
+    StudentInfoComponent,
   ],
   imports: [
     TableModule,
@@ -95,6 +99,7 @@ import { AdminStudentMngmntComponent } from './admin-student-mngmnt/admin-studen
     RippleModule,
     HttpClientModule,
     MenuModule,
+    DialogModule,
   ],
   providers: [
     DialogService,

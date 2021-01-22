@@ -36,4 +36,36 @@ export class TestViewComponent implements OnInit {
   goBack() {
     this.router.navigateByUrl('/admin/testmaker');
   }
+
+  TABS = [
+    {
+      key: 'info',
+      label: 'info',
+    },
+    {
+      key: 'questions',
+      label: 'questions',
+      count: 325,
+    },
+
+    {
+      key: 'reports',
+      label: 'reports',
+    },
+    {
+      key: 'STUDENTS',
+      label: 'STUDENTS',
+      count: 200,
+    },
+    {
+      key: 'settings',
+      label: 'settings',
+    },
+  ];
+
+  ACTIVE_TAB = this.TABS[0].key;
+
+  activateTab(tabKey: string) {
+    this.ACTIVE_TAB = tabKey;
+  }
 }

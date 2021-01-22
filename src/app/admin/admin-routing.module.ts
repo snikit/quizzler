@@ -6,6 +6,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminMngmntComponent } from './admin-mngmnt/admin-mngmnt.component';
 import { AdminQuestionBankComponent } from './admin-question-bank/admin-question-bank.component';
 import { AdminSubjectMngmntComponent } from './admin-subject-mngmnt/admin-subject-mngmnt.component';
+import { AdminTestMngmntComponent } from './admin-test-mngmnt/admin-test-mngmnt.component';
 import { AdminTestmakerComponent } from './admin-testmaker/admin-testmaker.component';
 import { AdminTopicMngmntComponent } from './admin-topic-mngmnt/admin-topic-mngmnt.component';
 import { TestViewComponent } from './test-view/test-view.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: 'mngmnt/topic', component: AdminTopicMngmntComponent },
       { path: 'mngmnt/subject', component: AdminSubjectMngmntComponent },
       { path: 'mngmnt/course', component: AdminCourseMngmntComponent },
+      { path: 'mngmnt/test', component: AdminTestMngmntComponent },
     ],
   },
 ];

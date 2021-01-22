@@ -70,7 +70,11 @@ export class AdminSideNavComponent implements OnInit {
   tabs = [
     { iconClass: 'pi-home', tabKey: ADMIN_TABS.HOME, url: '/' },
     { iconClass: 'pi-table', tabKey: ADMIN_TABS.MANAGEMENT, url: 'mngmnt' },
-    { iconClass: 'pi-book', tabKey: ADMIN_TABS.TEST_MAKER, url: 'testmaker' },
+    {
+      iconClass: 'pi-book',
+      tabKey: ADMIN_TABS.TEST_MAKER,
+      url: 'mngmnt/test',
+    },
     {
       iconClass: 'pi-question-circle',
       tabKey: ADMIN_TABS.QUESTION_BANK,

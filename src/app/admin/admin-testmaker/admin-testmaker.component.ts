@@ -1,7 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ConfirmationService } from 'primeng/api';
-import { DialogService } from 'primeng/dynamicdialog';
-import { CreateTestComponent } from '../create-test/create-test.component';
 
 @Component({
   selector: 'app-admin-testmaker',
