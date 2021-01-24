@@ -52,6 +52,9 @@ import { DialogModule } from 'primeng/dialog';
 import { CourseService } from './@data/service/course.service';
 import { SubjectService } from './@data/service/subject.service';
 import { TopicService } from './@data/service/topic.service';
+import { CourseCreateOrEditComponent } from './shared/course-create-or-edit/course-create-or-edit.component';
+import { SubjectCreateOrEditComponent } from './shared/subject-create-or-edit/subject-create-or-edit.component';
+import { TopicCreateOrEditComponent } from './shared/topic-create-or-edit/topic-create-or-edit.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -77,6 +80,9 @@ import { TopicService } from './@data/service/topic.service';
     AdminStudentMngmntComponent,
     AdminTestMngmntComponent,
     StudentInfoComponent,
+    CourseCreateOrEditComponent,
+    SubjectCreateOrEditComponent,
+    TopicCreateOrEditComponent,
   ],
   imports: [
     TableModule,

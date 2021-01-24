@@ -1,0 +1,45 @@
+<div class="d-flex flex-column align-items-center pt-2">
+  <div class="d-flex align-items-center pb-3">
+    <em style="font-size: x-large" class="pi pi-info-circle"></em>
+    <span class="pl-2"> Please fill the details below ...</span>
+  </div>
+  <div class="custom-modal-container">
+    <div class="input-group m-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">
+          SUBJECT NAME
+        </label>
+      </div>
+      <input
+        type="text"
+        [(ngModel)]="subject.label"
+        placeholder="...subject...name"
+      />
+    </div>
+
+    <div class="input-group m-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">
+          FOR COURSE
+        </label>
+      </div>
+      <p-dropdown
+        appendTo="body"
+        [options]="['All', 'New York', 'fresher', 'backend developer']"
+      ></p-dropdown>
+    </div>
+
+    <div class="d-flex justify-content-end align-items-center pt-3">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-check"
+        iconPos="right"
+        label="save"
+        class="p-button-secondary p-button-rounded"
+        (click)="save()"
+      ></button>
+    </div>
+  </div>
+</div>

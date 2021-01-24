@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-admin-question-bank',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-question-bank.component.scss'],
 })
 export class AdminQuestionBankComponent implements OnInit {
+  constructor(private confirmationService: ConfirmationService) {}
+
   filtersShown = false;
   searchExpanded = false;
   cols = [
@@ -109,7 +112,16 @@ export class AdminQuestionBankComponent implements OnInit {
     },
   ];
 
-  constructor() {}
-
   ngOnInit(): void {}
+
+  deleteConfirm(question) {
+    this.confirmationService.confirm({
+      message: `Are you sure that you want to delete the highlighted Question ?`,
+      accept: (questionData) => {
+        console.log(`delete ${JSON.stringify(questionData)}`);
+      },
+      header: 'DELETE QUESTION',
+      icon: 'pi pi-exclamation-triangle',
+    });
+  }
 }

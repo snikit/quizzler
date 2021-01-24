@@ -180,3 +180,9 @@ em {
   padding: 0.5rem 0.5rem;
   font-family: "Righteous", Helvetica, Arial, sans-serif;
 }
+
+.p-dialog .p-dialog-header .p-dialog-title {
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  font-family: "Righteous", Helvetica, Arial, sans-serif !important;
+}

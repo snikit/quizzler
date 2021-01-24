@@ -1,0 +1,26 @@
+:host ::ng-deep .p-dialog.p-confirm-dialog .p-confirm-dialog-message {
+  font-family: "Righteous", Helvetica, Arial, sans-serif;
+}
+
+:host ::ng-deep .p-dialog.p-confirm-dialog .p-confirm-dialog-message b {
+  color: red;
+}
+
+.custom-modal-container .input-group-text {
+  font-size: 1.2rem;
+  font-family: "Righteous", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+
+.custom-modal-container label {
+  border: none !important;
+}
+
+.custom-modal-container input {
+  border: 1px solid #495057 !important;
+  border-radius: 0.25rem !important;
+}
+
+.custom-modal-container .input-group {
+  width: 100% !important;
+}

@@ -30,6 +30,7 @@ import { EllipsisPipe } from './pipes/ellipsis.pipe';
 import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
 import { TitleWithSearchComponent } from './title-with-search/title-with-search.component';
 import { DropdownModule } from 'primeng/dropdown';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { DropdownModule } from 'primeng/dropdown';
     ChipModule,
     RouterModule,
     DropdownModule,
+    UserModule,
   ],
   exports: [
     QuestionerComponent,
