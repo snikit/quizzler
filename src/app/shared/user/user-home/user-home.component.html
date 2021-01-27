@@ -1,1 +1,48 @@
-<p>user-home works!</p>
+<div class="wrapper">
+  <div class="d-flex flex-column content">
+    <div
+      class="d-flex flex-wrap projects-status my-menu align-items-center mb-3"
+    >
+      <div class="flex-fill d-flex align-items-center">
+        <img
+          alt="test avatar"
+          class="crd-img mr-2"
+          src="/assets/imgs/avatar.svg"
+        />
+        <span class="title"> Software Developer Programming Level 1 </span>
+      </div>
+
+      <div></div>
+      <div
+        class="my-menu-item"
+        *ngFor="let item of TABS"
+        [ngClass]="{ active: ACTIVE_TAB == item.key }"
+        (click)="activateTab(item.key)"
+      >
+        <span>{{ item.count ? item.count : " &nbsp;" }}</span>
+        <span class="my-menu-item-label"> {{ item.label }}</span>
+      </div>
+    </div>
+
+    <!-- <div
+      [ngSwitch]="ACTIVE_TAB"
+      class="flex-fill justify-content-center align-items-center"
+    >
+      <div *ngSwitchCase="TABS[0].key">
+        <app-test-info></app-test-info>
+      </div>
+      <div *ngSwitchCase="TABS[1].key">
+        <app-admin-question-bank></app-admin-question-bank>
+      </div>
+      <div *ngSwitchCase="TABS[2].key">
+        <app-test-reports></app-test-reports>
+      </div>
+      <div *ngSwitchCase="TABS[3].key">
+        <app-admin-student-mngmnt></app-admin-student-mngmnt>
+      </div>
+      <div *ngSwitchCase="TABS[4].key">
+        <app-test-settings></app-test-settings>
+      </div>
+    </div> -->
+  </div>
+</div>

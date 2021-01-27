@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { AdminMngmntService } from './admin-mngmnt.service';
 
 @Component({
   selector: 'app-admin-mngmnt',
@@ -7,9 +8,14 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AdminMngmntComponent implements OnInit {
-  constructor() {}
+  constructor(private adminMngmntService: AdminMngmntService) {}
 
-  ngOnInit(): void {}
+  ACTIVE_TAB: string;
+
+  ngOnInit(): void {
+    this.ACTIVE_TAB = this.adminMngmntService.getLastActiveTab();
+    this.ACTIVE_TAB = this.ACTIVE_TAB ? this.ACTIVE_TAB : this.TABS[0].key;
+  }
 
   TABS = [
     {
@@ -33,6 +39,11 @@ export class AdminMngmntComponent implements OnInit {
       count: 2193,
     },
     {
+      key: 'TESTS',
+      label: 'TESTS',
+      count: 2193,
+    },
+    {
       key: 'STUDENTS',
       label: 'STUDENTS',
       routerLink: '#',
@@ -40,9 +51,8 @@ export class AdminMngmntComponent implements OnInit {
     },
   ];
 
-  ACTIVE_TAB = this.TABS[0].key;
-
   activateTab(tabKey: string) {
     this.ACTIVE_TAB = tabKey;
+    this.adminMngmntService.setLastActiveTab(this.ACTIVE_TAB);
   }
 }

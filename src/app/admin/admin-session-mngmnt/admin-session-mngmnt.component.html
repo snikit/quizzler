@@ -1,10 +1,12 @@
+<app-fab-button></app-fab-button>
+
 <div class="wrapper">
   <div class="d-flex flex-wrap flex-column content">
     <div>
       <div class="d-flex flex-wrap projects-status my-menu align-items-center">
         <div class="flex-fill">
           <span class="title m-0">
-            TESTBOARD
+            SESSIONS
             <!-- <em class="search pi pi-search"> </em> -->
           </span>
         </div>
@@ -40,7 +42,7 @@
           (click)="activateTab(TABS.TOTAL)"
         >
           <span>62</span>
-          <span class="my-menu-item-label">Total tests</span>
+          <span class="my-menu-item-label">ALL</span>
         </div>
       </div>
 
@@ -117,21 +119,25 @@
           <div
             class="no-test-found d-flex flex-column flex-fill justify-content-center align-items-center"
           >
-            <span>NO TEST TO BE REVIEWED !</span>
+            <span>NO SESSION TO BE REVIEWED !</span>
           </div>
         </div>
         <div *ngSwitchCase="TABS.IN_PROGRESS">
-          <app-admin-test-card-list></app-admin-test-card-list>
+          <app-admin-session-card-list></app-admin-session-card-list>
         </div>
         <div *ngSwitchCase="TABS.UPCOMING">
           <div
             class="no-test-found d-flex flex-column flex-fill justify-content-center align-items-center"
           >
-            <span>NO UPCOMING TESTS !</span>
+            <span>NO UPCOMING SESSIONS!</span>
           </div>
         </div>
         <div *ngSwitchCase="TABS.TOTAL">
-          <app-admin-testmaker></app-admin-testmaker>
+          <div
+            class="no-test-found d-flex flex-column flex-fill justify-content-center align-items-center"
+          >
+            <span>NONE CREATED YET!</span>
+          </div>
         </div>
       </div>
     </div>

@@ -42,21 +42,12 @@ export class TestViewComponent implements OnInit {
       key: 'info',
       label: 'info',
     },
-    {
-      key: 'questions',
-      label: 'questions',
-      count: 325,
-    },
 
     {
       key: 'reports',
       label: 'reports',
     },
-    {
-      key: 'STUDENTS',
-      label: 'STUDENTS',
-      count: 200,
-    },
+
     {
       key: 'settings',
       label: 'settings',

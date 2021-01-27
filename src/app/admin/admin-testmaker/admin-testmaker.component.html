@@ -10,7 +10,72 @@
     </div>
 
     <div class="h-100" *ngIf="!newPage">
-      <app-admin-test-card-list></app-admin-test-card-list>
+      <div class="filter-reveal">
+        <div class="d-flex flex-wrap flex-fill justify-content-between">
+          <div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01"
+                  >Category</label
+                >
+              </div>
+              <p-dropdown [options]="['All', 'New York']"></p-dropdown>
+            </div>
+          </div>
+
+          <div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01"
+                  >Subject</label
+                >
+              </div>
+              <p-dropdown
+                [options]="['All', 'New York', 'Rome', 'London', 'India']"
+              ></p-dropdown>
+            </div>
+          </div>
+
+          <div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01"
+                  >Topic</label
+                >
+              </div>
+              <p-dropdown
+                [options]="['All', 'New York', 'Rome', 'London', 'India']"
+              ></p-dropdown>
+            </div>
+          </div>
+
+          <div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01"
+                  >Question Type</label
+                >
+              </div>
+              <p-dropdown
+                [options]="['All', 'New York', 'Rome', 'London', 'India']"
+              ></p-dropdown>
+            </div>
+          </div>
+
+          <div>
+            <div class="input-group mb-3">
+              <input type="text" placeholder="...search...query" />
+              <div class="input-group-append">
+                <label class="input-group-text" for="inputGroupSelect01"
+                  ><em class="pi pi-search"> </em
+                ></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <app-admin-test-card-list></app-admin-test-card-list> -->
+      <app-test-list></app-test-list>
       <app-fab-button
         tooltip="Create new test"
         (click)="newPage = true"

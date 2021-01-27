@@ -14,7 +14,6 @@
         [ngClass]="{ active: ACTIVE_TAB == item.key }"
         (click)="activateTab(item.key)"
       >
-        <span>{{ item.count ? item.count : " &nbsp;" }}</span>
         <span class="my-menu-item-label"> {{ item.label }}</span>
       </div>
     </div>
@@ -26,16 +25,12 @@
       <div *ngSwitchCase="TABS[0].key">
         <app-test-info></app-test-info>
       </div>
+
       <div *ngSwitchCase="TABS[1].key">
-        <app-admin-question-bank></app-admin-question-bank>
-      </div>
-      <div *ngSwitchCase="TABS[2].key">
         <app-test-reports></app-test-reports>
       </div>
-      <div *ngSwitchCase="TABS[3].key">
-        <app-admin-student-mngmnt></app-admin-student-mngmnt>
-      </div>
-      <div *ngSwitchCase="TABS[4].key">
+
+      <div *ngSwitchCase="TABS[2].key">
         <app-test-settings></app-test-settings>
       </div>
     </div>

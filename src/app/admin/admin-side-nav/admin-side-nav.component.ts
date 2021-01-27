@@ -73,7 +73,7 @@ export class AdminSideNavComponent implements OnInit {
     {
       iconClass: 'pi-book',
       tabKey: ADMIN_TABS.TEST_MAKER,
-      url: 'mngmnt/test',
+      url: 'mngmnt/session',
     },
     {
       iconClass: 'pi-question-circle',

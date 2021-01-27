@@ -1,12 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'app-admin-test-card-list',
-  templateUrl: './admin-test-card-list.component.html',
-  styleUrls: ['./admin-test-card-list.component.scss'],
+  selector: 'app-admin-session-card-list',
+  templateUrl: './admin-session-card-list.component.html',
+  styleUrls: ['./admin-session-card-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AdminTestCardListComponent implements OnInit {
+export class AdminSessionCardListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}

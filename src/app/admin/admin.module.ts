@@ -42,11 +42,11 @@ import { DataViewModule } from 'primeng/dataview';
 import { RatingModule } from 'primeng/rating';
 import { RippleModule } from 'primeng/ripple';
 import { ProductService } from '../@data/services/productservice';
-import { AdminTestCardListComponent } from './shared/admin-test-card-list/admin-test-card-list.component';
+import { AdminSessionCardListComponent } from './shared/admin-session-card-list/admin-session-card-list.component';
 import { AdminTestSkeletonCardListComponent } from './shared/admin-test-skeleton-card-list/admin-test-skeleton-card-list.component';
 import { MenuModule } from 'primeng/menu';
 import { AdminStudentMngmntComponent } from './admin-student-mngmnt/admin-student-mngmnt.component';
-import { AdminTestMngmntComponent } from './admin-test-mngmnt/admin-test-mngmnt.component';
+import { AdminSessionMngmntComponent } from './admin-session-mngmnt/admin-session-mngmnt.component';
 import { StudentInfoComponent } from './student-info/student-info.component';
 import { DialogModule } from 'primeng/dialog';
 import { CourseService } from './@data/service/course.service';
@@ -55,6 +55,7 @@ import { TopicService } from './@data/service/topic.service';
 import { CourseCreateOrEditComponent } from './shared/course-create-or-edit/course-create-or-edit.component';
 import { SubjectCreateOrEditComponent } from './shared/subject-create-or-edit/subject-create-or-edit.component';
 import { TopicCreateOrEditComponent } from './shared/topic-create-or-edit/topic-create-or-edit.component';
+import { AdminMngmntService } from './admin-mngmnt/admin-mngmnt.service';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -75,10 +76,10 @@ import { TopicCreateOrEditComponent } from './shared/topic-create-or-edit/topic-
     AdminTopicMngmntComponent,
     AdminCourseMngmntComponent,
     AdminSubjectMngmntComponent,
-    AdminTestCardListComponent,
+    AdminSessionCardListComponent,
     AdminTestSkeletonCardListComponent,
     AdminStudentMngmntComponent,
-    AdminTestMngmntComponent,
+    AdminSessionMngmntComponent,
     StudentInfoComponent,
     CourseCreateOrEditComponent,
     SubjectCreateOrEditComponent,
@@ -118,6 +119,7 @@ import { TopicCreateOrEditComponent } from './shared/topic-create-or-edit/topic-
     CourseService,
     SubjectService,
     TopicService,
+    AdminMngmntService,
   ],
 })
 export class AdminModule {}

@@ -1,12 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'app-admin-test-mngmnt',
-  templateUrl: './admin-test-mngmnt.component.html',
-  styleUrls: ['./admin-test-mngmnt.component.css'],
+  selector: 'app-admin-session-mngmnt',
+  templateUrl: './admin-session-mngmnt.component.html',
+  styleUrls: ['./admin-session-mngmnt.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AdminTestMngmntComponent implements OnInit {
+export class AdminSessionMngmntComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
@@ -52,7 +52,7 @@ export class AdminTestMngmntComponent implements OnInit {
     IN_PROGRESS: 'IN_PROGRESS',
     TO_BE_REVIEWD: 'TO_BE_REVIEWD',
     UPCOMING: 'UPCOMING',
-    TOTAL: 'TOTAL',
+    TOTAL: 'ALL',
   };
 
   ACTIVE_TAB: string = this.TABS.TOTAL;
