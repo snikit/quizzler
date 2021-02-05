@@ -4,15 +4,7 @@
       class="d-flex flex-wrap projects-status my-menu align-items-center mb-3"
     >
       <div class="flex-fill">
-        <input
-          class="title p-2"
-          *ngIf="ACTIVE_TAB === TABS[1].key"
-          value="Software Developer Programming Level 1 "
-          placeholder="test name..."
-        />
-        <span class="title" *ngIf="ACTIVE_TAB === TABS[0].key">
-          Software Developer Programming Level 1
-        </span>
+        <span class="title"> Software Developer Programming Level 1 </span>
       </div>
 
       <div></div>
@@ -35,12 +27,16 @@
       </div>
 
       <div *ngSwitchCase="TABS[1].key">
-        <app-question-create></app-question-create>
+        <app-admin-student-mngmnt></app-admin-student-mngmnt>
       </div>
 
-      <!-- <div *ngSwitchCase="TABS[2].key">
+      <div *ngSwitchCase="TABS[2].key">
+        <app-test-reports></app-test-reports>
+      </div>
+
+      <div *ngSwitchCase="TABS[3].key">
         <app-test-settings></app-test-settings>
-      </div> -->
+      </div>
     </div>
   </div>
 </div>

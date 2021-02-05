@@ -56,6 +56,9 @@ import { CourseCreateOrEditComponent } from './shared/course-create-or-edit/cour
 import { SubjectCreateOrEditComponent } from './shared/subject-create-or-edit/subject-create-or-edit.component';
 import { TopicCreateOrEditComponent } from './shared/topic-create-or-edit/topic-create-or-edit.component';
 import { AdminMngmntService } from './admin-mngmnt/admin-mngmnt.service';
+import { SessionViewComponent } from './shared/session-view/session-view.component';
+import { QuestionCreateComponent } from './shared/question-create/question-create.component';
+import { SectionCreateOrEditComponent } from './shared/section-create-or-edit/section-create-or-edit.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -84,6 +87,9 @@ import { AdminMngmntService } from './admin-mngmnt/admin-mngmnt.service';
     CourseCreateOrEditComponent,
     SubjectCreateOrEditComponent,
     TopicCreateOrEditComponent,
+    SessionViewComponent,
+    QuestionCreateComponent,
+    SectionCreateOrEditComponent,
   ],
   imports: [
     TableModule,

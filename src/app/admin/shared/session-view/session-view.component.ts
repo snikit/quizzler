@@ -1,14 +1,16 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Router } from '@angular/router';
-import { MenuItem } from 'primeng/api';
 
 @Component({
-  selector: 'app-test-view',
-  templateUrl: './test-view.component.html',
-  styleUrls: ['./test-view.component.scss'],
+  selector: 'app-session-view',
+  templateUrl: './session-view.component.html',
+  styleUrls: ['./session-view.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TestViewComponent implements OnInit {
+export class SessionViewComponent implements OnInit {
+  constructor() {}
+
+  ngOnInit(): void {}
+
   testInfo = {
     title: 'Senior Java Engineer Part 1Engineer Part 1Engineer Part 1',
     info:
@@ -17,16 +19,6 @@ export class TestViewComponent implements OnInit {
     categories: ['algorithm', 'program', 'fraction', 'dynamic'],
   };
 
-  items: MenuItem[];
-
-  constructor(private router: Router) {}
-
-  ngOnInit(): void {}
-
-  goBack() {
-    this.router.navigateByUrl('/admin/testmaker');
-  }
-
   TABS = [
     {
       key: 'info',
@@ -34,14 +26,17 @@ export class TestViewComponent implements OnInit {
     },
 
     {
-      key: 'edit',
-      label: 'edit',
+      key: 'students',
+      label: 'students',
     },
-
-    // {
-    //   key: 'settings',
-    //   label: 'settings',
-    // },
+    {
+      key: 'reports',
+      label: 'reports',
+    },
+    {
+      key: 'settings',
+      label: 'settings',
+    },
   ];
 
   ACTIVE_TAB = this.TABS[0].key;

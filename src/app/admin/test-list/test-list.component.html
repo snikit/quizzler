@@ -4,13 +4,11 @@
   </div>
 </div> -->
 <div class="d-flex flex-column">
-  <div class="flex-fill">
-    <div class="crd-container">
-      <app-test-card
-        *ngFor="let testInfo of testInfos"
-        [testInfo]="testInfo"
-      ></app-test-card>
-    </div>
+  <div class="d-flex flex-wrap justify-content-start mr-2 ml-2">
+    <app-test-card
+      *ngFor="let testInfo of testInfos"
+      [testInfo]="testInfo"
+    ></app-test-card>
   </div>
 
   <div class="pginator">

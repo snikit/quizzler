@@ -1,9 +1,12 @@
 <div>
   <div class="d-flex flex-column justify-content-center">
-    <h5 class="info card-text bold-text-font">
-      This is a wider card with supporting text below as a natural lead-in to
-      additional content. This content is a little bit longer. This is wider
-      card with supporting text below as a natural lead-in to.
+    <h5 class="card-text info bold-text-font">
+      <textarea
+        class="info info-header-edit p-2"
+        placeholder="basic test information.."
+      >
+  This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This is wider card with supporting text below as a natural lead-in to.
+      </textarea>
     </h5>
 
     <div
@@ -18,12 +21,9 @@
           </h5>
         </div>
 
-        <div>
+        <div class="dropdwn">
           <!-- <h5> -->
-          <p-chip
-            label="&nbsp; JUNIOUR FULLSTACK DEVELOPER LVL 1 &nbsp;"
-            styleClass="bold-text-font"
-          ></p-chip>
+          <p-dropdown [options]="['All', 'New York']"></p-dropdown>
           <!--  -->
           <!-- </h5> -->
         </div>
@@ -61,6 +61,7 @@
           <th pResizableColumn>TOPIC</th>
           <th pResizableColumn>QSTN LEVEL</th>
           <th pResizableColumn>QSTN COUNT</th>
+          <th pResizableColumn>ACTION</th>
           <!-- <th ACTION>QSTN COUNT</th> -->
         </tr>
       </ng-template>
@@ -71,7 +72,7 @@
           <td>{{ item.level }}</td>
           <td>{{ item.count }}</td>
 
-          <!-- <td>
+          <td>
             <button
               pButton
               pRipple
@@ -87,8 +88,7 @@
               icon="pi pi-trash"
               class="mr-2 p-button-rounded p-button-danger p-button-outlined"
             ></button>
-
-          </td> -->
+          </td>
         </tr>
       </ng-template>
     </p-table>

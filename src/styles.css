@@ -34,6 +34,7 @@ ANIMATE CSS OVERRIDES-----------
 html,
 body {
   height: 100%;
+  line-height: 1.2rem !important;
 }
 body {
   margin: 0;
@@ -167,7 +168,7 @@ body {
 }
 
 em {
-  font-family: "primeicons" !important;
+  font-family: "primeicons" !important ;
 }
 
 .input-group-text {
@@ -185,4 +186,33 @@ em {
   font-size: 1.4rem !important;
   font-weight: 700 !important;
   font-family: "Righteous", Helvetica, Arial, sans-serif !important;
+}
+
+.bold-text-font {
+  font-family: "Righteous", Helvetica, Arial, sans-serif !important;
+}
+
+.bold-text-font span {
+  font-family: "Righteous", Helvetica, Arial, sans-serif !important;
+}
+
+.bold-text-font .p-button-icon {
+  font-family: "primeicons" !important ;
+}
+
+.black-btn {
+  background-color: #212529 !important;
+  border-radius: 0.25rem !important;
+}
+
+.black-btn:hover {
+  opacity: 0.8;
+}
+
+.black-btn span {
+  font-family: "Righteous", Helvetica, Arial, sans-serif;
+}
+
+.black-btn .p-button-icon {
+  font-family: "primeicons" !important ;
 }

@@ -1,5 +1,6 @@
 .title {
   font-size: 2rem;
+  width: 70%;
 }
 
 .card-text {
@@ -58,4 +59,24 @@
 
 .base-view {
   background-color: #fff;
+}
+
+:host
+  ::ng-deep
+  .p-datatable.p-datatable-gridlines
+  .p-datatable-thead
+  > tr
+  > th {
+  font-size: 1.2rem;
+  font-family: "Righteous", Helvetica, Arial, sans-serif;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  font-size: 1rem;
+  font-family: "Righteous", Helvetica, Arial, sans-serif;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr:hover {
+  background-color: rgba(0, 0, 0, 0.15);
 }

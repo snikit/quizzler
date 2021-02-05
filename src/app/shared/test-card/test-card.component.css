@@ -22,13 +22,13 @@
 }
 
 .crd {
+  max-width: 300px;
   cursor: pointer;
 }
 
 .crd:hover {
-  transform: translateY(-5px);
-  /* box-shadow: 0 12px 24px 4px rgba(255, 255, 255, 0.2); */
-  /* transform: scale(1.1); */
+  transform: translateY(1px);
+  box-shadow: 0 12px 24px 4px rgb(0, 0, 0, 0.2);
   transition: all 0.2s ease;
 }
 

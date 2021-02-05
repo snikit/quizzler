@@ -1,16 +1,18 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { DialogService } from 'primeng/dynamicdialog';
+import { Section } from 'src/app/@data/model/section.model';
+import { SectionCreateOrEditComponent } from '../section-create-or-edit/section-create-or-edit.component';
 
 @Component({
-  selector: 'app-test-info',
-  templateUrl: './test-info.component.html',
-  styleUrls: ['./test-info.component.css'],
+  selector: 'app-question-create',
+  templateUrl: './question-create.component.html',
+  styleUrls: ['./question-create.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TestInfoComponent implements OnInit {
-  constructor() {}
+export class QuestionCreateComponent implements OnInit {
+  constructor(private dialogService: DialogService) {}
 
   ngOnInit(): void {}
-
   testInfo = {
     title: 'Senior Java Engineer Part 1Engineer Part 1Engineer Part 1',
     info:
@@ -18,6 +20,23 @@ export class TestInfoComponent implements OnInit {
     imgsrc: '/assets/imgs/avatar (5).svg',
     categories: ['algorithm', 'program', 'fraction', 'dynamic'],
   };
+
+  showModal(section: Section = null, editMode = false) {
+    const ref = this.dialogService.open(SectionCreateOrEditComponent, {
+      data: {
+        editMode: editMode,
+        section: section,
+      },
+      width: '600px',
+      dismissableMask: true,
+      header: editMode ? 'EDIT SECTION' : 'ADD SECTION',
+    });
+
+    ref.onClose.subscribe((section) => {
+      console.log(section);
+      console.log(editMode);
+    });
+  }
 
   sections = [
     {

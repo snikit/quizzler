@@ -1,3 +1,4 @@
+import { SessionViewComponent } from './shared/session-view/session-view.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserHomeComponent } from './../shared/user/user-home/user-home.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'testmaker', component: AdminTestmakerComponent },
       { path: 'testview', component: TestViewComponent },
       { path: 'mngmnt', component: AdminMngmntComponent },
+      { path: 'sessionview', component: SessionViewComponent },
       // { path: 'mngmnt/topic', component: AdminTopicMngmntComponent },
       // { path: 'mngmnt/subject', component: AdminSubjectMngmntComponent },
       // { path: 'mngmnt/course', component: AdminCourseMngmntComponent },

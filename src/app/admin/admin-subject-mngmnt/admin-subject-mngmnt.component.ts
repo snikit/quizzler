@@ -52,12 +52,16 @@ export class AdminSubjectMngmntComponent implements OnInit {
 
   deleteConfirm(subject: Subject) {
     this.confirmationService.confirm({
-      message: `Are you sure that you want to delete <b>${subject.label}</b> ?`,
+      message: `Are you sure that you want to delete <b class="bold-text-font">${subject.label}</b> ?`,
       accept: (subjectData: Subject) => {
         console.log(`delete ${JSON.stringify(subjectData)}`);
       },
       header: 'DELETE SUBJECT',
       icon: 'pi pi-exclamation-triangle',
+      acceptButtonStyleClass: 'black-btn',
+      rejectButtonStyleClass: 'black-btn',
+      acceptLabel: 'YES',
+      rejectLabel: 'NO',
     });
   }
 }

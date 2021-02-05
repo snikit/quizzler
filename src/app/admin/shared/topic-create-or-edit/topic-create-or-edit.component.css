@@ -1,0 +1,14 @@
+.filter-reveal ::ng-deep .p-dropdown {
+  /* background-color: #0e1111; */
+  color: #fff;
+  min-width: 11.5rem;
+  width: 100%;
+}
+
+.filter-reveal ::ng-deep .p-dropdown-panel {
+  color: #fff;
+}
+
+.filter-reveal ::ng-deep .p-dropdown-items-wrapper {
+  max-height: 400px !important;
+}

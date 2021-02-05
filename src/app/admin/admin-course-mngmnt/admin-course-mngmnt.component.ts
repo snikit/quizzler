@@ -52,12 +52,16 @@ export class AdminCourseMngmntComponent implements OnInit {
 
   deleteConfirm(course) {
     this.confirmationService.confirm({
-      message: `Are you sure that you want to delete <b>${course.label}</b> ?`,
+      message: `Are you sure that you want to delete <b class="bold-text-font">${course.label}</b> ?`,
       accept: (course) => {
         console.log(`delete ${JSON.stringify(course)}`);
       },
       header: 'DELETE COURSE',
       icon: 'pi pi-exclamation-triangle',
+      acceptButtonStyleClass: 'black-btn',
+      rejectButtonStyleClass: 'black-btn',
+      acceptLabel: 'YES',
+      rejectLabel: 'NO',
     });
   }
 }

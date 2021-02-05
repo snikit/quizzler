@@ -1,45 +1,49 @@
 <div class="d-flex flex-column align-items-center pt-2">
-  <div class="d-flex align-items-center pb-3">
+  <div class="d-flex align-items-center pb-4">
     <em style="font-size: x-large" class="pi pi-info-circle"></em>
-    <span class="pl-2"> Please fill the details below ...</span>
+    <span class="pl-2 bold-text-font"> Please fill the details below ...</span>
   </div>
-  <div class="custom-modal-container">
-    <div class="input-group m-3">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect01">
-          SUBJECT NAME
-        </label>
-      </div>
+
+  <div class="mr-5 ml-5">
+    <div class="d-flex w-100 justify-content-between align-items-center">
+      <label class="m-2 p-2">
+        <strong class="bold-text-font">SUBJECT NAME </strong>
+      </label>
+
       <input
         type="text"
+        class="bold-text-font m-2 p-1"
         [(ngModel)]="subject.label"
         placeholder="...subject...name"
       />
     </div>
 
-    <div class="input-group m-3">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect01">
-          FOR COURSE
-        </label>
-      </div>
-      <p-dropdown
-        appendTo="body"
-        [options]="['All', 'New York', 'fresher', 'backend developer']"
-      ></p-dropdown>
-    </div>
+    <div
+      class="filter-reveal d-flex w-100 justify-content-between align-items-center"
+    >
+      <label class="m-2 p-2">
+        <strong class="bold-text-font">FOR COURSE </strong>
+      </label>
 
-    <div class="d-flex justify-content-end align-items-center pt-3">
-      <button
-        pButton
-        pRipple
-        type="button"
-        icon="pi pi-check"
-        iconPos="right"
-        label="save"
-        class="p-button-secondary p-button-rounded"
-        (click)="save()"
-      ></button>
+      <div class="m-2">
+        <p-dropdown
+          readonly="true"
+          appendTo="body"
+          [options]="['All', 'New York', 'fresher', 'backend developer']"
+        >
+        </p-dropdown>
+      </div>
     </div>
+  </div>
+
+  <div class="d-flex w-100 justify-content-end">
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="SAVE"
+      class="black-btn bold-text-font p-button-secondary p-button-raised mt-3"
+      (click)="save()"
+    ></button>
   </div>
 </div>

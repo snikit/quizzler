@@ -51,12 +51,16 @@ export class AdminTopicMngmntComponent implements OnInit {
 
   deleteConfirm(topic: Topic) {
     this.confirmationService.confirm({
-      message: `Are you sure that you want to delete <b>${topic.label}</b> ?`,
+      message: `Are you sure that you want to delete <b class="bold-text-font">${topic.label}</b> ?`,
       accept: (topicData: Topic) => {
         console.log(`delete ${JSON.stringify(topicData)}`);
       },
       header: 'DELETE TOPIC',
       icon: 'pi pi-exclamation-triangle',
+      acceptButtonStyleClass: 'black-btn',
+      rejectButtonStyleClass: 'black-btn',
+      acceptLabel: 'YES',
+      rejectLabel: 'NO',
     });
   }
 }

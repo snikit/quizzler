@@ -122,6 +122,10 @@ export class AdminQuestionBankComponent implements OnInit {
       },
       header: 'DELETE QUESTION',
       icon: 'pi pi-exclamation-triangle',
+      acceptButtonStyleClass: 'black-btn',
+      rejectButtonStyleClass: 'black-btn',
+      acceptLabel: 'YES',
+      rejectLabel: 'NO',
     });
   }
 }

@@ -1,0 +1,52 @@
+.crd-title {
+  font-family: "Righteous", Helvetica, Arial, sans-serif;
+}
+.info {
+  opacity: 0.8;
+}
+
+.info-header-edit {
+  width: 100%;
+}
+
+.card {
+  width: 400px;
+}
+
+.add-more em {
+  font-size: 4rem !important;
+  cursor: pointer;
+}
+
+small em:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.dropdwn {
+  padding-bottom: 0.5rem;
+}
+.dropdwn ::ng-deep .p-dropdown {
+  /* background-color: #0e1111; */
+  color: #fff;
+  min-width: 8rem;
+  height: 100%;
+}
+
+.dropdwn ::ng-deep .p-dropdown-panel {
+  color: #fff;
+}
+
+.dropdwn ::ng-deep .p-dropdown-items-wrapper {
+  max-height: 400px !important;
+}
+
+.dropdwn ::ng-deep .p-dropdown .p-dropdown-label {
+  color: #f0ac13;
+  font-family: "Righteous", Helvetica, Arial, sans-serif;
+}
+
+.dropdwn ::ng-deep .p-dropdown-panel .p-dropdown-items .p-dropdown-item span {
+  font-family: "Righteous", Helvetica, Arial, sans-serif;
+}
