@@ -65,7 +65,7 @@ export class AdminSideNavComponent implements OnInit {
   @ViewChild('sidenav')
   sidenav: ElementRef<HTMLDivElement>;
 
-  sidenavClosed = false;
+  sidenavClosed = true;
 
   tabs = [
     { iconClass: 'pi-home', tabKey: ADMIN_TABS.HOME, url: '/' },
